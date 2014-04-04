@@ -1,0 +1,362 @@
+
+<%= f.error_messages %>
+
+<div class="row">
+  <div class="span4">
+    <h3><strong>1.</strong> <span>Property info</span></h3>
+
+    <div class="property-type control-group">
+      <label class="control-label" for="inputPropertyPropertyType">
+        Property type
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"]],:selected => f.object.property_type),{},:onchange => "change_form(this)" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="contract-type control-group">
+      <label class="control-label" for="inputPropertyContractType">
+        Contract type
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%=f.select :property_listing, options_for_select([["Select" ,""],["Sale","Sale"],["Rent","Rent"],["Lease","Lease"]],:selected => f.object.property_listing),{},:onchange => "change_form1(this)" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="bathrooms control-group" style="float:left;">
+      <label class="control-label" for="inputPropertyBathrooms">
+        Title of your Add
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.text_field :title ,:id=>"inputPropertyBathrooms" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="bathrooms control-group">
+      <label class="control-label" for="inputPropertyBathrooms">
+        Price
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.text_field :price,:id=>"inputPropertyBathrooms" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+
+
+    <div class="property-type control-group" id="accomdiation" style="margin-right:130px;">
+      <label class="control-label" for="inputPropertyPropertyType">
+        AccommodationFor
+      </label>
+      <div class="controls">
+        <%=f.select :accomidiation, options_for_select([["Select" ,""],["Male","Male"],["Female","Female"]],:selected => f.object.accomidiation),:id=>"inputPropertyPropertyType" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+
+    <div class="property-type control-group" id="land" style="margin-right:130px;">
+      <label class="control-label" for="inputPropertyPropertyType">
+        Type of Land
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.select :type_of_land,options_for_select([["Select" ,""],["Agricultural","Agricultural"],["Commercial","Commercial"],["Residential","Residential"]],:selected => f.object.type_of_land),:id=>"inputPropertyPropertyType"%>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="property-type control-group" id= "rooms" style="margin-right:130px;">
+      <label class="control-label" for="inputPropertyPropertyType">
+        No.of Rooms
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li class="myDropdownCheckboxBasic dropdown-checkbox dropdown open" style="padding-top: 13px;"></li>
+        </ul>
+      </div>
+
+    </div><!-- /.control-group -->
+
+    <div class="property-type control-group" id="area" style="margin-right:130px;">
+      <label class="control-label" for="inputPropertyPropertyType">
+        Area(Sq.ft)
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.text_field :area,:id=>"inputPropertyBathrooms" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    <div class="property-type control-group" id="creatiwa" style="margin-right:130px;">
+      <label class="control-label" for="inputPropertyPropertyType">
+      Need Creatiwa team for my 2D/3D work
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.radio_button :creatiwa_team,"Yes",:style=>"margin-left:11px;"%> Yes<br/>
+        <%= f.radio_button :creatiwa_team,"No",:style=>"margin-left:11px;"%> No
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="property-type control-group" id="furnish"  style="margin-right:135px;">
+      <label class="control-label" for="inputPropertyPropertyType">
+        Furnished
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.select :furnished,options_for_select([["Select" ,""],["Unfurnished","Unfurnished"],["Semi-Furnished","Semi-Furnished"],["Fully Furnished","Fully Furnished"]],:selected => f.object.furnished),:id=>"inputPropertyPropertyType"  %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="bathrooms control-group" style="float:left;">
+      <label class="control-label" for="inputPropertyBathrooms">
+        City
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.text_field :city,:value=>"Bangalore", :id=>"inputPropertyBathrooms" ,:readonly=>true,:style=>"background:white;" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="contract-type control-group">
+      <label class="control-label" for="inputPropertyContractType">
+        Location
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.select :location,options_for_select([["Select",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : "") %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+  </div><!-- /.span4 -->
+
+
+  <div class="span4">
+    <h3><strong>2.</strong> <span><%= @property.new_record? ? "Image upload":"Edit" %> </span></h3>
+    <% if @property.new_record?  %>
+      <div class="controls">   
+        <%= f.fields_for :images, :html => {:multipart => true} do |image| %>
+          <div class="fileupload fileupload-new control-group" data-provides="fileupload">
+            <label class="control-label" for="inputPropertyPrice">
+              Image files
+            </label>
+            <div class="input-append">
+              <div class="uneditable-input" style="width:222px;">
+                <i class="icon-file fileupload-exists"></i>
+                <span class="fileupload-preview"></span>
+              </div>
+              <span class="btn btn-file">
+                <span class="fileupload-new">Select file</span>
+                <span class="fileupload-exists">Change</span>
+                <%= image.file_field :image %>
+              </span>
+            </div>
+          </div>
+        <% end %>  
+      </div>  
+      <div class="controls" style="margin-top: 8px;margin-left: 6px;">
+        <%= link_to_add_fields image_tag("add.png") , f,:images %> 
+      </div>
+    <% end %>
+    <div class="control-group">
+      <label class="control-label" for="inputPropertyNotes">
+        Description
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%=  f.text_area :description,:id=>"inputPropertyNotes",:style=>"width:87%;" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+
+    <div class="bathrooms control-group" style="float:left;width:345px;"id="amenities">
+      <label class="control-label" for="inputPropertyContractType">
+        Amenities
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= check_box_tag "amenity_type[]","Park"%> Park<br/>
+        <%= check_box_tag "amenity_type[]","Security"%> Security<br/>
+        <%= check_box_tag "amenity_type[]","Swimming Pool"%>SwimmingPool<br/>
+        <%= check_box_tag "amenity_type[]","Private Terrace/Garden"%> PrivateTerrace/Garden<br/>
+        <%= check_box_tag "amenity_type[]","PipedGas"%> PipedGas<br/>
+        <%= check_box_tag "amenity_type[]","Wi-Fi Connectivity"%> Wi-FiConnectivity<br/>
+        <%= check_box_tag "amenity_type[]","Vaastu Compliant"%> VaastuCompliant<br/>
+        <div class="contract-type control-group" style="margin-top: -142px;">
+          <div class="controls">
+            <%= check_box_tag "amenity_type[]","Laundry Service"%>LaundryService<br/>
+            <%= check_box_tag "amenity_type[]","Visitor Parking"%>VisitorParking<br/>
+            <%= check_box_tag "amenity_type[]"," Maintenance Staff"%> MaintenanceStaff<br/>
+            <%= check_box_tag "amenity_type[]","Service/Goods Lift"%>Service/GoodsLift<br/>
+            <%= check_box_tag "amenity_type[]","Power Back Up"%>PowerBackUp<br/>
+            <%= check_box_tag "amenity_type[]","Intercom Facility"%>IntercomFacility<br/>
+            <%= check_box_tag "amenity_type[]","Air conditioning"%>Airconditioning<br/>
+          </div>
+        </div>
+      </div>
+      <div class="controls" style="margin-top: 8px;margin-left: 233px;">
+        <%= link_to_add_fields image_tag("add.png") , f,:aminities %> 
+      </div>
+    </div><!-- /.control-group -->
+
+  </div>
+
+  <div class="span4">
+    <h3><strong>3.</strong> <span>Person Info</span></h3>
+    <div class="contract-type control-group" style="float:left;">
+      <label class="control-label" for="inputPropertyContractType">
+        You are
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls" style="width:115%;">
+        <%= f.select :person_type, options_for_select([["Select" ,""],["Individual","Individual"],["Builder", "Builder"],["Broker","Broker"]],:selected => f.object.person_type) %>                      
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+
+    <div class="control-group" style="width:55%;">
+      <label class="control-label" for="inputPropertyFirstName">
+        Your name
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.text_field :name,:id=>"inputPropertyFirstName" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="control-group">
+      <label class="control-label" for="inputPropertyFirstName">
+        Your Email
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.email_field :email,:id=>"inputPropertyFirstName",:style=>"height: 26px;width: 51%;" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+
+    <div class="control-group">
+      <label class="control-label" for="inputPropertyFirstName">
+        Your MobileNo.
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls" style="width:55%;">
+        <%= f.text_field :mobile,:id=>"inputPropertyFirstName" ,:class=>"numbersOnly"%>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    <%= f.check_box :terms_of_service %>I Agree To <a href="#myModal2" role="button" data-toggle="modal" style="text-decoration:none;"> Terms And Conditions</a>
+    <div class="control-group">
+      <%= f.submit "Submit" , :class=>"btn btn-primary arrow-right",:style=>"margin-left: 122px;"%>
+    </div>
+  </div><!-- /.span4 -->
+</div><!-- /.row -->
+
+
+
+
+<script>
+  function change_form(th) {
+    if ($(th).val() === 'Apartment') {
+      $("#land").hide();
+      $("#radio_buttons1").show();
+      $("#rooms").show();
+      $("#amenities").show();
+      $("#furnish").show();
+      $("#area").show();
+    } else if ($(th).val() === 'Villa') {
+      $("#land").hide();
+      $("#radio_buttons1").show();
+      $("#rooms").show();
+      $("#amenities").show();
+      $("#furnish").show();
+      $("#area").show();
+    } else if ($(th).val() === 'Land') {
+      $("#land").show();
+      $("#rooms").hide();
+      $("#amenities").hide();
+      $("#furnish").hide();
+      $("#radio_buttons1").hide();
+      $("#area").show();
+    } else if ($(th).val() === 'OfficeCommercial') {
+      $("#land").hide();
+      $("#rooms").hide();
+      $("#radio_buttons1").show();
+      $("#amenities").hide();
+      $("#furnish").show();
+      $("#area").show();
+    } else {
+      $("#land").hide();
+      $("#rooms").hide();
+      $("#amenities").hide();
+      $("#furnish").hide();
+      $("#area").hide();
+      $("#radio_buttons1").show();
+    }
+  }
+  function change_form1(th) {
+    if ($(th).val() === 'Sale') {
+      $("#accomdiation").hide();
+       $("#creatiwa").show();
+      alert("This Property is valid only for 15days.If you want to continue please contact us.");
+    }
+    else {
+       $("#creatiwa").hide();
+      if ($("#property_property_type").val() === "PG/Hostel") {
+        $("#accomdiation").show();
+      }
+    }
+  }
+  $(document).ready(function() {
+    change_form($("#property_property_type"));
+  });
+
+  jQuery('.numbersOnly').keyup(function() {
+    this.value = this.value.replace(/[^0-9\.]/g, '');
+  });
+</script>
+
+
+<style>
+  input[type="text"]{
+    height:25px;
+  }
+  #accomdiation,#rent,#land,#rooms,#amenities,#furnish,#area,#creatiwa{
+    display: none;
+  }
+
+</style>
+
+<script>
+
+  var tab = [
+    {id: "1", label: "1 BHK", value: "1BHK", isChecked: false},
+    {id: "2", label: "2 BHK", value: "2BHK", isChecked: false},
+    {id: "3", label: "3 BHK", value: "3BHK", isChecked: false},
+    {id: "4", label: "4 BHK", value: "4BHK", isChecked: false},
+    {id: "5", label: "More", value: "More", isChecked: false}
+  ];
+  $('.myDropdownCheckboxBasic').dropdownCheckbox({
+    data: tab,
+    autosearch: true,
+    title: "My Dropdown Checkbox",
+    hideHeader: false,
+    showNbSelected: true,
+    templateButton: '<a class="dropdown-checkbox-toggle" data-toggle="dropdown" href="#">Select <span class="dropdown-checkbox-nbselected"></span><b class="caret"></b></button>'
+  });
+
+
+
+</script>
+
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Terms and Conditions</h3>
+  </div>
+  <div class="modal-body2" style="margin-left:20px;">
+    <p>This is a Contract/Agreement between you (as a user of ezyprops.com) and parent company- ezyprops.  Ezyprops.com and its services are providing information platform for property buyers and Property owners to connect and communicate.  </p>
+    <p>This Contract is effective from the date when you first start using ezyprops.com and/or first start registration on ezyprops.com and the same shall continue until terminated by either party expressly by giving written notice. ezyprops.com provides advertising services relating to real estate/property and other connected services without any specific warranty of any specific result/outcome.</p>
+    <p>Ezyprops.com may modify this Agreement from time to time at its own discretion. Any alteration in this Contract term shall be effective on sending an alert email to that effect to your email address as provided by you from time to time. You are supposed to check the provisions of this Contract regularly to update yourself accordingly. Your use of ezyprops.com site implies your acceptance of change in this Contract as affected by ezyprops.com from time to time.</p>
+  </div>
+</div>

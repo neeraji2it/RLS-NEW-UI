@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <tr>
+    <th>Id</th>
+    <th>Executive Name</th>
+    <th>Builder Name</th>
+    <th>Location</th>
+    <th>Date</th>
+    <th>Listings</th>
+    <th>No.of Listings</th>
+    <th>Payment</th>
+    <th>Property Name</th>
+  </tr>
+
+  <% crms.each do |crm| %>
+    <tr>
+      <td><%= crm.id%></td>
+      <td><%= crm.exe_name%></td>
+      <td><%= crm.builder_name%></td>
+      <td><%= crm.location%></td>
+      <td><%= crm.crm_date%></td>
+      <td><%= crm.listing%></td>
+      <td><%= crm.no_of_listings%></td>
+      <td><%= crm.payment_type%></td>
+      <td><%= crm.property_name%></td>
+    </tr>
+    <% end %>
+</table>

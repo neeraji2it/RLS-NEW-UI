@@ -1,0 +1,99 @@
+<h4><%= @property_type.capitalize %>  Properties</h4>
+<% if !@properties.empty? %>
+  <table class="table table-striped">
+    <tr>
+      <th title="SelectAll"><%= check_box_tag :sid %></th>
+      <th>Title</th>
+      <th>Price(INR)</th>
+      <th>Area(Sqft)</th>
+      <th>City</th>
+      <th>Location</th>
+      <th>Views</th>
+      <th>Contacts</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @properties.each_with_index do |property, index| %>
+      <tr>
+        <td><%= check_box_tag :paradigm,property.id,false,:class => "property"%></td>
+        <td><%= property.title %></td>
+        <td><%= property.price %></td>
+        <td><%= property.area %></td>
+        <td><%= property.city %></td>
+        <td><%= property.location %></td>
+        <td><%= property.view_count %></td>
+        <td><%= property.contacts_count %></td>
+        <td>
+          <%= link_to "Edit",edit_admin_property_path(:id => property.id, :property_type => @property_type),:class=>"btn btn-primary" %>
+          <%= link_to "Delete", admin_property_path(property.id,:property_type=>@property_type), :data => {:confirm => "Are you sure!!"}, :method => "DELETE", :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td colspan="9"><%= will_paginate(@properties) %></td>
+    </tr>
+  </table>
+  <a href="#myModal"  role="button" onclick= "send_mail();"class="btn btn-success" data-toggle="modal">SendMail</a>
+<% else %>
+  <div style="color: red; padding: 20px; text-align: center; font-size: 30px;">
+    No Properties
+  </div>
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $("#sid").click(function()
+    {
+      if ($(this).is(":checked") === true) {
+        $(".property").parent('div').addClass("ez-checked");
+        $(".property").attr("checked", "checked");
+      } else {
+        $(".property").parent('div').removeClass("ez-checked");
+        $(".property").attr("checked", false);
+      }
+    });
+  });
+
+  function send_mail() {
+    var a = [];
+    $("input.property").each(function() {
+      if ($(this).is(":checked") === true) {
+        a.push($(this).val());
+        $("#id_value").val(a);
+      }
+    });
+  }
+
+</script>
+
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h6 id="myModalLabel">MAIL </h6>
+  </div>
+  <div class="modal-body">
+    <%= form_tag(send_mail_admin_properties_path, :method => "POST") do %>
+      <%= hidden_field_tag :property_type,nil, :value=>"#{@property_type}" %>
+      <%= hidden_field_tag :id_value %>
+      <table width="50%">
+        <tr>
+          <td>Email</td>
+          <td><%= email_field_tag :email ,nil,:required=>"required"%></td>
+        </tr>
+        <tr>
+          <td>Subject</td>
+          <td><%= text_field_tag :subject ,nil,:required=>"required"%></td>
+        </tr>
+        <tr>
+          <td>Body</td>
+          <td><%= text_area_tag :body,nil,:required=>"required" %></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <%= submit_tag "Send" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:190px;" %>
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>

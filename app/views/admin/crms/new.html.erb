@@ -1,0 +1,50 @@
+  <h4>CRM</h4>
+  <%= form_for(['admin', @crm] ,:remote=>true) do |f|  %>
+    <table width="50%">
+      <tr>
+        <td>Exe Name</td>
+        <td><%= f.text_field :exe_name %></td>
+      </tr>
+      <tr>
+        <td>Builder Name</td>
+        <td><%= f.text_field :builder_name %></td>
+      </tr>
+      <tr>
+        <td>Location</td>
+        <td><%= f.select :location, options_for_select([["Select",""]]+LOCATIONS) %></td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td><%= f.text_field :crm_date, "data-date-format" => "dd-mm-yyyy", :value => "#{Date.today.strftime('%d-%m-%Y')}" %></td>
+      </tr>
+      <tr>
+        <td>Listings</td>
+        <td><div ><%= f.radio_button :listing, "no",:style=>"margin-left:11px;" %> <label style="float: left; margin-left: 5px;">No</label></div> <div style="margin-left: 10px; float: left;"><%= f.radio_button :listing, "yes",:style=>"margin-left:11px;" %> <label style="float: left; margin-left: 5px;">Yes</label></div></td>
+      </tr>
+      <tr>
+        <td>Number of listing</td>
+        <td><%= f.text_field :no_of_listings %></td>
+      </tr>
+      <tr>
+        <td>Comment</td>
+        <td><%= f.text_area :comment %></td>
+      </tr>
+      <tr>
+        <td>Payment</td>
+        <td><%= f.select :payment_type, options_for_select([["Select",""]]+PAYMENT_TYPES) %></td>
+      </tr>
+      <tr>
+        <td>Property Name</td>
+        <td><%= f.text_field :property_name %></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <%= submit_tag "Save" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:333px;" %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+<div id ="results">
+  <%= render :partial => "crms", :locals => {:crms => @crms} %>
+</div>

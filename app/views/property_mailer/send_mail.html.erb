@@ -1,0 +1,31 @@
+<div  style="font-family:Arial, Helvetica, sans-serif;font-size:12px; line-height:20px; padding:30px;">
+  Dear <b><%= @email %></b>,
+  <br/>
+  <%= @body %>
+  <br/>
+  <br/>
+  <h3>Properties</h3>
+  <table class="table table-striped">
+    <% @properties.each do |property| %>
+      <tr>
+        <td>Title: </td>
+        <td><%= property.title %></td>
+      </tr>
+      <tr>
+        <td>Location: </td>
+        <td><%= property.location %></td>
+      </tr>
+      <tr>
+        <td>Area: </td>
+        <td><%= property.area %> SQFT</td>
+      </tr>
+      <tr>
+        <td>Price: </td>
+        <td><%= property.price %> INR</td>
+      </tr>
+    <% end %>
+  </table>
+
+  Thanks, 
+  EZYPROPS, team
+</div>

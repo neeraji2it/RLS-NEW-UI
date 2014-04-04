@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require dsidxpress/client7e2e.css
+ *= require dsidxpress/dsidxwidgets/client7e2e.css
+ *= require contact-form-7/styles039c.css
+ *= require kk-star-ratings/css7793.css
+ *= require revslider/rs-plugin/css/settings7e2e.css
+ *= require revslider/rs-plugin/css/captions7e2e.css
+ *= require fonts.css
+ *= require bootstrap.min7e2e.css
+ *= require bootstrap-responsive.min7e2e.css
+ *= require pictopro-normal/style7e2e.css
+ *= require pictopro-outline/style7e2e.css
+ *= require justvector-web-font/stylesheet7e2e.css
+ *= require chosen/chosen7e2e.css
+ *= require properta7e2e.css
+ *= require jquery.bxslider7e2e.css
+ *= require prettyphoto/css/prettyPhoto7e2e.css
+ *= require style7e2e.css
+ *= require sitepress-multilingual-cms/res/css/language-selectorb253.css
+ */

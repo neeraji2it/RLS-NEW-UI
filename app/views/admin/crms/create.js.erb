@@ -1,0 +1,12 @@
+<% if !@crm.new_record? %>
+$('#results').html("<%= escape_javascript(render(:partial => 'crms', :locals => {:crms => @crms})) %> ");
+$("#crm_exe_name").val(' ')
+$("#crm_builder_name").val(' ')
+$("#crm_location").val(' ')
+$("#crm_crm_date").val(' ')
+$("#crm_listing_no").val(' ')
+$("#crm_no_of_listings").val(' ')
+$("#crm_comment").val(' ')
+$("#crm_payment_type").val(' ')
+$("#crm_property_name").val(' ')
+<% end %>

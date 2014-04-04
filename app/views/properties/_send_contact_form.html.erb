@@ -1,0 +1,49 @@
+<div class="content">  
+  <% if @contact.errors.any? %>
+    <div id="errorExplanation" style="width:220px;">
+      <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_for(@contact, :as => :contact, :url => send_contact_properties_path, :method => "POST", :remote=>true)  do |f| %>
+    <div class="control-group">
+      <%= hidden_field_tag :property_id %>
+      <label class="control-label" for="inputName">
+        Name
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.text_field :name,:id=>"inputName" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    <div class="control-group">
+      <label class="control-label" for="inputEmail">
+        Email
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+      <div class="controls">
+        <%= f.email_field :email,:id=>"inputEmail" ,:style=>"width:217px;"%> 
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    <div class="control-group">
+      <label class="control-label" for="inputName">
+        Mobile No.
+      </label>
+      <div class="controls">
+        <%= f.text_field :phone,:id=>"inputName" %>
+      </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    <%= f.submit "Send" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:150px;" %>
+  </div><!-- /.form-actions -->
+  <div>
+  </div>
+<% end %>
+<style>
+  form label {
+    text-align: left;
+  }
+</style>
+

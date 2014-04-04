@@ -1,0 +1,8 @@
+<h4>Brokers</h4>
+<% if !@brokers.empty? %>
+  <%= render :partial => "users", :locals => {:users => @brokers} %>
+<% else %>
+  <div style="color: red; padding: 20px; text-align: center; font-size: 30px;">
+    No Brokers
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<h4>Newsletter</h4>
+<%= form_tag(admin_newsletters_path, :method => "POST") do %>
+  <table width="50%">
+    <tr>
+      <td>Type</td>
+      <td><%= select_tag :user_type, options_for_select([["All", "all"], ["All Builders", "builders"],["All Users", "users"]]) %></td>
+    </tr>
+    <tr>
+      <td>Subject</td>
+      <td><%= text_field_tag :subject ,nil,:required=>"required"%></td>
+    </tr>
+    <tr>
+      <td>Body</td>
+      <td><%= text_area_tag :body,nil,:required=>"required" %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= submit_tag "Send" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:190px;" %>
+      </td>
+    </tr>
+  </table>
+<% end %>

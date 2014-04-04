@@ -1,0 +1,220 @@
+<%= form_for @property do |f| %> 
+  <%= f.error_messages %>
+  <div class="form-group" id="radio_buttons">
+    <label for="propertyType">Property Type</label>
+    <%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PayingGuestHostel","PayingGuestHostel"],["OfficeCommercial","OfficeCommercial"]],:selected => f.object.property_type),{},:onchange => "change_form(this)" %>
+  </div>
+  <div class="form-group" id="radio_buttons1">
+    <label for="propertyListing">Property Listing</label>
+    <%=f.radio_button :property_listing, "Sale" %>Sale
+    <%=f.radio_button :property_listing, "Rent" %>Rent
+    <%=f.radio_button :property_listing, "Lease" %>Lease
+  </div>
+  <div class="form-group" id="sell">
+    <label for="typeofAd">Type of Ad</label>
+    <%=f.radio_button :type_of_person, "Seller" %>I am a seller
+    <%=f.radio_button :type_of_person, "Buyer" %>I am a buyer
+  </div>
+  <div class="control-group" id="rent">  
+    <%=f.label :type_of_person, "Type of Ad",:class => "control-label"%>
+    <div class="controls">  
+      <%=f.radio_button :type_of_person, "Seller" %>I want to give on rent (I am a landlord)
+      <%=f.radio_button :type_of_person, "Buyer" %>I want to take on rent (I am a tenant) 
+    </div> 
+  </div> 
+  <div class="control-group">  
+    <%=f.label :title, "Title of your Add",:class => "control-label"%>
+    <div class="controls">  
+      <%= f.text_field :title,:id=>"input01",:class => "input-xlarge" %>
+    </div>  
+  </div>  
+  <div class="control-group">  
+    <label class="control-label" for="fileInput">Upload Image</label>  
+    <div class="controls">  
+      <%= f.file_field :image,:class => "input-file",:id => "fileInput" %>
+    </div>  
+  </div>
+  <div class="control-group" id="accomdiation">  
+    <%=f.label :accomidiation, "Accommodation for",:class => "control-label"%>
+    <div class="controls"> 
+      <%=f.select :accomidiation, options_for_select([["Select" ,""],["Male","Male"],["Female","Female"]],:selected => f.object.accomidiation) ,:required=>"required"%>
+    </div>
+  </div>
+  <div class="control-group" id="accomdiation1">  
+    <%=f.label :accomidiation, "Gender",:class => "control-label"%>
+    <div class="controls"> 
+      <%=f.select :accomidiation, options_for_select([["Select" ,""],["Male","Male"],["Female","Female"]],:selected => f.object.accomidiation),:required=>"required" %>
+    </div>
+  </div>
+  <div class="control-group">  
+    <%=f.label :price, "Price",:class => "control-label"%>
+    <div class="controls">  
+      <%= f.text_field :price,:id=>"input01",:class => "input-xlarge",:class=>"numbersOnly" %>
+    </div>  
+  </div> 
+  <div class="control-group" id="land">  
+    <%= f.label :type_of_land, "Type of Land", :class=>"control-label" %>
+    <div class="controls">    
+      <%= f.select :type_of_land,options_for_select([["Agricultural","Agricultural"],["Commercial","Commercial"],["Residential","Residential"]]),{},:class => "multiselect",:multiple => :multiple %>
+    </div>  
+  </div> 
+  <div class="control-group"id="rooms" >  
+    <%= f.label :no_of_rooms, "No.of Rooms", :class=>"control-label" %>
+    <div class="controls">   
+      <%= f.select :no_of_rooms,options_for_select([["1 BHK","1 BHK"],["2 BHK","2 BHK"],["3 BHK","3 BHK"],["4 BHK","4 BHK"],["More","More"]]),{},:class => "multiselect",:multiple => :multiple %>
+    </div> 
+  </div>
+  <div class="control-group"id="amenities">  
+    <%= f.label :amenities, "Amenities Included", :class=>"control-label" %>
+    <div class="controls">   
+      <%= f.fields_for :aminities, :html => {:multipart => true} do |amenty| %>
+        <%= amenty.text_field :aminity_type %>
+      <% end %>  
+    </div>  
+    <div class="controls" style="margin-top: 8px;">
+      <%= link_to_add_fields "Upload More Amenities", f,:aminities %> 
+    </div>
+  </div> 
+  <div class="control-group"id="area">  
+    <%= f.label :area, "Area(sq.ft)", :class=>"control-label" %>
+    <div class="controls">  
+      <%= f.select :area,options_for_select([["Less than 500","Less than 500"],["500-1000","500-1000"],["1000-1500","1000-1500"],["1500-2000","1500-2000"],["More than 2000","More than 2000"]]),{},:class => "multiselect",:multiple => :multiple %>
+    </div>  
+  </div>  
+  <div class="control-group"id="furnish" >  
+    <%= f.label :furnished, "Furnished", :class=>"control-label" %>
+    <div class="controls">  
+      <%= f.select :furnished,options_for_select([["Unfurnished","Unfurnished"],["Semi-Furnished","Semi-Furnished"],["Fully Furnished","Fully Furnished"]]),{},:class => "multiselect",:multiple => :multiple %>
+    </div>  
+  </div>  
+  <div class="control-group">  
+    <%=f.label :city, "YourCity",:class => "control-label"%>
+    <div class="controls"> 
+      <%= f.text_field :city,:value=>"Bangalore", :readonly=>true %>
+    </div>  
+  </div> 
+  <div class="control-group">  
+    <%=f.label :location, "YourLocality",:class => "control-label"%>
+    <div class="controls">  
+     <%= f.select :location,options_for_select([["Select",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : "") %>
+    </div>  
+  </div> 
+  <div class="control-group">  
+    <%=f.label :description,:class=>"control-label"%>
+    <div class="controls">  
+      <%=  f.text_area :description, :class=>"input-xlarge",:id=>"textarea" %>
+    </div>  
+  </div>
+  <h3>
+    Seller/Buyer Information
+  </h3>
+  <div class="control-group">  
+    <label class="control-label" for="optionsCheckbox">You are</label>  
+    <div class="controls">  
+      <%=f.radio_button :person_type, "Individual" %>Individual
+      <%=f.radio_button :person_type, "Broker" %>Broker
+    </div>  
+  </div>
+  <div class="control-group">  
+    <%=f.label :name, "YourName",:class => "control-label"%>
+    <div class="controls">  
+      <%= f.text_field :name,:id=>"input01",:class => "input-xlarge" %>
+    </div>  
+  </div> 
+  <div class="control-group">  
+    <%=f.label :email, "YourEmail",:class => "control-label"%>
+    <div class="controls">  
+      <%= f.text_field :email,:id=>"input01",:class => "input-xlarge" %>
+    </div>  
+  </div> 
+  <div class="control-group" id="mob">  
+    <%=f.label :mobile, "YourMobileNo.",:class => "control-label"%>
+    <div class="controls">  
+      <%= f.text_field :mobile,:id=>"input01",:class => "input-xlarge",:class=>"numbersOnly" %>
+    </div>  
+  </div> 
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+<% end %>
+<script>
+  $(document).ready(function() {
+    $(".multiselect").multiselect();
+  });
+  
+  
+   $("div#radio_buttons1 input[type=radio]").click(function() {
+      if ($(this).val() === 'Sale') {
+        $("#sell").show();
+        $("#rent").hide();
+      } else {
+        $("#rent").show();
+        $("#sell").hide();
+      }
+      $("#accomdiation,#accomdiation1").hide();
+    });
+  
+
+
+  $("div#rent input[type=radio]").click(function() {
+    if ($("#property_property_type").val() === "PayingGuestHostel") {
+      if ($(this).val() === 'Seller') {
+        $("#accomdiation").show();
+        $("#accomdiation1").hide();
+      } else {
+        $("#accomdiation").hide();
+        $("#accomdiation1").show();
+      }
+    }
+  });
+
+  function change_form(th) {
+    if ($(th).val() === 'Apartment') {
+      $("#land").hide();
+      $("#radio_buttons1").show();
+      $("#rooms").show();
+      $("#amenities").show();
+      $("#furnish").show();
+    } else if ($(th).val() === 'Villa') {
+      $("#land").hide();
+      $("#radio_buttons1").show();
+      $("#rooms").show();
+      $("#amenities").show();
+      $("#furnish").show();
+    } else if ($(th).val() === 'Land') {
+      $("#land").show();
+      $("#rooms").hide();
+      $("#amenities").hide();
+      $("#furnish").hide();
+      $("#radio_buttons1").hide();
+    } else if ($(th).val() === 'OfficeCommercial') {
+      $("#land").hide();
+      $("#rooms").hide();
+      $("#radio_buttons1").show();
+      $("#amenities").hide();
+      $("#furnish").show();
+    } else {
+      $("#land").hide();
+      $("#rooms").hide();
+      $("#amenities").hide();
+      $("#furnish").hide();
+      $("#area").hide();
+      $("#radio_buttons1").show();
+    }
+
+  }
+  
+</script>
+
+
+<style>
+  input[type="text"]{
+    height:25px;
+  }
+  #accomdiation,#accomdiation1,#rent,#land,#rooms,#amenities,#furnish,#area{
+    display: none;
+  }
+</style>

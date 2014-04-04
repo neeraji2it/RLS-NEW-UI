@@ -1,0 +1,19 @@
+<table class="table table-striped">
+  <tr>
+    <th>Si No</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>No of listings</th>
+  </tr>
+  <% users.each_with_index do |user, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.mobile %></td>
+      <td><%= link_to user.listing_count, listing_properties_admin_user_path(user.id) %></td>
+    </tr>
+  <% end %>
+</table>
+

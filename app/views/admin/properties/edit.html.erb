@@ -1,0 +1,23 @@
+<%= javascript_include_tag "bootstrap-dropdown-checkbox.js" %>
+<div id="content">
+  <div class="container">
+    <div>
+      <div id="main">
+        <div class="list-your-property-form">
+          <h2 class="page-header">Edit your property</h2>
+
+          <div class="content">
+            <div class="row">
+              <div class="span8">
+              </div><!-- /.span8 -->
+            </div><!-- /.row -->
+            <%= form_for @property ,:url=>admin_property_path(:property_type=>params[:property_type]) do |f| %> 
+              <%= render :partial=> "properties/form",:locals=>{:f=>f} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#content -->
+</div><!-- /#container -->
+

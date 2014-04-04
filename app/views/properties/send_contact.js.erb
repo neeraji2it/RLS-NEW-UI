@@ -1,0 +1,6 @@
+<% if @contact.errors.any? %>
+  $('.modal-body').html("<%= escape_javascript(render(:partial => "send_contact_form")) %>");
+  $('#property_id').val('<%= @property.id %>');
+<% else %>
+  window.location.href = "<%=  update_view_count_property_path(:id => @property.id, :contact_id => @contact.id) %>"
+<% end %>

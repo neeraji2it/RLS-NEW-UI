@@ -1,0 +1,810 @@
+<% if @property.status == 'active' %>
+  <div class="container">
+    <div class="row">
+      <div class="sidebar span3">
+        <div id="enquireproperties_widget-2" class="widget enquire">
+
+          <h2>Enquire Now</h2>
+
+          <div class="content">
+            <form method="post" action="http://wp.properta.byaviators.com/wp-content/themes/properta/aviators/plugins/properties/enquire.php">
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">
+                  Name
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+
+                <div class="controls">
+                  <input type="text" id="inputName" name="name" required="required">
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="inputPhone">
+                  Phone
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+
+                <div class="controls">
+                  <input type="text" id="inputPhone" name="phone" required="required">
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="inputDate">
+                  Date
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+
+                <div class="controls">
+                  <input type="date" id="inputDate" name="date" required="required">
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="inputDate">
+                  Date From
+                </label>
+
+                <div class="controls">
+                  <input type="date" id="inputDate" name="date_from">
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="inputDate">
+                  Date To
+                </label>
+
+                <div class="controls">
+                  <input type="date" id="inputDate" name="date_to" >
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">
+                  Email
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+
+                <div class="controls">
+                  <input type="email" id="inputEmail" name="email" required="required">
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="control-group">
+                <label class="control-label" for="inputMessage">
+                  Message
+                  <span class="form-required" title="This field is required.">*</span>
+                </label>
+
+                <div class="controls">
+                  <textarea id="inputMessage" name="message" required="required"></textarea>
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="form-actions">
+                <input type="hidden" name="post_id" value="352">
+                <button class="btn btn-primary arrow-right">Send</button>
+              </div>
+              <!-- /.form-actions -->
+            </form>
+          </div><!-- /.content -->
+
+        </div>    <h2>Search Properties</h2>
+
+        <div class="property-filter widget">
+          <div class="content">
+            <form method="get" action="http://wp.properta.byaviators.com/properties/">
+              <div class="location control-group">
+                <label class="control-label" for="inputLocation-propertyfilter_widget-2">
+                  Location
+                </label>
+
+                <div class="controls">
+                  <select name="filter_location" id="inputLocation-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="7" >Barney Circle</option>
+                    <option value="56" >Benning</option>
+                    <option value="54" >Benning Heights</option>
+                    <option value="55" >Benning Ridge</option>
+                    <option value="57" >Burrville</option>
+                    <option value="47" >Capitol Hill</option>
+                    <option value="58" >Capitol View</option>
+                    <option value="59" >Central Northeast</option>
+                    <option value="60" >Civic Betterment</option>
+                    <option value="48" >Judiciary Square</option>
+                    <option value="49" >Kingman Park</option>
+                    <option value="50" >Navy Yard</option>
+                    <option value="51" >Near Northeast</option>
+                    <option value="65" >Spring Valley</option>
+                    <option value="52" >Sursum Corda</option>
+                    <option value="53" >Swampoodle</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="type control-group">
+                <label class="control-label" for="inputType-propertyfilter_widget-2">
+                  Type
+                </label>
+
+                <div class="controls">
+                  <select name="filter_type" id="inputType-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="6" >Apartment</option>
+                    <option value="42" >Building Area</option>
+                    <option value="43" >Condo</option>
+                    <option value="44" >Cottage</option>
+                    <option value="41" >Family House</option>
+                    <option value="40" >Single Home</option>
+                    <option value="45" >Villa</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div>
+              <!-- /.control-group -->
+
+              <div class="beds control-group">
+                <label class="control-label" for="inputBeds-propertyfilter_widget-2">
+                  Beds
+                </label>
+
+                <div class="controls">
+                  <select name="filter_bedrooms" id="inputBeds-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="1" >1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                    <option value="6" >6</option>
+                    <option value="7" >7</option>
+                    <option value="8" >8</option>
+                    <option value="9" >9</option>
+                    <option value="10" >10</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div>
+              <!-- /.control-group -->
+
+              <div class="baths control-group">
+                <label class="control-label" for="inputBaths-propertyfilter_widget-2">
+                  Baths
+                </label>
+
+                <div class="controls">
+                  <select name="filter_bathrooms" id="inputBaths-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="1" >1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="4" >4</option>
+                    <option value="5" >5</option>
+                    <option value="6" >6</option>
+                    <option value="7" >7</option>
+                    <option value="8" >8</option>
+                    <option value="9" >9</option>
+                    <option value="10" >10</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div>
+              <!-- /.control-group -->
+
+              <div class="contract control-group">
+                <label class="control-label" for="inputType-propertyfilter_widget-2">
+                  Contract
+                </label>
+
+                <div class="controls">
+                  <select name="filter_contract_type" id="inputContract-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="86" >Rent</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div>
+              <!-- /.control-group -->
+
+              <div class="price-from control-group">
+                <label class="control-label" for="inputPriceFrom-propertyfilter_widget-2">
+                  Price From
+                </label>
+
+                <div class="controls">
+                  <select name="filter_price_from" id="inputPriceFrom-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="1000" >1,000 €</option>
+                    <option value="20000" >20,000 €</option>
+                    <option value="50000" >50,000 €</option>
+                    <option value="100000" >100,000 €</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div>
+              <!-- /.control-group -->
+
+              <div class="price-to control-group">
+                <label class="control-label" for="inputPriceTo-propertyfilter_widget-2">
+                  Price To
+                </label>
+
+                <div class="controls">
+                  <select name="filter_price_to" id="inputPriceTo-propertyfilter_widget-2">
+                    <option value="">-</option>
+                    <option value="1000" >1,000 €</option>
+                    <option value="20000" >20,000 €</option>
+                    <option value="50000" >50,000 €</option>
+                    <option value="100000" >100,000 €</option>
+                  </select>
+                </div>
+                <!-- /.controls -->
+              </div>
+              <!-- /.control-group -->
+
+              <div class="area-from control-group">
+                <label class="control-label" for="inputAreaFrom-propertyfilter_widget-2">
+                  Area From
+                </label>
+
+                <div class="controls">
+                  <input type="text" value="" name="filter_area_from" id="inputAreaFrom-propertyfilter_widget-2">
+                </div><!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="area-to control-group">
+                <label class="control-label" for="inputAreaTo-propertyfilter_widget-2">
+                  Area To
+                </label>
+
+                <div class="controls">
+                  <input type="text" value="" name="filter_area_to" id="inputAreaTo-propertyfilter_widget-2">
+                </div><!-- /.controls -->
+              </div><!-- /.control-group -->
+
+              <div class="form-actions">
+                <button class="btn btn-primary btn-large">Filter now!</button>
+              </div>
+              <!-- /.form-actions -->
+            </form>
+          </div>
+          <!-- /.content -->
+        </div><!-- /.property-filter -->
+        <div id="partners_widget-2" class="widget partners">
+
+          <h2>Partners</h2>
+
+          <div class="partners">
+            <div class="row">
+              <div class="span3">
+                <div class="partner">
+                  <a href="http://www.themeforest.net/">
+                    <img width="270" height="70" src="/assets/uploads/2013/08/themeforest.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
+                  </a>
+                </div>
+              </div><!-- /.span3 -->
+            </div><!-- /.row -->
+          </div><!-- /.partners -->
+        </div><div id="mostrecentproperties_widget-2" class="widget properties">
+
+          <h2>Most Recent Properties</h2>
+
+          <div class="content">
+            <div class="property clearfix">
+              <div class="image">
+                <a href="../calle-34/index.html">
+                  <img width="1680" height="1050" src="/assets/uploads/2014/03/apple_46-wallpaper-1680x1050.jpg" class="attachment-post-thumbnail wp-post-image" alt="apple_46-wallpaper-1680x1050" />
+                </a>
+              </div><!-- /.image -->
+
+              <div class="wrapper">
+                <div class="title">
+                  <h3><a href="../calle-34/index.html">
+                      calle 34
+                    </a></h3>
+                </div><!-- /.title -->
+
+                <div class="location">Capitol Hill</div><!-- /.location -->
+
+                <div class="price">
+                  400 €                                            </div><!-- /.price -->
+              </div><!-- /.wrapper -->
+            </div><!-- /.property -->
+
+            <div class="property-info clearfix">
+              <div class="area">
+                <i class="icon icon-normal-cursor-scale-up"></i>
+                200m<sup>2</sup>
+              </div><!-- /.area -->
+
+              <div class="bedrooms">
+                <i class="icon icon-normal-bed"></i>
+                2
+              </div><!-- /.bedrooms -->
+
+              <div class="bathrooms">
+                <i class="icon icon-normal-shower"></i>
+                1
+              </div><!-- /.bathrooms -->
+            </div><!-- /.info -->
+            <div class="property clearfix">
+              <div class="image">
+                <a href="../2459-tilden-st/index.html">
+                  <img width="570" height="425" src="/assets/uploads/2013/08/20.jpg" class="attachment-post-thumbnail wp-post-image" alt="20" />
+                </a>
+              </div><!-- /.image -->
+
+              <div class="wrapper">
+                <div class="title">
+                  <h3><a href="../2459-tilden-st/index.html">
+                      2459 Tilden St
+                    </a></h3>
+                </div><!-- /.title -->
+
+                <div class="location">Judiciary Square</div><!-- /.location -->
+
+                <div class="price">
+                  500 € <span class="suffix">/ per month</span>                                            </div><!-- /.price -->
+              </div><!-- /.wrapper -->
+            </div><!-- /.property -->
+
+            <div class="property-info clearfix">
+              <div class="area">
+                <i class="icon icon-normal-cursor-scale-up"></i>
+                1030m<sup>2</sup>
+              </div><!-- /.area -->
+
+              <div class="bedrooms">
+                <i class="icon icon-normal-bed"></i>
+                12
+              </div><!-- /.bedrooms -->
+
+              <div class="bathrooms">
+                <i class="icon icon-normal-shower"></i>
+                6
+              </div><!-- /.bathrooms -->
+            </div><!-- /.info -->
+            <div class="property clearfix">
+              <div class="image">
+                <a href="../677-cottage-terrace/index.html">
+                  <img width="570" height="425" src="/assets/uploads/2013/08/17.jpg" class="attachment-post-thumbnail wp-post-image" alt="17" />
+                </a>
+              </div><!-- /.image -->
+
+              <div class="wrapper">
+                <div class="title">
+                  <h3><a href="../677-cottage-terrace/index.html">
+                      677 Cottage Terrace
+                    </a></h3>
+                </div><!-- /.title -->
+
+                <div class="location">Spring Valley</div><!-- /.location -->
+
+                <div class="price">
+                  59,600 €                                            </div><!-- /.price -->
+              </div><!-- /.wrapper -->
+            </div><!-- /.property -->
+
+            <div class="property-info clearfix">
+              <div class="area">
+                <i class="icon icon-normal-cursor-scale-up"></i>
+                650m<sup>2</sup>
+              </div><!-- /.area -->
+
+              <div class="bedrooms">
+                <i class="icon icon-normal-bed"></i>
+                1
+              </div><!-- /.bedrooms -->
+
+              <div class="bathrooms">
+                <i class="icon icon-normal-shower"></i>
+                1
+              </div><!-- /.bathrooms -->
+            </div><!-- /.info -->
+          </div><!-- /.content -->
+
+        </div>    <div id="agencies_widget-2" class="widget agencies">
+
+          <h2>Agencies</h2>
+
+          <div class="content">
+            <div class="agency clearfix">
+              <div class="header">
+                <div class="image">
+                  <a href="../../agencies/beverly-hills-real-estate-agent/index.html">
+                    <img src="/assets/img/agency-small-tmp.png" alt="Beverly Hills Real Estate">
+                  </a>
+                </div>
+                <!-- /.image -->
+
+                <div class="info">
+                  <h2>Beverly Hills Real Estate</h2>
+
+                  <div class="properties-count">
+                    <span class="number">2</span> properties
+                  </div>
+                  <!-- /.properties-count -->
+
+                  <a href="../../agencies/beverly-hills-real-estate-agent/index.html" class="btn">View profile</a>
+                </div>
+                <!-- /.info -->
+              </div>
+              <!-- /.header -->
+
+              <div class="address">
+                4265 Broadway Avenue<br />
+                Johnson City, TN 37601
+              </div><!-- /.address -->
+
+              <div class="email">
+                <a href="index686a.html?id=130">Contact</a>
+              </div><!-- /.email -->
+
+              <div class="phone">
+                (401) 852-987
+              </div><!-- /.phone -->
+
+            </div><!-- /.agency -->
+            <div class="agency clearfix">
+              <div class="header">
+                <div class="image">
+                  <a href="../../agencies/colombia-real-estate-for-sale/index.html">
+                    <img src="/assets/img/agency-small-tmp.png" alt="Colombia Real Estate">
+                  </a>
+                </div>
+                <!-- /.image -->
+
+                <div class="info">
+                  <h2>Colombia Real Estate</h2>
+
+                  <div class="properties-count">
+                    <span class="number">6</span> properties
+                  </div>
+                  <!-- /.properties-count -->
+
+                  <a href="../../agencies/colombia-real-estate-for-sale/index.html" class="btn">View profile</a>
+                </div>
+                <!-- /.info -->
+              </div>
+              <!-- /.header -->
+
+              <div class="address">
+                485 Shinn Avenue<br />
+                Pittsburgh, PA 15222
+              </div><!-- /.address -->
+
+              <div class="email">
+                <a href="index46f5.html?id=129">Contact</a>
+              </div><!-- /.email -->
+
+              <div class="phone">
+                (401) 458-965
+              </div><!-- /.phone -->
+
+            </div><!-- /.agency -->
+          </div><!-- /.content -->
+
+        </div>
+
+
+      </div><!-- /#sidebar -->
+
+      <div id="main" class="span9">
+
+        <h1 class="page-header">20th St NE,</h1>
+        <span>Benning</span>
+
+        <div class="property-detail">
+
+          <div class="row">
+            <div class="span6 gallery">
+              <div class="preview">
+                <img src="/assets/uploads/2013/08/1.jpg" alt="">
+              </div>
+
+              <div class="content">
+                <ul>
+                  <li class="active">
+                    <div class="thumb">
+                      <a href="#"><img src="/assets/uploads/2013/08/1.jpg" alt=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="thumb">
+                      <a href="#"><img src="/assets/uploads/2013/08/12.jpg" alt=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="thumb">
+                      <a href="#"><img src="/assets/uploads/2013/08/18.jpg" alt=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="thumb">
+                      <a href="#"><img src="/assets/uploads/2013/08/6.jpg" alt=""></a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="thumb">
+                      <a href="#"><img src="/assets/uploads/2013/08/3.jpg" alt=""></a>
+                    </div>
+                  </li>
+                </ul>
+              </div><!-- /.content -->
+            </div>
+
+            <div class="overview span3">
+              <div class="overview">
+                <div class="row">
+                  <div class="span3">
+                    <h2>Overview</h2>
+
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>ID:</th>
+                          <td>
+                            <strong>#352</strong
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th>Price:</th>
+                          <td>
+                            85,600 €
+
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th>Type:</th>
+                          <td>Apartment</td>
+                        </tr>
+
+
+                        <tr>
+                          <th>Location:</th>
+                          <td>Benning</td>
+                        </tr>
+
+                        <tr>
+                          <th>Bathrooms:</th>
+                          <td>2</td>
+                        </tr>
+
+                        <tr>
+                          <th>Bedrooms:</th>
+                          <td>1</td>
+                        </tr>
+
+                        <tr>
+                          <th>Area:</th>
+                          <td>450m<sup>2</sup></td>
+                        </tr>
+
+                        <tr>
+                          <th>
+                            Rating:
+                          </th>
+                          <td>
+
+                            <div class="kk-star-ratings  top-left lft" data-id="352">
+                              <div class="kksr-stars kksr-star gray">
+                                <div class="kksr-fuel kksr-star yellow" style="width:0%;"></div>
+                                <!-- kksr-fuel --><a href="#1"></a><a href="#2"></a><a href="#3"></a><a href="#4"></a><a href="#5"></a>
+                              </div>
+                              <!-- kksr-stars -->
+                              <div class="kksr-legend"></div>
+                              <!-- kksr-legend -->
+                            </div>
+                            <!-- kk-star-ratings -->
+
+                          </td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.span2 -->
+                </div>
+                <!-- /.row -->
+              </div><!-- /.overview -->        </div>
+          </div>
+
+          <h2>About Property</h2>
+
+          <p>Curabitur posuere lorem in nunc rutrum consequat. Fusce vel nulla nunc. Nam adipiscing purus ut posuere sodales. Morbi varius interdum urna, non scelerisque erat suscipit eu. Nunc vel congue tellus, eget fringilla nisl. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam consequat magna felis, ut semper dolor pulvinar ut. Aliquam placerat, dui vel placerat consectetur, erat nunc aliquet lacus, et vestibulum ligula erat ut urna. Morbi aliquam varius egestas.</p>
+
+
+          <div class="row">
+            <div class="span6">
+              <div class="row">
+                <div class="span6">
+                  <h2>General amenities</h2>
+
+                  <div class="row">
+                    <ul class="span2">
+
+                      <li class="checked">Air conditioning</li>
+
+                      <li class="plain">Balcony</li>
+
+                      <li class="plain">Bedding</li>
+
+                      <li class="checked">Cable TV</li>
+
+                      <li class="plain">Cleaning after exit</li>
+
+                      <li class="checked">Cofee pot</li>
+
+                      <li class="plain">Computer</li>
+
+                      <li class="checked">Cot</li>
+
+                      <li class="checked">Dishwasher</li>
+
+                      <li class="plain">DVD</li>
+
+                      <li class="plain">Fan</li>
+                    </ul><!-- /.span2 -->
+                    <ul class="span2">
+
+                      <li class="checked">Fridge</li>
+
+                      <li class="checked">Grill</li>
+
+                      <li class="plain">Hairdryer</li>
+
+                      <li class="checked">Heating</li>
+
+                      <li class="plain">Hi-fi</li>
+
+                      <li class="plain">Internet</li>
+
+                      <li class="plain">Iron</li>
+
+                      <li class="checked">Juicer</li>
+
+                      <li class="plain">Lift</li>
+
+                      <li class="checked">Microwave</li>
+
+                      <li class="plain">Oven</li>
+                    </ul><!-- /.span2 -->
+                    <ul class="span2">
+
+                      <li class="plain">Parking</li>
+
+                      <li class="checked">Parquet</li>
+
+                      <li class="plain">Radio</li>
+
+                      <li class="plain">Roof terrace</li>
+
+                      <li class="plain">Smoking allowed</li>
+
+                      <li class="checked">Terrace</li>
+
+                      <li class="plain">Toaster</li>
+
+                      <li class="checked">Towelwes</li>
+
+                      <li class="checked">Use of pool</li>
+
+                      <li class="plain">Video</li>
+                    </ul><!-- /.span2 -->
+                  </div><!-- /.row -->
+                </div><!-- /.span12 -->
+              </div><!-- /.row -->
+            </div>
+
+            <div class="span3">
+              <h2>Map</h2>
+
+              <div id="property-map"></div>
+
+              <script type="text/javascript">
+                jQuery(document).ready(function($) {
+                  function LoadMapProperty() {
+                    var locations = new Array(
+                            [38.941386, -76.976745]
+                            );
+                    var types = new Array(
+                            'apartment'
+                            );
+                    var markers = new Array();
+                    var plainMarkers = new Array();
+
+                    var mapOptions = {
+                      center: new google.maps.LatLng(38.941386, -76.976745),
+                      zoom: 14,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP,
+                      scrollwheel: false
+                    };
+
+                    var map = new google.maps.Map(document.getElementById('property-map'), mapOptions);
+
+                    $.each(locations, function(index, location) {
+                      var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(location[0], location[1]),
+                        map: map,
+                        icon: 'http://wp.properta.byaviators.com/wp-content/themes/properta/assets/img/marker-transparent.png'
+                      });
+
+                      var myOptions = {
+                        draggable: true,
+                        content: '<div class="marker ' + types[index] + '"><div class="marker-inner"></div></div>',
+                        disableAutoPan: true,
+                        pixelOffset: new google.maps.Size(-21, -58),
+                        position: new google.maps.LatLng(location[0], location[1]),
+                        closeBoxURL: "",
+                        isHidden: false,
+                        // pane: "mapPane",
+                        enableEventPropagation: true
+                      };
+                      marker.marker = new InfoBox(myOptions);
+                      marker.marker.isHidden = false;
+                      marker.marker.open(map, marker);
+                      markers.push(marker);
+                    });
+
+                    google.maps.event.addListener(map, 'zoom_changed', function() {
+                      $.each(markers, function(index, marker) {
+                        marker.infobox.close();
+                      });
+                    });
+                  }
+
+                  google.maps.event.addDomListener(window, 'load', LoadMapProperty);
+
+                  var dragFlag = false;
+                  var start = 0, end = 0;
+
+                  function thisTouchStart(e) {
+                    dragFlag = true;
+                    start = e.touches[0].pageY;
+                  }
+
+                  function thisTouchEnd() {
+                    dragFlag = false;
+                  }
+
+                  function thisTouchMove(e) {
+                    if (!dragFlag)
+                      return;
+                    end = e.touches[0].pageY;
+                    window.scrollBy(0, (start - end));
+                  }
+
+                  document.getElementById("property-map").addEventListener("touchstart", thisTouchStart, true);
+                  document.getElementById("property-map").addEventListener("touchend", thisTouchEnd, true);
+                  document.getElementById("property-map").addEventListener("touchmove", thisTouchMove, true);
+                });
+
+              </script>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /#main -->
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+
+  
+<% else %>
+  This Property is now Inactive status.
+<% end %>
+

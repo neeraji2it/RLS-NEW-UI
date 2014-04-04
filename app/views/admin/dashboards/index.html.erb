@@ -1,0 +1,52 @@
+<table class="table table-striped">
+  <tr>
+    <th>
+      Id
+    </th>
+    <th>
+      PropertyName
+    </th>
+    <th>
+      PropertyType
+    </th>
+    <th>
+      PropertyFor
+    </th>
+    <th>
+      Area
+    </th>
+    <th>
+      Price
+    </th>
+    <th>
+      Status 
+    </th>
+  </tr>
+  <% @properties.each do |property| %>
+    <tr>
+      <td>
+        <%= property.id %>
+      </td>
+      <td>
+        <%= property.title %>
+      </td>
+      <td>
+        <%= property.property_type %>
+      </td>
+      <td>
+        <%= property.property_listing %>
+      </td>
+      <td>
+        <%= property.area %>
+      </td>
+      <td>
+        <%= property.price %>
+      </td>
+      <td>
+        <%= property.status == "active" ? (link_to "Inactive",inactivate_property_admin_dashboard_path(property),:method => :put, :remote => true,:class => "btn btn-mini btn-primary") : (link_to "Activate",  activate_property_admin_dashboard_path(property),:method => :put, :remote => true,:class => "btn btn-mini btn-success")  %>
+      </td>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

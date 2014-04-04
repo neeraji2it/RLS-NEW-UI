@@ -1,0 +1,21 @@
+<h4>List of Users</h4>
+<table class="table table-striped">
+  <tr>
+    <th>Si No</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>PropertyName</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each_with_index do |user, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.property.present? ? user.property.title : "-" %></td>
+      <td> <%= link_to "Delete", admin_user_path(user.id), :data => {:confirm => "Are you sure!!"}, :method => "DELETE", :class => "btn btn-danger" %></td></td>
+    </tr>
+  <% end %>
+</table>

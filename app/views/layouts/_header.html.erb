@@ -1,0 +1,67 @@
+<div class="breadcrumb-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <ul class="breadcrumb pull-left">
+          <li></li>
+        </ul><!-- /.breadcrumb -->
+
+        <div class="account pull-right">
+          <ul class="nav nav-pills">
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div><!-- /.span12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div><!-- /.breadcrumb-wrapper -->
+<!-- HEADER -->
+<div id="header-wrapper">
+  <div id="header">
+    <div id="header-inner">
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="row">
+              <div class="logo-wrapper span4">
+                <a href="#nav" class="hidden-desktop" id="btn-nav">Toggle navigation</a>
+
+                <div class="logo">
+                  <%= link_to image_tag("logo_70.png"), "/" %>
+
+                </div><!-- /.logo -->
+
+              </div><!-- /.logo-wrapper -->
+
+
+              <div class="info" >
+                <div class="site-email">
+                  <a href="mailto:info@creatiwads.in">support@ezyprops.com</a>
+                </div><!-- /.site-email -->
+              </div><!-- /.info -->
+              <%= link_to  "List your property", new_property_path ,:class=> "btn btn-primary btn-large list-your-property arrow-right",:style=>"margin-top: 17px;"%>
+              <%= link_to  "List Your Need", "#myModal1" ,:class=> "btn btn-primary btn-large list-your-property arrow-right",:style=>"margin-top: 17px; border-right: #FFFFFF solid 2px;", :role=>"button", "data-toggle"=>"modal"%>
+            </div><!-- /.row -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+      </div><!-- /.container -->
+    </div><!-- /#header-inner -->
+  </div><!-- /#header -->
+</div><!-- /#header-wrapper -->
+<!-- NAVIGATION -->
+<div id="navigation">
+  <div class="container">
+    <div class="navigation-wrapper">
+      <div class="navigation clearfix-normal">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><%= link_to "About Us", about_us_path %></li>
+          <li><%= link_to "Privacy Policy", privacy_policy_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+        </ul><!-- /.nav -->
+
+      </div><!-- /.navigation -->
+    </div><!-- /.navigation-wrapper -->
+  </div><!-- /.container -->
+</div><!-- /.navigation -->

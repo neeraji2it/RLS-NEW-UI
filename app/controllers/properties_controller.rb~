@@ -1,0 +1,49 @@
+class PropertiesController < ApplicationController
+  
+  def new
+    @property = Property.new
+    1.times{@property.aminities.build}
+  end
+  
+  def create
+    @property = Property.new(property_params)
+    @property.no_of_rooms = params[:property][:no_of_rooms].reject { |c| c.blank? }.split("\n").join(',')
+    @property.furnished = params[:property][:furnished].reject { |c| c.blank? }.split("\n").join(',')
+    @property.area = params[:property][:area].reject { |c| c.blank? }.split("\n").join(',')
+    @property.type_of_land = params[:property][:type_of_land].reject { |c| c.blank? }.split("\n").join(',')
+    if @property.save
+      flash[:notice] = "Listing property successfull!"
+      redirect_to root_path
+    else
+      flash[:error] = "Listing property failed!"
+      render :action => :new
+    end
+  end
+  
+  def show
+    @property = Property.find(params[:id])
+  end
+  
+  def search
+    if params[:search] and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank?)
+      @properties = Property.type_of_property(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location])
+      @json = @properties.to_gmaps4rails
+    else
+      @properties = []
+    end
+  end
+   
+  def property_range
+    @properties = Property.where("price BETWEEN #{params[:min]} and #{params[:max]}").type_of_property(params[:property_type]).list_property(params[:property_listing]).property_location(params[:location])
+    puts @properties.count
+    @json = @properties.to_gmaps4rails
+    respond_to do |format|
+      format.js
+    end
+  end
+  
+  private
+  def property_params
+    params.require(:property).permit!
+  end
+end

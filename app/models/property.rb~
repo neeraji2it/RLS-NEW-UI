@@ -1,0 +1,31 @@
+class Property < ActiveRecord::Base
+  
+  acts_as_gmappable
+  has_attached_file :image,
+    :styles => {
+    :thumb => ["50x50#", :png],
+    :medium => ["100x100#", :png],
+    :large => ["300x300>", :png]
+  }
+  #validates :location,:price,:no_of_rooms,:furnished,:type_of_land,:area,:property_type,:title,:presence => true
+ # validates :price,:numericality => true
+  has_many :aminities , :dependent => :destroy
+  accepts_nested_attributes_for :aminities, :allow_destroy => true, :reject_if=>:all_blank
+  scope :type_of_property, ->(property_type) { where("property_type = '#{property_type}'") if !property_type.blank? }
+  scope :list_property, ->(property_listing) { where("property_listing = '#{property_listing}'") if !property_listing.blank? }
+  scope :property_location, ->(location) { where("location = '#{location}'") if !location.blank? }
+  before_create :assign_property_listing
+  def gmaps4rails_address
+    "#{self.location}"
+  end
+  
+  def gmaps4rails_infowindow
+    "<img src='#{self.image.url}'> <br/> Address: #{self.location} <br/> City: #{self.city} <br /> Longitude: #{self.longitude} <br/> Latitude: #{self.latitude}<br/> <a href='/properties/#{id}'>More</a> "
+  end
+
+def assign_property_listing
+ self.property_listing = "Sale" if self.property_type == "Land"
+end
+
+
+end

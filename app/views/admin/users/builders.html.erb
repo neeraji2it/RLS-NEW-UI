@@ -1,0 +1,8 @@
+<h4>Builders</h4>
+<% if !@builders.empty? %>
+  <%= render :partial => "users", :locals => {:users => @builders} %>
+<% else %>
+  <div style="color: red; padding: 20px; text-align: center; font-size: 30px;">
+    No Builders
+  </div>
+<% end %>

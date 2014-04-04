@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Dear Admin</h3>
+    <h4> Person with below details have contacted <%= @property.name %>  for inquiry on <%= link_to @property.title,property_url(@property.id)  %>  
+    </h4>
+    <p>Please follow up with <%= @property.name %> <p>
+    <h4> PersonDetails </h4>
+    <p>
+      Person Name : <%= @contact.name  %>
+    </p>
+    <p>      
+      Person Email: <%= @contact.email %> <br/>
+    </p>
+    <p> Person PhoneNumber: <%= @contact.phone %></p>
+    <p>Thanks,<br/></p>
+    <p>Ezy Props Team</p>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<h4><%= @user.name %> Listings</h4>
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>PropertyType</th>
+    <th>Price</th>
+    <th>Area</th>
+    <th>Location</th>
+    <th>Views</th>
+    <th>Contacts</th>
+  </tr>
+  <% @properties.each do |property| %>
+    <tr>
+      <td><%= property.title %></td>
+      <td><%= property.property_type %>
+      <td><%= property.price %></td>
+      <td><%= property.area %></td>
+      <td><%= property.location %></td>
+      <td><%= property.view_count %></td>
+      <td><%= property.contacts_count %></td>
+    </tr>
+  <% end %>
+</table>
