@@ -1,26 +1,31 @@
-<%= javascript_include_tag "bootstrap-dropdown-checkbox.js" %>
-<div id="content">
-  <div class="container">
-    <div>
-      <div id="main">
-        <div class="list-your-property-form">
-          <h2 class="page-header">List your property</h2>
+<div class="container">
+  <div class="row">
+    <div id="main" class="span12">
+      <h1 class="page-header">Property Creation</h1>
+      <div class="progressbar">
+        <div class="progressbar-inner">
+          <div class="row">
+            <div class="item span4">
+              <div class="number">1</div>
+              <strong>Property Info</strong>
+            </div><!-- /.item  -->
 
-          <div class="content">
-            <div class="row">
-              <div class="span8">
-                <p>
-                  Please List Your Property With Us for Free and Make sure you get the required Audience. Please make sure you enter the Required and Verified Information about Your Property into the correct rent/lease/sale category so that you Get Advertised to the Target Audience.
-                </p>
-              </div><!-- /.span8 -->
-            </div><!-- /.row -->
-            <%= form_for @property do |f| %> 
-              <%= render :partial=>'form',:locals => {:f=>f} %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div><!-- /#content -->
-</div><!-- /#container -->
+            <div class="item span4">
+              <div class="number">2</div>
+              <strong><%= @property.new_record? ? "Image Upload":"Edit" %></strong>
+            </div><!-- /.item  -->
+
+            <div class="item span4">
+              <div class="number">3</div>
+              <strong>Person Info</strong>
+            </div><!-- /.item  -->
+          </div><!-- /.row -->
+        </div><!-- /.progressbar-inner -->
+      </div><!-- /.progressbar -->
+      <%= form_for @property, :html => {:class=>"submission-form form-vertical"} do |f| %> 
+        <%= render :partial=>'form',:locals => {:f=>f} %>
+      <% end %>
+   </div><!-- /#main -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
 

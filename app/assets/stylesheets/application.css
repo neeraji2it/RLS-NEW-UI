@@ -28,3 +28,28 @@
  *= require style7e2e.css
  *= require sitepress-multilingual-cms/res/css/language-selectorb253.css
  */
+
+#errorExplanation {
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    color: red;
+}
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+}
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+.form-required{color:red}

@@ -2,15 +2,20 @@
 <html>
   <head>
     <title>Ezyprops</title>
-    <%#= stylesheet_link_tag    "application", "dsidxpress/client7e2e.css", "dsidxpress/dsidxwidgets/client7e2e.css", "contact-form-7/styles039c.css", "kk-star-ratings/css7793.css", "revslider/rs-plugin/css/settings7e2e.css", "revslider/rs-plugin/css/captions7e2e.css", "fonts.css", "bootstrap.min7e2e.css", "bootstrap-responsive.min7e2e.css", "pictopro-normal/style7e2e.css", "pictopro-outline/style7e2e.css", "justvector-web-font/stylesheet7e2e.css", "chosen/chosen7e2e.css", "properta7e2e.css", "jquery.bxslider7e2e.css", "prettyphoto/css/prettyPhoto7e2e.css", "style7e2e.css", "sitepress-multilingual-cms/res/css/language-selectorb253.css" %>
- <%= stylesheet_link_tag "application", :media => "all" %>
+<%#= stylesheet_link_tag    "application", "dsidxpress/client7e2e.css", "dsidxpress/dsidxwidgets/client7e2e.css", "contact-form-7/styles039c.css", "kk-star-ratings/css7793.css", "revslider/rs-plugin/css/settings7e2e.css", "revslider/rs-plugin/css/captions7e2e.css", "fonts.css", "bootstrap.min7e2e.css", "bootstrap-responsive.min7e2e.css", "pictopro-normal/style7e2e.css", "pictopro-outline/style7e2e.css", "justvector-web-font/stylesheet7e2e.css", "chosen/chosen7e2e.css", "properta7e2e.css", "jquery.bxslider7e2e.css", "prettyphoto/css/prettyPhoto7e2e.css", "style7e2e.css", "sitepress-multilingual-cms/res/css/language-selectorb253.css" %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <style>.kk-star-ratings { width:120px; }.kk-star-ratings .kksr-stars a { width:24px; }.kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a { height:24px; }.kk-star-ratings .kksr-star.gray { background-image: url(/assets/gray.png); }.kk-star-ratings .kksr-star.yellow { background-image: url(/assets/yellow.png); }.kk-star-ratings .kksr-star.orange { background-image: url(/assets/orange.png); }</style>
-     <script type="text/javascript">
-            var bhittani_plugin_kksr_js = {"nonce": "d0203be1ed", "grs": false, "ajaxurl": "http:\/\/wp.properta.byaviators.com\/wp-admin\/admin-ajax.php", "func": "kksr_ajax", "msg": "Rate this post", "fuelspeed": 400, "thankyou": "Thank you for your vote", "error_msg": "An error occurred", "tooltip": "1", "tooltips": [{"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}]};
-        </script>
+    <script type="text/javascript">
+      var bhittani_plugin_kksr_js = {"nonce": "d0203be1ed", "grs": false, "ajaxurl": "http:\/\/wp.properta.byaviators.com\/wp-admin\/admin-ajax.php", "func": "kksr_ajax", "msg": "Rate this post", "fuelspeed": 400, "thankyou": "Thank you for your vote", "error_msg": "An error occurred", "tooltip": "1", "tooltips": [{"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}]};
+    </script>
     <script type='text/javascript' src='/assets/jquery-migrate.min1576.js'></script>
     <script type='text/javascript' src='/assets/kk-star-ratings/js.min7793.js'></script>
+    <script type='text/javascript' src='/assets/properta/aviators/plugins/properties/assets/js/geolocation.js'></script>
+    <script type='text/javascript' src='/assets/jquery.ui.core.min.js'></script>
+    <script type='text/javascript' src='/assets/jquery.ui.widget.min.js'></script>
+    <script type='text/javascript' src='/assets/jquery.ui.mouse.min.js'></script>
+    <script type='text/javascript' src='/assets/jquery.ui.sortable.min.js'></script>
     <script type='text/javascript' src='/assets/revslider/rs-plugin/js/jquery.themepunch.revolution.min7e2e.js'></script>
     <script type='text/javascript' src='/assets/properta/assets/js/aviators-settings7e2e.js'></script>
     <script type="text/javascript">
@@ -20,7 +25,7 @@
     <script type='text/javascript' src='/assets/sitepress-multilingual-cms/res/js/sitepress.js'></script>
     <%= csrf_meta_tags %>
   </head>
-  <body class="single single-property postid-352">
+  <body class="<%= params[:controller] == "properties" and params[:action] == "new" or params[:action] == "create" ? "page page-id-99 page-template page-template-page-submission-index-php logged-in" : "single single-property postid-352" %>">
     <div class="top">
       <div class="container">
         <div class="top-inner inverted">
@@ -58,7 +63,7 @@
 
             <div class="branding pull-left">
               <div class="logo">
-                <%#= link_to image_tag("logo_70.png", :height => "40"), "/" %>
+<%#= link_to image_tag("logo_70.png", :height => "40"), "/" %>
               </div><!-- /.logo -->
             </div>
 
@@ -80,11 +85,6 @@
               </ul>
             </div>
 
-            <div class="user-area pull-right">
-              <div class="menu-anonymous-container"><ul id="menu-anonymous" class="nav nav-pills"><li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="register/index.html">Register</a></li>
-                  <li id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-111"><a href="login/index.html">Login</a></li>
-                </ul></div>
-            </div><!-- /.user-area -->
           </div><!-- /.header -->
 
           <div class="navigation navbar clearfix">
@@ -115,7 +115,7 @@
 
             <div class="pull-right">
 
-              <a href="my-properties/index4395.html?action=add" class="list-property">
+              <a href="properties/new" class="list-property">
                 <span class="link">List your property</span>
                 <div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
               </a>
@@ -141,122 +141,13 @@
               <div id="mostrecentproperties_widget-3" class="widget properties">
 
                 <h2>Most Recent Properties</h2>
-
+                <% @properties = Property.all.order("created_at DESC") %>
                 <div class="content">
-                  <div class="property clearfix">
-                    <div class="image">
-                      <a href="properties/calle-34/index.html">
-                        <img width="1680" height="1050" src="/assets/uploads/2014/03/apple_46-wallpaper-1680x1050.jpg" class="attachment-post-thumbnail wp-post-image" alt="apple_46-wallpaper-1680x1050" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="wrapper">
-                      <div class="title">
-                        <h3><a href="properties/calle-34/index.html">
-                            calle 34
-                          </a></h3>
-                      </div><!-- /.title -->
-
-                      <div class="location">Capitol Hill</div><!-- /.location -->
-
-                      <div class="price">
-                        400 €                                            </div><!-- /.price -->
-                    </div><!-- /.wrapper -->
-                  </div><!-- /.property -->
-
-                  <div class="property-info clearfix">
-                    <div class="area">
-                      <i class="icon icon-normal-cursor-scale-up"></i>
-                      200m<sup>2</sup>
-                    </div><!-- /.area -->
-
-                    <div class="bedrooms">
-                      <i class="icon icon-normal-bed"></i>
-                      2
-                    </div><!-- /.bedrooms -->
-
-                    <div class="bathrooms">
-                      <i class="icon icon-normal-shower"></i>
-                      1
-                    </div><!-- /.bathrooms -->
-                  </div><!-- /.info -->
-                  <div class="property clearfix">
-                    <div class="image">
-                      <a href="properties/2459-tilden-st/index.html">
-                        <img width="570" height="425" src="/assets/uploads/2013/08/20.jpg" class="attachment-post-thumbnail wp-post-image" alt="20" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="wrapper">
-                      <div class="title">
-                        <h3><a href="properties/2459-tilden-st/index.html">
-                            2459 Tilden St
-                          </a></h3>
-                      </div><!-- /.title -->
-
-                      <div class="location">Judiciary Square</div><!-- /.location -->
-
-                      <div class="price">
-                        500 € <span class="suffix">/ per month</span>                                            </div><!-- /.price -->
-                    </div><!-- /.wrapper -->
-                  </div><!-- /.property -->
-
-                  <div class="property-info clearfix">
-                    <div class="area">
-                      <i class="icon icon-normal-cursor-scale-up"></i>
-                      1030m<sup>2</sup>
-                    </div><!-- /.area -->
-
-                    <div class="bedrooms">
-                      <i class="icon icon-normal-bed"></i>
-                      12
-                    </div><!-- /.bedrooms -->
-
-                    <div class="bathrooms">
-                      <i class="icon icon-normal-shower"></i>
-                      6
-                    </div><!-- /.bathrooms -->
-                  </div><!-- /.info -->
-                  <div class="property clearfix">
-                    <div class="image">
-                      <a href="properties/677-cottage-terrace/index.html">
-                        <img width="570" height="425" src="/assets/uploads/2013/08/17.jpg" class="attachment-post-thumbnail wp-post-image" alt="17" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="wrapper">
-                      <div class="title">
-                        <h3><a href="properties/677-cottage-terrace/index.html">
-                            677 Cottage Terrace
-                          </a></h3>
-                      </div><!-- /.title -->
-
-                      <div class="location">Spring Valley</div><!-- /.location -->
-
-                      <div class="price">
-                        59,600 €                                            </div><!-- /.price -->
-                    </div><!-- /.wrapper -->
-                  </div><!-- /.property -->
-
-                  <div class="property-info clearfix">
-                    <div class="area">
-                      <i class="icon icon-normal-cursor-scale-up"></i>
-                      650m<sup>2</sup>
-                    </div><!-- /.area -->
-
-                    <div class="bedrooms">
-                      <i class="icon icon-normal-bed"></i>
-                      1
-                    </div><!-- /.bedrooms -->
-
-                    <div class="bathrooms">
-                      <i class="icon icon-normal-shower"></i>
-                      1
-                    </div><!-- /.bathrooms -->
-                  </div><!-- /.info -->
+                  <%= render :partial => "home/most_recent_properties", :locals => {:properties => @properties} %>
                 </div><!-- /.content -->
 
-              </div>                                    </div>
+              </div>                                   
+            </div>
 
             <div class="span3">
               <div id="nav_menu-2" class="widget widget_nav_menu"><h2>Helpful Links</h2><div class="menu-helpful-links-container"><ul id="menu-helpful-links" class="menu"><li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-250"><a href="default-template/index.html">Default Template</a></li>
@@ -350,120 +241,10 @@
                 <h2>Featured Properties</h2>
 
                 <div class="content">
-                  <div class="property clearfix">
-                    <div class="image">
-                      <a href="properties/20th-st-ne/index.html">
-                        <img width="570" height="425" src="/assets/uploads/2013/08/1.jpg" class="attachment-post-thumbnail wp-post-image" alt="1" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="wrapper">
-                      <div class="title">
-                        <h3><a href="properties/20th-st-ne/index.html">
-                            20th St NE
-                          </a></h3>
-                      </div><!-- /.title -->
-
-                      <div class="location">Benning</div><!-- /.location -->
-
-                      <div class="price">
-                        85,600 €                                            </div><!-- /.price -->
-                    </div><!-- /.wrapper -->
-                  </div><!-- /.property -->
-
-                  <div class="property-info clearfix">
-                    <div class="area">
-                      <i class="icon icon-normal-cursor-scale-up"></i>
-                      450m<sup>2</sup>
-                    </div><!-- /.area -->
-
-                    <div class="bedrooms">
-                      <i class="icon icon-normal-bed"></i>
-                      1
-                    </div><!-- /.bedrooms -->
-
-                    <div class="bathrooms">
-                      <i class="icon icon-normal-shower"></i>
-                      2
-                    </div><!-- /.bathrooms -->
-                  </div><!-- /.info -->
-                  <div class="property clearfix">
-                    <div class="image">
-                      <a href="properties/246-varnum-pl-ne/index.html">
-                        <img width="570" height="425" src="/assets/uploads/2013/08/12.jpg" class="attachment-post-thumbnail wp-post-image" alt="12" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="wrapper">
-                      <div class="title">
-                        <h3><a href="properties/246-varnum-pl-ne/index.html">
-                            246 Varnum Pl NE
-                          </a></h3>
-                      </div><!-- /.title -->
-
-                      <div class="location">Kingman Park</div><!-- /.location -->
-
-                      <div class="price">
-                        32,500 €                                            </div><!-- /.price -->
-                    </div><!-- /.wrapper -->
-                  </div><!-- /.property -->
-
-                  <div class="property-info clearfix">
-                    <div class="area">
-                      <i class="icon icon-normal-cursor-scale-up"></i>
-                      500m<sup>2</sup>
-                    </div><!-- /.area -->
-
-                    <div class="bedrooms">
-                      <i class="icon icon-normal-bed"></i>
-                      2
-                    </div><!-- /.bedrooms -->
-
-                    <div class="bathrooms">
-                      <i class="icon icon-normal-shower"></i>
-                      3
-                    </div><!-- /.bathrooms -->
-                  </div><!-- /.info -->
-                  <div class="property clearfix">
-                    <div class="image">
-                      <a href="properties/randolph-st-nw/index.html">
-                        <img width="570" height="425" src="/assets/uploads/2013/08/6.jpg" class="attachment-post-thumbnail wp-post-image" alt="6" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="wrapper">
-                      <div class="title">
-                        <h3><a href="properties/randolph-st-nw/index.html">
-                            Randolph St NW
-                          </a></h3>
-                      </div><!-- /.title -->
-
-                      <div class="location">Civic Betterment</div><!-- /.location -->
-
-                      <div class="price">
-                        97,400 €                                            </div><!-- /.price -->
-                    </div><!-- /.wrapper -->
-                  </div><!-- /.property -->
-
-                  <div class="property-info clearfix">
-                    <div class="area">
-                      <i class="icon icon-normal-cursor-scale-up"></i>
-                      680m<sup>2</sup>
-                    </div><!-- /.area -->
-
-                    <div class="bedrooms">
-                      <i class="icon icon-normal-bed"></i>
-                      3
-                    </div><!-- /.bedrooms -->
-
-                    <div class="bathrooms">
-                      <i class="icon icon-normal-shower"></i>
-                      2
-                    </div><!-- /.bathrooms -->
-                  </div><!-- /.info -->
+                  <%= render :partial => "home/most_recent_properties", :locals => {:properties => @properties} %>                
                 </div><!-- /.content -->
-
-              </div>                                    </div>
+              </div>
+            </div>                                    
           </div><!-- /.row -->
         </div><!-- /#footer-top-inner -->
       </div><!-- /#footer-top -->            

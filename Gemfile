@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'devise'
@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'capistrano'
 gem 'rvm-capistrano'
 gem 'capistrano-ext'
+gem "pg"
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap-will_paginate'
