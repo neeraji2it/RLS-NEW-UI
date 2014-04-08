@@ -509,16 +509,19 @@
 
           <div class="row">
             <div class="span6 gallery">
-               <div class="preview">
-                <%= image_tag(@property.images.first.image, :width => 570, :height => 425) %>
+              <div class="preview">
+                <% if @property.images.present? %>
+                  <%= image_tag(@property.images.first.image, :width => 570, :height => 425) %>
+                <% end %>
               </div>
 
               <div class="content">
                 <ul>
+                  <% if @property.images.present? %>
                     <% @property.images.each do |image| %>
-                  <li class="active"><div class="thumb"><%= image_tag (image.image) %></div></li>
-                  <% end%>
-                  
+                      <li class="active"><div class="thumb"><%= image_tag (image.image) %></div></li>
+                    <% end%>
+                  <% end %>
                 </ul>
               </div><!-- /.content -->
             </div>
@@ -557,38 +560,38 @@
                           <td><%= @property.location %></td>
                         </tr>
 
-                       <% if @property.property_type=='Apartment' || @property.property_type=='Villa' %>
-                        <tr>
-                          <th>No.ofRooms:</th>
-                          <td><%=  @property.no_of_rooms %></td>
-                        </tr>
-                      <% end %>
-                      <% if @property.property_type=='Apartment' || @property.property_type=='Villa' || @property.property_type=='Land'%>
-                        <tr>
-                          <th>Area(sq.ft):</th>
-                          <td><%=  @property.area %></td>
-                        </tr>
-                      <% end %>
-                      <% if @property.property_type=='PG/Hostel' %>
-                        <tr>
-                          <th>
-                            Accommodation:
-                          </th>
-                          <td>
-                            <%= @property.accomidiation %>
-                          </td>
-                        </tr>
-                      <% end %>
-                      <% if @property.property_type=='Land' %>
-                        <tr>
-                          <th>
-                            LandType:
-                          </th>
-                          <td>
-                            <%= @property.type_of_land %>
-                          </td>
-                        </tr>
-                      <% end %>
+                        <% if @property.property_type=='Apartment' || @property.property_type=='Villa' %>
+                          <tr>
+                            <th>No.ofRooms:</th>
+                            <td><%=  @property.no_of_rooms %></td>
+                          </tr>
+                        <% end %>
+                        <% if @property.property_type=='Apartment' || @property.property_type=='Villa' || @property.property_type=='Land'%>
+                          <tr>
+                            <th>Area(sq.ft):</th>
+                            <td><%=  @property.area %></td>
+                          </tr>
+                        <% end %>
+                        <% if @property.property_type=='PG/Hostel' %>
+                          <tr>
+                            <th>
+                              Accommodation:
+                            </th>
+                            <td>
+                              <%= @property.accomidiation %>
+                            </td>
+                          </tr>
+                        <% end %>
+                        <% if @property.property_type=='Land' %>
+                          <tr>
+                            <th>
+                              LandType:
+                            </th>
+                            <td>
+                              <%= @property.type_of_land %>
+                            </td>
+                          </tr>
+                        <% end %>
 
                         <tr>
                           <th>
@@ -628,75 +631,75 @@
               <div class="row">
                 <div class="span6">
                   <% if @property.property_type=='Apartment' || @property.property_type=='Villa' %>
-                <h2>General amenities</h2>
+                    <h2>General amenities</h2>
 
-                <div class="row" style="margin-left: 3px;">
-                  <ul class="span2">
-                    <% @property.aminities[0..4].each do |aminity| %>
-                      <li class="checked" style="width:180px;">  <%= aminity.aminity_type %></li>
-                    <% end%>
-                  </ul>
-                  <% if @property.aminities.count > 4 %>
-                    <ul class="span2">
-                      <% @property.aminities[5..9].each do |aminity| %>
-                        <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
-                      <% end%>
-                    </ul>
+                    <div class="row" style="margin-left: 3px;">
+                      <ul class="span2">
+                        <% @property.aminities[0..4].each do |aminity| %>
+                          <li class="checked" style="width:180px;">  <%= aminity.aminity_type %></li>
+                        <% end%>
+                      </ul>
+                      <% if @property.aminities.count > 4 %>
+                        <ul class="span2">
+                          <% @property.aminities[5..9].each do |aminity| %>
+                            <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
+                          <% end%>
+                        </ul>
+                      <% end %>
+                      <% if @property.aminities.count > 9%>
+                        <ul class="span2">
+                          <% @property.aminities[10..14].each do |aminity| %>
+                            <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
+                          <% end%>
+                        </ul>
+                      <% end %>
+                      <% if @property.aminities.count > 14 %>
+                        <ul class="span2">
+                          <% @property.aminities[15..19].each do |aminity| %>
+                            <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
+                          <% end%>
+                        </ul>
+                      <% end %>
+                      <% if @property.aminities.count > 20%>
+                        <ul class="span2">
+                          <% @property.aminities[20..24].each do |aminity| %>
+                            <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
+                          <% end%>
+                        </ul>
+                      <% end %>
+                      <% if @property.aminities.count > 24 %>
+                        <ul class="span2">
+                          <% @property.aminities[25..29].each do |aminity| %>
+                            <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
+                          <% end%>
+                        </ul>
+                      <% end %>
+                    </div>
                   <% end %>
-                  <% if @property.aminities.count > 9%>
-                    <ul class="span2">
-                      <% @property.aminities[10..14].each do |aminity| %>
-                        <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
-                      <% end%>
-                    </ul>
-                  <% end %>
-                  <% if @property.aminities.count > 14 %>
-                    <ul class="span2">
-                      <% @property.aminities[15..19].each do |aminity| %>
-                        <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
-                      <% end%>
-                    </ul>
-                  <% end %>
-                  <% if @property.aminities.count > 20%>
-                    <ul class="span2">
-                      <% @property.aminities[20..24].each do |aminity| %>
-                        <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
-                      <% end%>
-                    </ul>
-                  <% end %>
-                  <% if @property.aminities.count > 24 %>
-                    <ul class="span2">
-                      <% @property.aminities[25..29].each do |aminity| %>
-                        <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
-                      <% end%>
-                    </ul>
-                  <% end %>
-                </div>
-              <% end %>
-              </div><!-- /.row -->
+                </div><!-- /.row -->
+              </div>
+
+              <div class="span3">
+                <h2>Map</h2>
+
+                <div id="property-map"></div>
+              </div>
+
             </div>
-
-            <div class="span3">
-              <h2>Map</h2>
-
-              <div id="property-map"></div>
-            </div>
-
           </div>
-        </div>
 
-      </div><!-- /#main -->
+        </div><!-- /#main -->
 
-    </div><!-- /.row -->
-  </div><!-- /.container -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
 
-  
-<% else %>
-  This Property is now Inactive status.
-<% end %>
+
+  <% else %>
+    This Property is now Inactive status.
+  <% end %>
 
   <script>
-  $(document).ready(function() {
-    google.maps.event.addDomListener(window, 'load', LoadMapProperty(<%= @lat_long.to_json.html_safe %>));
-  });
-</script>
+    $(document).ready(function() {
+      google.maps.event.addDomListener(window, 'load', LoadMapProperty(<%= @lat_long.to_json.html_safe %>));
+    });
+  </script>
