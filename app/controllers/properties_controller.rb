@@ -12,9 +12,9 @@ class PropertiesController < ApplicationController
   
   def create
     @property = Property.new(property_params)
-#    if @property.no_of_rooms.present?
-#      @property.no_of_rooms = params[:property][:no_of_rooms].reject { |c| c.blank? }.split("\n").join(',')
-#    end  
+    #    if @property.no_of_rooms.present?
+    #      @property.no_of_rooms = params[:property][:no_of_rooms].reject { |c| c.blank? }.split("\n").join(',')
+    #    end  
     
     if @property.save
       if params[:amenity_type]
@@ -23,8 +23,14 @@ class PropertiesController < ApplicationController
         end
       end
       PropertyMailer.confirm_property(@property).deliver
-      Contact.select("email,name").group(:email).each do |contact|
-        PropertyMailer.send_property(contact, @property).deliver
+      # this code comment for heroku after finish live we need to un comment this.
+      #      Contact.select("email,name").group(:email).each do |contact|
+      #        PropertyMailer.send_property(contact, @property).deliver
+      #      end
+      unless !Contact.all.present?
+        Contact.all.each do |contact|
+          PropertyMailer.send_property(contact, @property).deliver
+        end
       end
       flash[:notice] = "Listing property successfull!"
       redirect_to root_path
