@@ -110,8 +110,7 @@
       </label>
 
       <div class="controls">
-        <%= f.radio_button :creatiwa_team,"Yes",:style=>"margin-left:11px;"%> Yes<br/>
-        <%= f.radio_button :creatiwa_team,"No",:style=>"margin-left:11px;"%> No
+        <%= f.select :furnished,options_for_select([["Select" ,""],["Unfurnished","Unfurnished"],["Semi-Furnished","Semi-Furnished"],["Fully Furnished","Fully Furnished"]],:selected => f.object.furnished),:id=>"inputPropertyPropertyType"  %>
       </div>
     </div>
 
