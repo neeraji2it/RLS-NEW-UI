@@ -12,9 +12,9 @@ class PropertiesController < ApplicationController
   
   def create
     @property = Property.new(property_params)
-    if @property.no_of_rooms.present?
-      @property.no_of_rooms = params[:property][:no_of_rooms].reject { |c| c.blank? }.split("\n").join(',')
-    end  
+#    if @property.no_of_rooms.present?
+#      @property.no_of_rooms = params[:property][:no_of_rooms].reject { |c| c.blank? }.split("\n").join(',')
+#    end  
     
     if @property.save
       if params[:amenity_type]
