@@ -2,6 +2,6 @@ LOCATIONS = ["80 Ft. Road","Agaram","Airport","Anepalya","Ashok Nagar","Attigupp
 PAYMENT_TYPES = [["Cash", "cash"], ["Cheque", "cheque"], ["Online", "online"]]
 AMENITIES_TYPES = ["Park", "Security", "Swimming Pool", "Private Terrace/Garden", "PipedGas", "Wi-Fi Connectivity", "Vaastu Compliant", "Laundry Service", "Visitor Parking", "Maintenance Staff", "Service/Goods Lift", "Power Back Up", "Intercom Facility", "Air Conditioning" ]
 S3_BUCKET_NAME = "ezyprops"
-ADMIN_EMAIL = "neeraj@dine-media.com"
+ADMIN_EMAIL = "support@ezyprops.com"
 SENDGRID_USERNAME = "neeraji2it"
 SENDGRID_PASSWORD = "brother123"

@@ -9,7 +9,7 @@ class Contactmailer < ActionMailer::Base
   def enquiry_admin(contact,property)
     @contact = contact
     @property = property
-    mail(:to=> ADMIN_EMAIL,:subject=>"Info")
+    mail(:to=> ADMIN_EMAIL,:subject=>"#{@contact.name} has viewed #{@property.title} property")
   end
   def need_list(contact)
     @contact = contact
