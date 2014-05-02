@@ -38,11 +38,11 @@ Estate::Application.configure do
     :authentication => :login
   }
   
-#  ActionMailer::Base.smtp_settings = {
-#    :address => "smtp.sendgrid.net",
-#    :port => 587,
-#    :authentication => :plain,
-#    :user_name => SENDGRID_USERNAME,
-#    :password => SENDGRID_PASSWORD
-#  }
+  #  ActionMailer::Base.smtp_settings = {
+  #    :address => "smtp.sendgrid.net",
+  #    :port => 587,
+  #    :authentication => :plain,
+  #    :user_name => SENDGRID_USERNAME,
+  #    :password => SENDGRID_PASSWORD
+  #  }
 end

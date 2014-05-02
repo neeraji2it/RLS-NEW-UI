@@ -8,8 +8,11 @@ Estate::Application.routes.draw do
   resources :properties do
     collection do
       get :search
+      get :index_search
+      get :quick_search
       post :send_contact
       post :request_contact
+      post :contact_us
     end
     member do
       post :post_contact
