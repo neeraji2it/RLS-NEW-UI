@@ -12,16 +12,16 @@ module ApplicationHelper
     f.hidden_field(:destroy)+link_to_function(name, "remove_fields(this)")
   end
   
-   def resource
+  def resource
     @resource ||= User.new
   end
   def resource_name
     :user
   end
-   def devise_mapping
+  def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
- def devise_error_messages!
+  def devise_error_messages!
     return '' if resource.errors.empty?
 
     messages = resource.errors.full_messages.map { |msg| content_tag(:li, msg) }.join

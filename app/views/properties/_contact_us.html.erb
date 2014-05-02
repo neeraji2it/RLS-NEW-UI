@@ -1,0 +1,46 @@
+
+<%= form_for(@contact, :as => :contact, :url => contact_us_properties_path, :method => "POST")  do |f| %>
+  <div class="control-group">
+    Name
+    <span class="form-required" title="This field is required.">*</span>
+    <div class="controls">
+      <%= f.text_field :name , :required=>"required" %>
+    </div><!-- /.controls -->
+  </div><!-- /.control-group -->
+  <div class="control-group">
+    Email
+    <span class="form-required" title="This field is required.">*</span>
+    <div class="controls">
+      <%= f.email_field :email,:required=>"required" %> 
+    </div><!-- /.controls -->
+  </div><!-- /.control-group -->
+  <div class="control-group">
+    Mobile No.
+    <div class="controls">
+      <%= f.text_field :phone,:required=>"required"%>
+    </div><!-- /.controls -->
+  </div><!-- /.control-group -->
+  <button class="btn btn-success">Submit</button> 
+<% end %>
+<style>
+  #footer-wrapper .widget input, #footer-wrapper .widget textarea, #footer-wrapper .widget .uneditable-input, #footer-wrapper .widget #inputDate{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    width: 242px;
+  }
+  .widget .btn{
+    background: none repeat scroll 0 0 #4C9F28;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(0, 63, 79, 0.2);
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    padding: 6px 10px;
+    text-align: center;
+    text-shadow: none;
+    transition: all 0.2s ease 0s;
+    width: 46%;
+  }
+</style>

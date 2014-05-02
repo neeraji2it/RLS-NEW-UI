@@ -1,0 +1,203 @@
+<div class="map-wrapper">
+  <%= render :partial=>"home/map" %>
+  <!-- /.map -->
+</div><!-- /.map-wrapper -->
+<div class="container">
+  <div class="row">
+
+
+    <div class="sidebar span3">
+      <div id="search-2" class="widget widget_search"><h2>Quick Search</h2><div class="content">
+          <%= form_for :search,:url =>quick_search_properties_path, :html => {:class => "form-inline",:method => 'get' } do |f| %>
+            <%= text_field_tag :quick_search, params[:quick_search],:class=>"search-query form-text", :placeholder=>"Search", :id=>"s" %>
+            <button type="submit" class="btn">Search</button>
+          <% end %>
+        </div><!-- /.inner --></div><div id="partners_widget-2" class="widget partners">
+
+        <h2>Partners In Development</h2>
+
+        <div class="partners">
+          <div class="row">
+            <div class="span3">
+              <div class="partner">
+                <a href="http://www.dine-media.in/">
+                  <img width="270" height="70" src="/assets/logo.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
+                </a>
+              </div>
+            </div><!-- /.span3 -->
+          </div><!-- /.row -->
+        </div><!-- /.partners -->
+      </div><div id="mostrecentproperties_widget-2" class="widget properties">
+
+        <h2>Most Recent Properties</h2>
+
+        <div class="content">
+          <%= render :partial=>"home/most_recent", :locals => {:properties => @properties}  %>
+        </div><!-- /.content -->
+
+      </div>    
+      <div id="agencies_widget-2" class="widget agencies">
+
+
+      </div>
+
+
+    </div><!-- /#sidebar -->
+
+    <div id="main" class="span9">
+
+      <h2>Featured Properties</h2>
+
+      <div class="content">
+        <div class="properties-grid featured">
+          <div class="row">
+            <% @properties.limit(3).each do |property| %>
+              <div class="span3">
+                <%= render :partial => "home/properties", :locals => {:property => property} %>
+              </div><!-- /.span4 -->
+            <% end %>
+          </div>
+        </div><!-- /.properties-grid -->
+      </div><!-- /.content -->
+
+      <div class="show-all">
+        <%= link_to "Show all", properties_path %>
+        <hr>
+      </div>
+      <h1 class="page-header">Recent Properties</h1>
+
+      <div class="properties-grid">
+        <div class="row-fluid">
+          <% @properties[0..3].each do |property| %>
+            <div class="span3">
+              <%= render :partial => "home/properties", :locals => {:property => property} %>
+            </div>
+          <% end %>
+
+        </div>
+        <% if @properties.length > 4 %>
+          <div class="row-fluid">
+            <% @properties[4..7].each do |property| %>
+              <div class="span3">
+                <%= render :partial => "home/properties", :locals => {:property => property} %>
+              </div>
+            <% end %>
+
+          </div>
+        <% end %>
+
+        <div class="row-fluid">
+        </div><!-- /.row -->
+      </div><!-- /.properties-grid -->  
+      <div class="show-all">
+        <%= link_to "Show all", properties_path %>
+      </div>
+      <hr>
+
+      <div id="text-2" class="widget widget_text">	
+        <div class="textwidget">
+          <div class="row">
+            <div class="span3">
+              <div class="content-box">
+                <div class="row">
+
+                  <div class="span1">
+                    <div class="pictopro-icon">
+                      <i class="icon icon-normal-profile-male"></i>
+                    </div>
+                  </div>
+
+                  <div class="content span2">
+                    <h3>List your property</h3>
+
+                    <p>List your property for free and let it reach to those millions who are looking aggressively to rent/lease and buy your property.</p>
+                  </div>
+                  <!-- /.content -->
+                </div>
+                <!-- /.row -->
+              </div><!-- /.content-box -->
+            </div>
+            <div class="span3">
+              <div class="content-box">
+                <div class="row">
+
+                  <div class="span1">
+                    <div class="pictopro-icon">
+                      <i class="icon icon-normal-globe"></i>
+                    </div>
+                  </div>
+
+                  <div class="content span2">
+                    <h3>Advertise to Masses</h3>
+
+                    <p>EZYPROPS is a very strong and efficient medium to advertise your property to those ever increasing interested group of buyers. </p>
+                  </div>
+                  <!-- /.content -->
+                </div>
+                <!-- /.row -->
+              </div><!-- /.content-box -->
+            </div>
+            <div class="span3">
+              <div class="content-box">
+                <div class="row">
+
+                  <div class="span1">
+                    <div class="pictopro-icon">
+                      <i class="icon icon-normal-magnifier"></i>
+                    </div>
+                  </div>
+
+                  <div class="content span2">
+                    <h3>Guidance & Support</h3>
+
+                    <p>We will give all the required support and guidence to you on Demand to increase your chances to getting success.</p>
+                  </div>
+                  <!-- /.content -->
+                </div>
+                <!-- /.row -->
+              </div><!-- /.content-box -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="carouselproperties_widget-2" class="widget property-carousel">
+
+
+        <h2>Pre-Launch Properties</h2>
+
+        <div class="carousel">
+          <ul class="bxslider properties-grid unstyled">
+            <% @properties.each do |property| %>
+              <li>
+                <%= render :partial => "home/properties", :locals => {:property => property} %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+
+  <!-- Modal -->
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Contact Us</h3>
+    </div>
+    <div class="modal-body">
+      <%= render :partial=>"properties/send_contact_form" %>
+    </div>
+  </div>
+
+  <!-- Modal -->
+
+  <style>
+    .chzn-results li{
+      color:black;
+    }
+    label{
+      width:170px;
+    }
+  </style>

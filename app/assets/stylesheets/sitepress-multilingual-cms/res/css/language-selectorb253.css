@@ -49,41 +49,41 @@
 
 
 #lang_sel_footer {
-  margin: 0;
-  padding: 7px;
-  text-align: center;
-  border: 1px solid #fff;
-  font: 11px Verdana, sans-serif;
-  min-height: 15px;
-  clear: both;
-  background-color: #fff;
-  border: 1px solid #cdcdcd;
+    margin: 0;
+    padding: 7px;
+    text-align: center;
+    border: 1px solid #fff;
+    font: 11px Verdana, sans-serif;
+    min-height: 15px;
+    clear: both;
+    background-color: #fff;
+    border: 1px solid #cdcdcd;
 }
 
 #lang_sel_footer ul {
-  list-style: none;
-  margin:0;
-  padding:0;
+    list-style: none;
+    margin:0;
+    padding:0;
 }
 
 #lang_sel_footer ul li img {
-  position: relative;
-  top: 1px;
-  width: 18px;
-  height: 12px;
+    position: relative;
+    top: 1px;
+    width: 18px;
+    height: 12px;
 }
 
 #lang_sel_footer ul li {
-  display:inline;
-  margin:0 1px 0 0;
-  padding:0;
-  white-space: nowrap;
-  line-height: 25px;
+    display:inline;
+    margin:0 1px 0 0;
+    padding:0;
+    white-space: nowrap;
+    line-height: 25px;
 }
 
 #lang_sel_footer ul li a, #lang_sel_footer ul li a:visited {
-  text-decoration: none;
-  padding: 5px 10px;
+    text-decoration: none;
+    padding: 5px 10px;
 }
 
 #lang_sel_footer ul li a:hover, #lang_sel_footer ul li a:active {}

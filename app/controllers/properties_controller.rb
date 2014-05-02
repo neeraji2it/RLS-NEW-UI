@@ -1,7 +1,9 @@
 class PropertiesController < ApplicationController
   
   def index
-    @properties = Property.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+    @properties = Property.all.order("created_at #{params[:order_type]}").paginate(:page => params[:page], :per_page => 10)
+    @properties_recent = Property.all.order("created_at DESC")
+
   end
   
   def new
@@ -45,7 +47,8 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     @properties = Property.all
-    @lat_long = [@property.latitude,@property.longitude,@property.title,@property.images.present? ? @property.images.first.image : "",@property.area,@property.id,@property.price, @property.location, @property.no_of_rooms]
+    @lat_long = [@property.latitude,@property.longitude]
+    @type = [@property.property_type.split('/')[0].split(" ")[0]]
     @contact = params[:contact_id].present? ? Contact.find(params[:contact_id]) : Contact.new
   end
   
@@ -56,19 +59,38 @@ class PropertiesController < ApplicationController
   end
   
   def search
+    @properties = Property.all.order("created_at DESC")
     if params[:search].present? and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank? or !params[:search][:price_from].blank? or !params[:search][:price_to].blank?)
-      @properties = Property.type_of_property(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to])
+      @properties_map = Property.type_of_property(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to])
       @lat_longs = []
-      @properties.each do |prop|
-        @lat_longs<<[prop.latitude,prop.longitude,prop.title,prop.images.present? ? prop.images.first.image : " ",prop.area,prop.id,prop.price, prop.location, prop.no_of_rooms]
+      @types = []
+      @property_types = params[:search][:property_type]
+      @contents = []
+      @properties_map.each do |prop|
+        @lat_longs << [prop.latitude,prop.longitude]
+        @types << [prop.property_type.split('/')[0]]
+        if prop.property_type=="Apartment" or prop.property_type=="Villa" or prop.property_type=="Single Home" or prop.property_type=="Family House"
+          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href='"properties/#{prop.id}"'><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href='"properties/#{prop.id}"'>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>'"#{prop.no_of_rooms}"'</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>'"#{prop.bath_rooms}"'</div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="properties/'"#{prop.id}"'">View more</a></div></div></div>']
+        else
+          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href='"properties/#{prop.id}"'><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href='"properties/#{prop.id}"'>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="properties/'"#{prop.id}"'">View more</a></div></div></div>']
+        end 
       end
     else
+      @properties_map = Property.all
       @lat_longs = []
-      @properties = []
+      @types = []
+      @property_types = params[:search][:property_type]
+      @contents = []
+      @properties_map.each do |prop|
+        @lat_longs << [prop.latitude,prop.longitude]
+        @types << [prop.property_type.split('/')[0]]
+        if prop.property_type=="Apartment" or prop.property_type=="Villa" or prop.property_type=="Single Home" or prop.property_type=="Family House"
+          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href='"properties/#{prop.id}"'><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href='"properties/#{prop.id}"'>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>'"#{prop.no_of_rooms}"'</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>'"#{prop.bath_rooms}"'</div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="properties/'"#{prop.id}"'">View more</a></div></div></div>']
+        else
+          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href='"properties/#{prop.id}"'><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href='"properties/#{prop.id}"'>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="properties/'"#{prop.id}"'">View more</a></div></div></div>']
+        end 
+      end
     end
-    @properties_rent = Property.where("property_listing = 'Rent'")   
-    @properties_sale = Property.where("property_listing = 'Sale'").order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
-    @properties_lease = Property.where("property_listing = 'Lease'")
     @contact = Contact.new
   end
   
@@ -127,6 +149,27 @@ class PropertiesController < ApplicationController
     redirect_to admin_dashboards_path
   end
   
+  def index_search
+    @properties_recent = Property.all.order("created_at DESC")
+    @properties = Property.all.order("created_at #{params[:order_type]}").paginate(:page => params[:page], :per_page => 10)
+    if params[:search].present? and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank? or !params[:search][:price_from].blank? or !params[:search][:price_to].blank? or !params[:search][:no_of_rooms].blank? or !params[:search][:bath_rooms].blank?)
+      @properties = Property.type_of_properties(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to]).number_of_rooms(params[:search][:no_of_rooms]).number_of_baths(params[:search][:bath_rooms]).paginate(:page => params[:page], :per_page => 10)
+    else
+    end
+  end  
+  
+  def quick_search
+    @properties = Property.all.order("created_at DESC")
+    @param = params[:quick_search]
+    @properties_quick = Property.search(params[:quick_search]).paginate(:page => params[:page], :per_page => 10)
+  end
+  
+  
+  def contact_us
+    @contact = Contact.new(contact_params)
+    @contact.save
+      redirect_to "/"
+    end
   
   private
   def property_params

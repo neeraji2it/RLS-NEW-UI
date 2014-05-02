@@ -35,10 +35,15 @@
     <i class="icon icon-normal-cursor-scale-up"></i>
     <%= property.area %>m<sup>2</sup>
   </div><!-- /.area -->
+  <% if property.property_type=="Apartment" || property.property_type=="Villa" || property.property_type=="Single Home" || property.property_type== "Family House" %>
+    <div class="bedrooms">
+      <i class="icon icon-normal-bed"></i>
+      <%= property.no_of_rooms %>
+    </div><!-- /.bedrooms -->
 
-  <div class="bedrooms">
-    <i class="icon icon-normal-bed"></i>
-    <%= property.no_of_rooms %>
-  </div><!-- /.bedrooms -->
-
+    <div class="bathrooms">
+      <i class="icon icon-normal-shower"></i>
+      <%= property.bath_rooms %>
+    </div><!-- /.bathrooms -->
+  <% end %>
 </div><!-- /.property-info -->

@@ -1,8 +1,8 @@
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
 
     var input = document.getElementById('location-selector');
 
-    if(jQuery('#location-selector').length == 0) {
+    if (jQuery('#location-selector').length == 0) {
         return;
     }
 
@@ -21,14 +21,14 @@ jQuery(document).ready(function () {
     });
 
     // prevent submitting for when hitting enter
-    jQuery('#location-selector').keypress(function (e) {
+    jQuery('#location-selector').keypress(function(e) {
         if (event.keyCode == 13) {
             e.preventDefault();
         }
     });
 
     var searchBox = new google.maps.places.SearchBox(input);
-    google.maps.event.addListener(searchBox, 'places_changed', function () {
+    google.maps.event.addListener(searchBox, 'places_changed', function() {
         var places = searchBox.getPlaces();
         var place = places[0];
         // For each place, get the icon, place name, and location.
@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
 
     // Bias the SearchBox results towards places that are within the bounds of the
     // current map's viewport.
-    google.maps.event.addListener(map, 'bounds_changed', function () {
+    google.maps.event.addListener(map, 'bounds_changed', function() {
         var bounds = map.getBounds();
         searchBox.setBounds(bounds);
 
@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
         jQuery('.longitude').attr('value', lon);
     });
 
-    google.maps.event.addListener(marker, 'dragend', function () {
+    google.maps.event.addListener(marker, 'dragend', function() {
         var position = marker.getPosition();
         var lat = position.lat();
 

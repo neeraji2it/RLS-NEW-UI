@@ -1,18 +1,17 @@
 <div class="title">
-  <h2 class="block-title">Contact Us</h2>
 </div><!-- /.title --> 
 <div class="content">  
   <% if @contact.errors.any? %>
-  <div id="errorExplanation" style="width:220px;">
-    <h2><%= pluralize(@contact.errors.count, "error") %> prohibited
-      this post from being saved:</h2>
-    <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+    <div id="errorExplanation" style="width:220px;">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited
+        this post from being saved:</h2>
+      <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= form_for @contact, :url =>  post_contact_property_path(@property, @contact), :html => {:method => 'post'},:remote => true  do |f| %>
     <div class="control-group">
       <label class="control-label" for="inputName">
@@ -29,11 +28,11 @@
         <span class="form-required" title="This field is required.">*</span>
       </label>
       <div class="controls">
-        <%= f.email_field :email,:id=>"inputEmail" ,:style=>"width:217px;",:required=>"required"%> 
+        <%= f.email_field :email,:id=>"inputEmail" ,:required=>"required"%> 
       </div><!-- /.controls -->
     </div><!-- /.control-group -->
     <div class="control-group">
-      <label class="control-label" for="inputName">
+      <label class="control-label" for="inputPhone">
         Mobile No.
         <span class="form-required" title="This field is required.">*</span>
       </label>
@@ -52,7 +51,7 @@
       </div><!-- /.controls -->
     </div><!-- /.control-group -->
     <div class="form-actions" >
-      <%= f.submit "Send" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:150px;" %>
+      <%= f.submit "Send" ,:class=>"btn btn-primary arrow-right" %>
     </div><!-- /.form-actions -->
   <% end %>
 </div>

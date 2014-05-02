@@ -15,53 +15,53 @@ For CSS processing we are using SASS files located in assets/sass. If you famili
 feel free to compile our code. If not please write here your custom CSS to overwrite our code.
 */
 .center {
-	text-align: center;
+    text-align: center;
 }
 
 .aligncenter {
-	margin: auto;
-	text-align: center;
-	margin-bottom: 22px;
-	display: block !important;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 22px;
+    display: block !important;
 }
 
 .alignleft {
-	float: left;
-	margin: 0px 30px 22px 0px;
+    float: left;
+    margin: 0px 30px 22px 0px;
 }
 
 .alignright {
-	float: right;
-	margin: 0px 0px 22px 30px;
+    float: right;
+    margin: 0px 0px 22px 30px;
 }
 
 .left {
-	float: left;
+    float: left;
 }
 
 .right {
-	float: right;
+    float: right;
 }
 
 small {
-	font-size: 11px;
-	line-height: 14px;
+    font-size: 11px;
+    line-height: 14px;
 }
 
 strong {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 b {
-	font-weight: bold;
+    font-weight: bold;
 }
 
 .normal {
-	font-weight: normal;
+    font-weight: normal;
 }
 
 .hidden {
-	display: none;
+    display: none;
 }
 
 .wp-caption {
@@ -80,8 +80,8 @@ b {
 }
 
 .error404 .not-found .content form {
-	margin: 0px;
-	width: auto;
+    margin: 0px;
+    width: auto;
 }
 
 .map .property-filter { display: none; }

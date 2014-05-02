@@ -1,4 +1,4 @@
-<% properties.limit(3).each do |property| %>
+<% properties[0..2].each do |property| %>
   <div class="property clearfix">
     <div class="image">
       <a href='#myModal' onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">
@@ -27,10 +27,17 @@
       <%= property.area %>m<sup>2</sup>
     </div><!-- /.area -->
 
-    <div class="bedrooms">
-      <i class="icon icon-normal-bed"></i>
-      <%= property.no_of_rooms %>
-    </div><!-- /.bedrooms -->
+    <% if property.property_type=="Apartment" || property.property_type=="Villa" || property.property_type=="Single Home" || property.property_type== "Family House" %>
+      <div class="bedrooms">
+        <i class="icon icon-normal-bed"></i>
+        <%= property.no_of_rooms %>
+      </div><!-- /.bedrooms -->
+
+      <div class="bathrooms">
+        <i class="icon icon-normal-shower"></i>
+        <%= property.bath_rooms %>
+      </div><!-- /.bathrooms -->
+    <% end %>
 
   </div><!-- /.info -->
 <% end %>

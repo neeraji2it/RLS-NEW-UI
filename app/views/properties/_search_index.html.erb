@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div class="sidebar span3">
+      <h2>Search Properties</h2>
+      <div class="property-filter widget">
+        <div class="content">
+          <%= render :partial=>"index_search" %>
+        </div>
+        <!-- /.content -->
+      </div><!-- /.property-filter -->
+      <div id="partners_widget-2" class="widget partners">
+
+        <h2>Partners In Development</h2>
+
+        <div class="partners">
+          <div class="row">
+            <div class="span3">
+              <div class="partner">
+                <a href="http://www.dine-media.in/">
+                  <img width="270" height="70" src="/assets/logo.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
+                </a>
+              </div>
+            </div><!-- /.span3 -->
+          </div><!-- /.row -->
+        </div><!-- /.partners -->
+      </div><div id="mostrecentproperties_widget-2" class="widget properties">
+
+        <h2>Most Recent Properties</h2>
+
+        <div class="content">
+          <%= render :partial=>"home/most_recent_properties" ,:locals => {:properties => @properties_recent}%>
+        </div><!-- /.content -->
+
+      </div>    
+      <div id="agencies_widget-2" class="widget agencies">
+        <%= render :partial=>"home/most_recent", :locals => {:properties => @properties}  %>
+      </div>
+
+
+    </div><!-- /#sidebar -->
+
+    <div id="main" class="span9">
+      <h1 class="page-header">Properties</h1>
+
+      <div class="clearfix">
+
+
+        <div class="properties-rows">
+          <div class="filter-wrapper">
+            <div class="filter pull-right">
+              <div class="pager pull-right">
+<%#= will_paginate(@properties, :page_links => false, :next_label => "<i class='icon icon-normal-right-arrow-small'></i>", :previous_label => "<i class='icon icon-normal-left-arrow-small'></i>", :class => "", :container => "") %>
+              </div><!-- /.pager -->
+
+              <div class="control-group pull-right">
+                <div class="controls">
+<%#*<select name="filter_sort_by" id="inputSortBy">%>
+<%#*<option value="price" >Price</option>%>
+<%#*<option value="published" >Published</option>%>
+<%#*</select>%>
+                </div>
+              </div>
+
+              <div class="control-group pull-right">
+                <div class="controls">
+                  <%=  select_tag "order_type", options_for_select([["Ascending" ,"ASC"],["Descending","DESC"]],:selected=>params[:order_type]) , :onchange=>"window.location.href='/properties?order_type='+this.value",:id=>"inputOrder", :class=>"chosen" %>
+                </div><!-- /.controls -->
+              </div><!-- /.control-group -->
+            </div><!-- /.filter -->
+          </div>
+        </div><!-- /.properties-rows -->       
+      </div>
+      <div id="asc">
+        <%= render :partial=>"asc_desc" %>
+      </div>
+
+    </div><!-- /#main -->
+
+  </div><!-- /.row -->
+</div><!-- /.container -->
+
+

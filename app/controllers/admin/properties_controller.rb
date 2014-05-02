@@ -42,7 +42,7 @@ class Admin::PropertiesController < ApplicationController
     @body = params[:body]
     @property_ids = params[:id_value]
     PropertyMailer.send_mail(@email,@subject,@body,@property_ids).deliver
-     redirect_to "/admin/properties/#{params[:property_type]}"
+    redirect_to "/admin/properties/#{params[:property_type]}"
   end
   
   def search

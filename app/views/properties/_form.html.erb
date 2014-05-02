@@ -10,11 +10,11 @@
       </label>
 
       <div class="controls">
-        <%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"]],:selected => f.object.property_type),{},:onchange => "change_form(this)" %>
+        <%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]],:selected => f.object.property_type),{},:onchange => "change_form(this)" %>
       </div>
     </div>
 
-    <div class="control-group">
+    <div class="control-group" id="property_listing">
       <label class="control-label" for="address">
         Contract type
         <span class="form-required" title="This field is required.">*</span>
@@ -22,6 +22,17 @@
 
       <div class="controls">
         <%=f.select :property_listing, options_for_select([["Select" ,""],["Sale","Sale"],["Rent","Rent"],["Lease","Lease"]],:selected => f.object.property_listing),{},:onchange => "change_form1(this)" %>
+      </div>
+    </div>
+
+    <div class="control-group" id="land_sale">
+      <label class="control-label" for="address">
+        Contract type
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
+
+      <div class="controls">
+        <%= f.text_field :property_listing,:value=>"Sale" ,:readonly=>true %>
       </div>
     </div>
 
@@ -71,7 +82,7 @@
 
     <div class="control-group" id="rooms">
       <label class="control-label" for="address">
-        No.of Rooms
+        No.of BedRooms
         <span class="form-required" title="This field is required.">*</span>
       </label>
 
@@ -79,8 +90,18 @@
         <%= f.text_field :no_of_rooms %>
       </div>
     </div>
+    <div class="control-group" id="bath_rooms">
+      <label class="control-label" for="address">
+        No.of BathRooms
+        <span class="form-required" title="This field is required.">*</span>
+      </label>
 
-    <div class="control-group" id="area">
+      <div class="controls">
+        <%= f.text_field :bath_rooms %>
+      </div>
+    </div>
+
+    <div class="control-group">
       <label class="control-label" for="address">
         Area(Sq.ft)
         <span class="form-required" title="This field is required.">*</span>
@@ -93,7 +114,7 @@
 
     <div class="control-group" id="creatiwa">
       <label class="control-label" for="address">
-        Need Creatiwa team for my 2D/3D work
+        Need Creatiwa team for Your 2D/3D work
         <span class="form-required" title="This field is required.">*</span>
       </label>
 
@@ -242,41 +263,46 @@
 
 <script>
   function change_form(th) {
-    if ($(th).val() === 'Apartment') {
+    if ($(th).val() === 'Apartment' || $(th).val() === 'Villa' || $(th).val() === 'Single Home' || $(th).val() === 'Family House') {
       $("#land").hide();
       $("#radio_buttons1").show();
       $("#rooms").show();
+      $("#bath_rooms").show();
       $("#amenities").show();
       $("#furnish").show();
       $("#area").show();
-    } else if ($(th).val() === 'Villa') {
-      $("#land").hide();
-      $("#radio_buttons1").show();
-      $("#rooms").show();
-      $("#amenities").show();
-      $("#furnish").show();
-      $("#area").show();
+      $("#land_sale").hide();
+      $("#property_listing").show();
     } else if ($(th).val() === 'Land') {
+      $("#land_sale").show();
       $("#land").show();
       $("#rooms").hide();
+      $("#bath_rooms").hide();
       $("#amenities").hide();
       $("#furnish").hide();
       $("#radio_buttons1").hide();
       $("#area").show();
+      $("#property_listing").hide();
     } else if ($(th).val() === 'OfficeCommercial') {
       $("#land").hide();
       $("#rooms").hide();
+      $("#bath_rooms").hide();
       $("#radio_buttons1").show();
       $("#amenities").hide();
       $("#furnish").show();
       $("#area").show();
+      $("#land_sale").hide();
+      $("#property_listing").show();
     } else {
+      $("#land_sale").hide();
       $("#land").hide();
       $("#rooms").hide();
+      $("#bath_rooms").hide();
       $("#amenities").hide();
       $("#furnish").hide();
       $("#area").hide();
       $("#radio_buttons1").show();
+      $("#property_listing").show();
     }
   }
   function change_form1(th) {
@@ -303,7 +329,7 @@
 
 
 <style>
-  #accomdiation,#rent,#land,#rooms,#amenities,#furnish,#area,#creatiwa{
+  #accomdiation,#rent,#land,#rooms,#amenities,#furnish,#area,#creatiwa,#land_sale{
     display: none;
   }
   .submission-form.form-vertical .span4 {

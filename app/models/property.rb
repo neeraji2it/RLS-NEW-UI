@@ -5,12 +5,16 @@ class Property < ActiveRecord::Base
   
   has_many :aminities , :dependent => :destroy
   accepts_nested_attributes_for :aminities, :allow_destroy => true, :reject_if=>:all_blank
-  scope :type_of_property, ->(property_type) { where("property_type = '#{property_type}'") if !property_type.blank? }
+  scope :type_of_property, ->(property_type) { where("property_type IN (?)", property_type) if !property_type.blank? }
   scope :list_property, ->(property_listing) { where("property_listing IN (?)", property_listing) if !property_listing.blank? }
   scope :property_location, ->(location) { where("location = '#{location}'") if !location.blank? }
   scope :property_price, ->(price_from,price_to) { where("price BETWEEN (?) AND (?)",price_from,price_to) if !price_from.blank? and !price_to.blank? }
   scope :property_minprice,->(min_price) {where("price >= (?)",min_price) if !min_price.blank?}
   scope :property_maxprice,->(max_price) {where("price <= (?)",max_price) if !max_price.blank?}
+  
+  scope :type_of_properties, ->(property_type) { where("property_type = '#{property_type}'") if !property_type.blank? }
+  scope :number_of_rooms, ->(no_of_rooms) { where("no_of_rooms = '#{no_of_rooms}'") if !no_of_rooms.blank? }
+  scope :number_of_baths, ->(bath_rooms) { where("bath_rooms = '#{bath_rooms}'") if !bath_rooms.blank? }
   
   before_create :assign_property_listing
   
@@ -23,14 +27,24 @@ class Property < ActiveRecord::Base
     self.property_listing = "Sale" if self.property_type == "Land"
   end
   
-  validates :no_of_rooms,:furnished,:area,:presence => {:if => :apartment_required?}
+  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :apartment_required?}
   def apartment_required?
     !self.property_type.nil? and ['Apartment'].include?(self.property_type)
   end
   
-  validates :no_of_rooms,:furnished,:area,:presence => {:if => :villa_required?}
+  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :villa_required?}
   def villa_required?
     !self.property_type.nil? and ['Villa'].include?(self.property_type)
+  end
+  
+  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :single_home_required?}
+  def single_home_required?
+    !self.property_type.nil? and ['Single Home'].include?(self.property_type)
+  end
+  
+  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :family_house_required?}
+  def family_house_required?
+    !self.property_type.nil? and ['Family House'].include?(self.property_type)
   end
   
   validates :type_of_land,:presence => {:if => :land_required?}
@@ -47,6 +61,18 @@ class Property < ActiveRecord::Base
   validates :price,:numericality => true
   acts_as_gmappable
 
-   validates :terms_of_service, acceptance: true
+  validates :terms_of_service, acceptance: true
+  
+  
+
+def self.search(search)
+  if search
+    find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
+
   
 end

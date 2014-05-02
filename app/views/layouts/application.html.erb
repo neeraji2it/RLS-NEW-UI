@@ -30,59 +30,15 @@
       <div class="container">
         <div class="top-inner inverted">
           <div class="header clearfix">
-            <div class="languages">        
-              <div id="lang_sel_list" class="lang_sel_list_horizontal">           
-                <ul>
-                  <li class="icl-en">          
-                    <a href="index.html" class="lang_sel_sel">
 
-                      <img  class="iclflag" src="/assets/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English" />&nbsp;                    
-                    </a>
-                  </li>
-                  <li class="icl-fr">          
-                    <a href="indexe68f.html?lang=fr" class="lang_sel_other">
-
-                      <img  class="iclflag" src="/assets/sitepress-multilingual-cms/res/flags/fr.png" alt="fr" title="Français" />&nbsp;                    
-                    </a>
-                  </li>
-                  <li class="icl-de">          
-                    <a href="index3322.html?lang=de" class="lang_sel_other">
-
-                      <img  class="iclflag" src="/assets/sitepress-multilingual-cms/res/flags/de.png" alt="de" title="Deutsch" />&nbsp;                    
-                    </a>
-                  </li>
-                  <li class="icl-it">          
-                    <a href="indexcf53.html?lang=it" class="lang_sel_other">
-
-                      <img  class="iclflag" src="/assets/sitepress-multilingual-cms/res/flags/it.png" alt="it" title="Italiano" />&nbsp;                    
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
 
             <div class="branding pull-left">
               <div class="logo">
-<%#= link_to image_tag("logo_70.png", :height => "40"), "/" %>
+                <%= link_to image_tag("logo_70.png",:style=>"width:130px;"), "/" %>
               </div><!-- /.logo -->
             </div>
 
             <div class="contact-top">
-              <ul class="menu nav">
-                <li class="first leaf facebook">
-                  <a href="http://www.facebook.com/" class="facebook"><i>F</i></a>
-                </li>
-
-                <li class="leaf flickr"><a href="http://www.flickr.com/" class="flickr"><i>n</i></a></li>
-
-                <li class="leaf google-plus"><a href="http://plus.google.com/" class="google"><i>g</i></a></li>
-
-                <li class="leaf linkedin"><a href="http://linkedin.com/" class="linkedin"><i>l</i></a></li>
-
-                <li class="leaf twitter"><a href="http://www.twitter.com/" class="twitter"><i>T</i></a></li>
-
-                <li class="last leaf vimeo"><a href="http://vimeo.com/" class="vimeo"><i>v</i></a></li>
-              </ul>
             </div>
 
           </div><!-- /.header -->
@@ -115,7 +71,7 @@
 
             <div class="pull-right">
 
-              <a href="properties/new" class="list-property">
+              <a href="/properties/new" class="list-property">
                 <span class="link">List your property</span>
                 <div class="ribbon"><span class="icon icon-normal-circle-plus"></span></div>
               </a>
@@ -140,94 +96,76 @@
             <div class="span3">
               <div id="mostrecentproperties_widget-3" class="widget properties">
 
-                <h2>Most Recent Properties</h2>
-                <% @properties = Property.all.order("created_at DESC") %>
+                <h2>Additional Services</h2>
                 <div class="content">
-                  <%= render :partial => "home/most_recent_properties", :locals => {:properties => @properties} %>
+<%= link_to "SMS CAMPAIGN", "#my-modal3", :class => "btn", "data-toggle" => "modal" %></br> (Verified 30 Lacks Mobile Numbers)</br>
+                  <div class="modal hide fade" id="my-modal3" title="My modal" style="color:#4C9F28;">
+                    <div class="modal-header">
+                      <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+                      <h3 id="myModalLabel">Contact Us For AdditionalServices</h3>
+                    </div>
+                    <div class="modal-body">
+                      <%= render :partial=>"properties/contact_us" %>
+                    </div>
+                  </div>
+<%= link_to "EMAIL CAMPAIGN", "#my-modal3", :class => "btn", "data-toggle" => "modal" %> <br/>(Verified 30 Lacks Email Ids)
                 </div><!-- /.content -->
 
               </div>                                   
             </div>
 
             <div class="span3">
-              <div id="nav_menu-2" class="widget widget_nav_menu"><h2>Helpful Links</h2><div class="menu-helpful-links-container"><ul id="menu-helpful-links" class="menu"><li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-250"><a href="default-template/index.html">Default Template</a></li>
-                    <li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a href="properties-grid-template/index.html">Properties Grid Template</a></li>
-                    <li id="menu-item-256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a href="faq/index.html">FAQ</a></li>
-                    <li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-252"><a href="login-template/index.html">Login Template</a></li>
-                    <li id="menu-item-253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-253"><a href="register-template/index.html">Register Template</a></li>
-                    <li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-257"><a href="register/index.html">Register</a></li>
-                    <li id="menu-item-254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-254"><a href="right-sidebar-template/index.html">Right Sidebar Template</a></li>
-                    <li id="menu-item-255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-255"><a href="fullwidth-template/index.html">Fullwidth Template</a></li>
-                    <li id="menu-item-258" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-258"><a href="login/index.html">Login</a></li>
+              <div id="nav_menu-2" class="widget widget_nav_menu"><h2>Helpful Links</h2><div class="menu-helpful-links-container"><ul id="menu-helpful-links" class="menu"><li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-250">  <%= link_to "Home", root_path %></li>
+                    <li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"> <%= link_to "About Us", about_us_path %></li>
+                    <li id="menu-item-256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"> <%= link_to "Privacy Policy", privacy_policy_path %></li>
+                    <li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-252"><%= link_to "Help", help_path %></li>
+                    <li id="menu-item-253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-253"><a href="/properties/new">List Your Property</a></li>
                   </ul></div></div>                                    </div>
 
             <div class="span3">
               <div id="agents_widget-2" class="widget our-agents">
 
-                <h2>Agents</h2>
+                <h2>Promoters</h2>
 
                 <div class="content">
                   <div class="agent clearfix">
                     <div class="image">
-                      <a href="agents/cynthia-g-stenson/index.html">
-                        <img width="270" height="270" src="/assets/uploads/2013/08/agent2.jpg" class="attachment-post-thumbnail wp-post-image" alt="agent2" />
-                      </a>
+                      <img width="270" height="270" src="/assets/Neeraj.png" class="attachment-post-thumbnail wp-post-image" alt="agent2" />
                     </div><!-- /.image -->
 
                     <div class="name">
-                      <a href="agents/cynthia-g-stenson/index.html">Cynthia G. Stenson</a>
+                      Neeraj Choudhary
                     </div><!-- /.name -->
 
                     <div class="phone">
                       <i class="icon icon-normal-phone"></i>
-                      985-632-254
+                      +91-9480018881
                     </div><!-- /.phone -->
 
                     <div class="email">
                       <i class="icon icon-normal-mail"></i>
-                      <a href="mailto:cynthia@example.com">cynthia@example.com</a>
+                      neeraj@dine-media.com
                     </div><!-- /.email -->
                   </div><!-- /.agent -->
                   <div class="agent clearfix">
                     <div class="image">
                       <a href="agents/stephen-e-kennedy/index.html">
-                        <img width="270" height="270" src="/assets/uploads/2013/08/agent1.jpg" class="attachment-post-thumbnail wp-post-image" alt="agent1" />
+                        <img width="270" height="270" src="/assets/amith.png" class="attachment-post-thumbnail wp-post-image" alt="agent1" />
                       </a>
                     </div><!-- /.image -->
 
                     <div class="name">
-                      <a href="agents/stephen-e-kennedy/index.html">Stephen E. Kennedy</a>
+                      Amit Tiwary
                     </div><!-- /.name -->
 
                     <div class="phone">
                       <i class="icon icon-normal-phone"></i>
-                      987-852-123
+                      +91-9901568660
                     </div><!-- /.phone -->
 
                     <div class="email">
                       <i class="icon icon-normal-mail"></i>
-                      <a href="mailto:stephen@example.com">stephen@example.com</a>
-                    </div><!-- /.email -->
-                  </div><!-- /.agent -->
-                  <div class="agent clearfix">
-                    <div class="image">
-                      <a href="agents/myrtle-j-metz/index.html">
-                        <img width="270" height="270" src="/assets/uploads/2013/08/agent1.jpg" class="attachment-post-thumbnail wp-post-image" alt="agent1" />
-                      </a>
-                    </div><!-- /.image -->
-
-                    <div class="name">
-                      <a href="agents/myrtle-j-metz/index.html">Myrtle J. Metz</a>
-                    </div><!-- /.name -->
-
-                    <div class="phone">
-                      <i class="icon icon-normal-phone"></i>
-                      987-963-654
-                    </div><!-- /.phone -->
-
-                    <div class="email">
-                      <i class="icon icon-normal-mail"></i>
-                      <a href="mailto:myrtle@example.com">myrtle@example.com</a>
+                      amit@creatiwads.in
                     </div><!-- /.email -->
                   </div><!-- /.agent -->
                 </div><!-- /.content -->
@@ -238,10 +176,10 @@
             <div class="span3">
               <div id="featuredproperties_widget-2" class="widget properties">
 
-                <h2>Featured Properties</h2>
+                <h2>Contact Us</h2>
 
                 <div class="content">
-                  <%= render :partial => "home/most_recent_properties", :locals => {:properties => @properties} %>                
+                  <%= render :partial => "properties/contact_us" %>                
                 </div><!-- /.content -->
               </div>
             </div>                                    
@@ -254,14 +192,14 @@
           <div id="footer-inner">
             <div class="row">
               <div class="span6">
-                <div id="text-3" class="widget widget_text">			<div class="textwidget">&copy; 2013 Aviators, All Rights reserved</div>
+                <div id="text-3" class="widget widget_text">			<div class="textwidget">&copy; 2014 Dine-Media, All Rights reserved</div>
                 </div>                                        </div><!-- /.copyright -->
 
               <div class="span6">
-                <div id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-footer-links-container"><ul id="menu-footer-links" class="menu"><li id="menu-item-331" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-331"><a href="index.html">Homepage</a></li>
-                      <li id="menu-item-328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-328"><a href="pricing/index.html">Pricing</a></li>
-                      <li id="menu-item-330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-330"><a href="faq/index.html">FAQ</a></li>
-                      <li id="menu-item-329" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-329"><a href="contact/index.html">Contact</a></li>
+                <div id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-footer-links-container"><ul id="menu-footer-links" class="menu"><li id="menu-item-331" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item menu-item-331"><a href="/">Homepage</a></li>
+                      <li id="menu-item-328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-328"><a href="/about_us">About Us</a></li>
+                      <li id="menu-item-330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-330"><a href="/privacy_policy">Privacy Policy</a></li>
+                      <li id="menu-item-329" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-329"><a href="/help">Help</a></li>
                     </ul></div></div>                                        </div><!-- /.span6 -->
             </div><!-- /.row -->
           </div><!-- /#footer-inner -->
