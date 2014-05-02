@@ -16,7 +16,7 @@
         <span class="form-required" title="This field is required.">*</span>
       </label>
       <div class="controls">
-        <%= f.text_field :name,:id=>"inputName" %>
+        <%= f.text_field :name,:id=>"inputName",:required=>"required" %>
       </div><!-- /.controls -->
     </div><!-- /.control-group -->
     <div class="control-group">
@@ -25,7 +25,7 @@
         <span class="form-required" title="This field is required.">*</span>
       </label>
       <div class="controls">
-        <%= f.email_field :email,:id=>"inputEmail" %> 
+        <%= f.email_field :email,:id=>"inputEmail" ,:required=>"required"%> 
       </div><!-- /.controls -->
     </div><!-- /.control-group -->
     <div class="control-group">
@@ -33,7 +33,7 @@
         Mobile No.
       </label>
       <div class="controls">
-        <%= f.text_field :phone,:id=>"inputName" %>
+        <%= f.text_field :phone,:id=>"inputName",:required=>"required" %>
       </div><!-- /.controls -->
     </div><!-- /.control-group -->
     <%= f.submit "Send" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:150px;" %>
