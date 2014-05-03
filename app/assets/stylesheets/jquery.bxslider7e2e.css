@@ -47,7 +47,7 @@
 
 /* LOADER */
 
-.bx-wrapper .bx-loading {
+.bx-wrapper {
     min-height: 50px;
     background: url(bx_loader.gif) center center no-repeat #fff;
     height: 100%;
