@@ -60,8 +60,10 @@ class PropertiesController < ApplicationController
   
   def search
     @properties = Property.all.order("created_at DESC")
-    if params[:search].present? and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank? or !params[:search][:price_from].blank? or !params[:search][:price_to].blank?)
-      @properties_map = Property.type_of_property(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to])
+    if params[:search].present? and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank? or !params[:search][:price_from].blank? or !params[:search][:price_to].blank? or !params[:search][:property_types].blank? or !params[:search][:no_of_rooms].blank?)
+      @properties_map = Property.type_of_properties(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to]).type_of_property(params[:search][:property_types]).number_of_rooms(params[:search][:no_of_rooms])
+      puts "============="
+      puts @properties_map.count
       @lat_longs = []
       @types = []
       @property_types = params[:search][:property_type]
@@ -153,7 +155,7 @@ class PropertiesController < ApplicationController
     @properties_recent = Property.all.order("created_at DESC")
     @properties = Property.all.order("created_at #{params[:order_type]}").paginate(:page => params[:page], :per_page => 10)
     if params[:search].present? and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank? or !params[:search][:price_from].blank? or !params[:search][:price_to].blank? or !params[:search][:no_of_rooms].blank? or !params[:search][:bath_rooms].blank?)
-      @properties = Property.type_of_properties(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to]).number_of_rooms(params[:search][:no_of_rooms]).number_of_baths(params[:search][:bath_rooms]).paginate(:page => params[:page], :per_page => 10)
+      @properties = Property.type_of_property(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to]).number_of_rooms(params[:search][:no_of_rooms]).number_of_baths(params[:search][:bath_rooms]).paginate(:page => params[:page], :per_page => 10)
     else
     end
   end  

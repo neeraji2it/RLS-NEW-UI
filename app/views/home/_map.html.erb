@@ -56,13 +56,13 @@
                   <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),:style => "color:black;" %>
                 </div>
                 <div style="float:left;margin-left: -3px;">
-                  <%=f.select :property_type, options_for_select([["Type" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
+                  <%=f.select :property_types, options_for_select([["Type" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
                 </div>
                 <div style="float:left;margin-left: 38px;">
                   <%=f.select :no_of_rooms, options_for_select([["BedRooms",""]]+(1..10).map{|i| i}),:style=>"width:120px;",:id=>"search_location_chzn"%>
                 </div>
                 <div style="float:left;margin-left: 77px;">
-                  <%=f.select :property_listing, options_for_select([["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputContract-propertyfilter_widget-2"%>
+                  <%=f.select :property_listing, options_for_select([["Select",""],["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputContract-propertyfilter_widget-2"%>
                 </div>
                 <div style="float:left;margin-left: 99px;">
                   <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputAreaFrom-" %>
