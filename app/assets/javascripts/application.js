@@ -128,10 +128,10 @@ function get_properties(blr) {
 }
 
 
-jQuery(document).ajaxStart(function(settings) {
-    jQuery('#ajax_loader_big_div').show();
-});
-jQuery(document).ajaxStop(function() {
-    jQuery('#ajax_loader_big_div').hide();
-});
+//jQuery(document).ajaxStart(function(settings) {
+//    jQuery('#ajax_loader_big_div').show();
+//});
+//jQuery(document).ajaxStop(function() {
+//    jQuery('#ajax_loader_big_div').hide();
+//});
 
