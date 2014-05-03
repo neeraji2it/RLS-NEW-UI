@@ -51,18 +51,24 @@
 
 
               <!-- /.property-types -->
-              <div class="general" style="color:white;font-weight: bold;">
+              <div class="general" style="color:white;">
                 <div style="float:left;">
                   <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),:style => "color:black;" %>
-
-                  <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputAreaFrom-" %>
-
-                  <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputAreaTo-"%>
                 </div>
-                <div style="float:left;margin: 9px 38px;">
-                  <%= check_box_tag "search[property_listing][]","Rent" %>Rent 
-                  <%= check_box_tag "search[property_listing][]","Lease"  %>Lease 
-                  <%= check_box_tag "search[property_listing][]","Sale"  %>Sale 
+                <div style="float:left;margin-left: -3px;">
+                  <%=f.select :property_type, options_for_select([["Type" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
+                </div>
+                <div style="float:left;margin-left: 38px;">
+                  <%=f.select :no_of_rooms, options_for_select([["BedRooms",""]]+(1..10).map{|i| i}),:style=>"width:120px;",:id=>"search_location_chzn"%>
+                </div>
+                <div style="float:left;margin-left: 77px;">
+                  <%=f.select :property_listing, options_for_select([["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputContract-propertyfilter_widget-2"%>
+                </div>
+                <div style="float:left;margin-left: 99px;">
+                  <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputAreaFrom-" %>
+                </div>
+                <div style="float:left;margin-left: 13px;">
+                  <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputAreaTo-"%>
                 </div>
 
                 <button class="btn btn-primary btn-large">Filter now!</button>
@@ -118,7 +124,31 @@
 </script>
 
 <style>
-  .ez-checkbox{
-    width: 47px;
+  .chzn-container .chzn-single{
+    background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    height: 35px;
+    line-height: 35px;
+    margin-left: -6px;
+    width: 159px;
+  }
+  
+  .chzn-container .chzn-drop{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+    border-image: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    margin-left: -7px;
+    margin-top: 0;
+    width: 173px;
   }
 </style>

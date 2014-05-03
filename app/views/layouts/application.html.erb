@@ -45,7 +45,7 @@
 
           <div class="navigation navbar clearfix">
             <div class="pull-left">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <button type="button" class="btn btn-navbar" 284data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -85,6 +85,9 @@
 
 
     <div id="content" class="clearfix">
+      <div id='ajax_loader_big_div' style='z-index:1000000;'>
+        <img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>
+      </div>
       <%= yield %>
     </div>
 
@@ -98,7 +101,7 @@
 
                 <h2>Additional Services</h2>
                 <div class="content">
-<%= link_to "SMS CAMPAIGN", "#my-modal3", :class => "btn", "data-toggle" => "modal" %></br> (Verified 30 Lacks Mobile Numbers)</br>
+                  <%= link_to "SMS CAMPAIGN", "#my-modal3", :class => "btn", "data-toggle" => "modal" %></br> (Verified 30 Lacks Mobile Numbers)</br>
                   <div class="modal hide fade" id="my-modal3" title="My modal" style="color:#4C9F28;">
                     <div class="modal-header">
                       <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
@@ -108,7 +111,7 @@
                       <%= render :partial=>"properties/contact_us" %>
                     </div>
                   </div>
-<%= link_to "EMAIL CAMPAIGN", "#my-modal3", :class => "btn", "data-toggle" => "modal" %> <br/>(Verified 30 Lacks Email Ids)
+                  <%= link_to "EMAIL CAMPAIGN", "#my-modal3", :class => "btn", "data-toggle" => "modal" %> <br/>(Verified 30 Lacks Email Ids)
                 </div><!-- /.content -->
 
               </div>                                   
