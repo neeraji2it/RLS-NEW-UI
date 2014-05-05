@@ -33,7 +33,7 @@
                 </div>
                 <div class="property-type condo">
                   <label for="filter_type_41">
-                    <input type="checkbox" name="search[property_type][]" title="Condo" id="filter_type_41" class="no-ezmark" value="OfficeCommercial/Godown" <%=@property_types ?   @property_types.include?("OfficeCommercial/Godown") ? "checked=true" : "" : ""%> >OfficeCommercial
+                    <input type="checkbox" name="search[property_type][]" title="Condo" id="filter_type_41" class="no-ezmark" value="OfficeCommercial/Godown" <%=@property_types ?   @property_types.include?("OfficeCommercial/Godown") ? "checked=true" : "" : ""%> >Commercial
                   </label>
                 </div>
                 <div class="property-type single-home ">
@@ -56,9 +56,9 @@
                   <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),:style => "color:black;" %>
                 </div>
                 <div style="float:left;margin-left: -3px;">
-                  <%=f.select :property_types, options_for_select([["Type" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
+                  <%=f.select :property_types, options_for_select([["Type" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["Commercial","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
                 </div>
-                <div style="float:left;margin-left: 38px;">
+                <div style="float:left;margin-left: 60px;">
                   <%=f.select :no_of_rooms, options_for_select([["BedRooms",""]]+(1..10).map{|i| i}),:style=>"width:120px;",:id=>"search_location_chzn"%>
                 </div>
                 <div style="float:left;margin-left: 77px;">
