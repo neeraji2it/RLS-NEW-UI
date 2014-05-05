@@ -62,8 +62,6 @@ class PropertiesController < ApplicationController
     @properties = Property.all.order("created_at DESC")
     if params[:search].present? and (!params[:search][:property_type].blank? or !params[:search][:property_listing].blank? or !params[:search][:location].blank? or !params[:search][:price_from].blank? or !params[:search][:price_to].blank? or !params[:search][:property_types].blank? or !params[:search][:no_of_rooms].blank?)
       @properties_map = Property.type_of_properties(params[:search][:property_type]).list_property(params[:search][:property_listing]).property_location(params[:search][:location]).property_price(params[:search][:price_from],params[:search][:price_to]).type_of_property(params[:search][:property_types]).number_of_rooms(params[:search][:no_of_rooms])
-      puts "============="
-      puts @properties_map.count
       @lat_longs = []
       @types = []
       @property_types = params[:search][:property_type]
@@ -72,10 +70,10 @@ class PropertiesController < ApplicationController
         @lat_longs << [prop.latitude,prop.longitude]
         @types << [prop.property_type.split('/')[0]]
         if prop.property_type=="Apartment" or prop.property_type=="Villa" or prop.property_type=="Single Home" or prop.property_type=="Family House"
-          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href='"properties/#{prop.id}"'><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href='"properties/#{prop.id}"'>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>'"#{prop.no_of_rooms}"'</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>'"#{prop.bath_rooms}"'</div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="properties/'"#{prop.id}"'">View more</a></div></div></div>']
+          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href="#myModal" role="button" data-toggle="modal" onclick=javascript:$("#property_id").val('"#{prop.id}"')><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href="#myModal" role="button" data-toggle="modal" onclick=javascript:$("#property_id").val('"#{prop.id}"')>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div><div class="bedrooms"><i class="icon icon-normal-bed"></i>'"#{prop.no_of_rooms}"'</div><div class="bathrooms"><i class="icon icon-normal-shower"></i>'"#{prop.bath_rooms}"'</div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"> <a href="#myModal" role="button" data-toggle="modal" onclick=javascript:$("#property_id").val('"#{prop.id}"')>View more</a></div></div></div>']
         else
-          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href='"properties/#{prop.id}"'><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href='"properties/#{prop.id}"'>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="properties/'"#{prop.id}"'">View more</a></div></div></div>']
-        end 
+          @contents << ['<div class="infobox clearfix"><div class="close"><img src="/assets/img/cross.png" alt=""></div><div class="image"><a href="#myModal" role="button" data-toggle="modal" onclick=javascript:$("#property_id").val('"#{prop.id}"')><img src='"#{prop.images.present? ? prop.images.first.image : " "}"' alt='"#{prop.title}"' width=100 height=100></a></div><div class="info"><div class="title"><a href="#myModal" role="button" data-toggle="modal" onclick=javascript:$("#property_id").val('"#{prop.id}"')>'"#{prop.title}"'</a></div><div class="location">'"#{prop.location}"'</div><div class="property-info clearfix"><div class="area"><i class="icon icon-normal-cursor-scale-up"></i>'"#{prop.area}"'m<sup>2</sup></div></div><div class="price">'"#{prop.price}"' INR</div><div class="link"><a href="#myModal" role="button" data-toggle="modal" onclick=javascript:$("#property_id").val('"#{prop.id}"')>View more</a></div></div></div>']
+        end
       end
     else
       @properties_map = Property.all
@@ -170,8 +168,8 @@ class PropertiesController < ApplicationController
   def contact_us
     @contact = Contact.new(contact_params)
     @contact.save
-      redirect_to "/"
-    end
+    redirect_to "/"
+  end
   
   private
   def property_params

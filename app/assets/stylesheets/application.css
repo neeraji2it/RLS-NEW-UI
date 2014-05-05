@@ -53,3 +53,17 @@
     list-style: square;
 }
 .form-required{color:red}
+.span_1{ float: left;
+         font-family: small-caption;
+         font-size: 18px;
+         font-style: italic;
+         font-weight: bold;
+         margin-left: 108px;
+         color: black;}
+.span_2{ color: #579E07;
+         font-size: 21px;
+         font-style: italic;
+         font-weight: bold;
+         margin-right: 17px;
+         margin-top: -16px;
+         padding: 19px 5px; }

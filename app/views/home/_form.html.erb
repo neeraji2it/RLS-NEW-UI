@@ -93,6 +93,21 @@
         <%= link_to "Show all", properties_path %>
       </div>
       <hr>
+        <div id="carouselproperties_widget-2" class="widget property-carousel">
+
+
+        <h2>Pre-Launch Properties</h2>
+
+        <div class="carousel">
+          <ul class="bxslider properties-grid unstyled">
+            <% @properties.each do |property| %>
+              <li>
+                <%= render :partial => "home/properties", :locals => {:property => property} %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
 
       <div id="text-2" class="widget widget_text">	
         <div class="textwidget">
@@ -110,7 +125,7 @@
                   <div class="content span2">
                     <h3>List your property</h3>
 
-                    <p>List your property for free and let it reach to those millions who are looking aggressively to rent/lease and buy your property.</p>
+                    <p style="text-align: justify;">List your property for free and let it reach to those millions who are looking aggressively to rent/lease and buy your property.</p>
                   </div>
                   <!-- /.content -->
                 </div>
@@ -130,7 +145,7 @@
                   <div class="content span2">
                     <h3>Advertise to Masses</h3>
 
-                    <p>EZYPROPS is a very strong and efficient medium to advertise your property to those ever increasing interested group of buyers. </p>
+                    <p style="text-align: justify;">EZYPROPS is a very strong and efficient medium to advertise your property to those ever increasing interested group of buyers. </p>
                   </div>
                   <!-- /.content -->
                 </div>
@@ -150,7 +165,7 @@
                   <div class="content span2">
                     <h3>Guidance & Support</h3>
 
-                    <p>We will give all the required support and guidence to you on Demand to increase your chances to getting success.</p>
+                    <p style="text-align: justify;">We will give all the required support and guidence to you on Demand to increase your chances to getting success.</p>
                   </div>
                   <!-- /.content -->
                 </div>
@@ -160,25 +175,12 @@
           </div>
         </div>
       </div>
-      <div id="carouselproperties_widget-2" class="widget property-carousel">
-
-
-        <h2>Pre-Launch Properties</h2>
-
-        <div class="carousel">
-          <ul class="bxslider properties-grid unstyled">
-            <% @properties.each do |property| %>
-              <li>
-                <%= render :partial => "home/properties", :locals => {:property => property} %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+    
 
 
     </div><!-- /.row -->
   </div><!-- /.container -->
+  </div>
 
   <!-- Modal -->
   <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
