@@ -6,11 +6,11 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <style>.kk-star-ratings { width:120px; }.kk-star-ratings .kksr-stars a { width:24px; }.kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a { height:24px; }.kk-star-ratings .kksr-star.gray { background-image: url(/assets/gray.png); }.kk-star-ratings .kksr-star.yellow { background-image: url(/assets/yellow.png); }.kk-star-ratings .kksr-star.orange { background-image: url(/assets/orange.png); }</style>
-    <script type="text/javascript">
-      var bhittani_plugin_kksr_js = {"nonce": "d0203be1ed", "grs": false, "ajaxurl": "http:\/\/wp.properta.byaviators.com\/wp-admin\/admin-ajax.php", "func": "kksr_ajax", "msg": "Rate this post", "fuelspeed": 400, "thankyou": "Thank you for your vote", "error_msg": "An error occurred", "tooltip": "1", "tooltips": [{"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}, {"tip": "", "color": "#ffffff"}]};
-    </script>
+    <%#*<script type="text/javascript">%>
+      <%#*var bhittani_plugin_kksr_js = {"nonce": "d0203be1ed"};%>
+    <%#*</script>%>
     <script type='text/javascript' src='/assets/jquery-migrate.min1576.js'></script>
-    <script type='text/javascript' src='/assets/kk-star-ratings/js.min7793.js'></script>
+    <%#*<script type='text/javascript' src='/assets/kk-star-ratings/js.min7793.js'></script>%>
     <script type='text/javascript' src='/assets/properta/aviators/plugins/properties/assets/js/geolocation.js'></script>
     <script type='text/javascript' src='/assets/jquery.ui.core.min.js'></script>
     <script type='text/javascript' src='/assets/jquery.ui.widget.min.js'></script>
@@ -95,9 +95,9 @@
 
 
     <div id="content" class="clearfix">
-<%#*<div id='ajax_loader_big_div' style='z-index:1000000;'>%>
-<%#*<img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>%>
-<%#*</div>%>
+<div id='ajax_loader_big_div' style='z-index:1000000;'>
+<img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>
+</div>
       <%= yield %>
     </div>
 

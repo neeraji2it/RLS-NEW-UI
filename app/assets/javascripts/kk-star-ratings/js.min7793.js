@@ -110,7 +110,8 @@
                 })
             }})
     };
-    c.fn.kkstarratings.options = {ajaxurl: bhittani_plugin_kksr_js.ajaxurl, func: bhittani_plugin_kksr_js.func, nonce: bhittani_plugin_kksr_js.nonce, grs: bhittani_plugin_kksr_js.grs, tooltip: bhittani_plugin_kksr_js.tooltip, tooltips: bhittani_plugin_kksr_js.tooltips, msg: bhittani_plugin_kksr_js.msg, fuelspeed: bhittani_plugin_kksr_js.fuelspeed, thankyou: bhittani_plugin_kksr_js.thankyou, error_msg: bhittani_plugin_kksr_js.error_msg}
+    //c.fn.kkstarratings.options = {ajaxurl: bhittani_plugin_kksr_js.ajaxurl, func: bhittani_plugin_kksr_js.func, nonce: bhittani_plugin_kksr_js.nonce, grs: bhittani_plugin_kksr_js.grs, tooltip: bhittani_plugin_kksr_js.tooltip, tooltips: bhittani_plugin_kksr_js.tooltips, msg: bhittani_plugin_kksr_js.msg, fuelspeed: bhittani_plugin_kksr_js.fuelspeed, thankyou: bhittani_plugin_kksr_js.thankyou, error_msg: bhittani_plugin_kksr_js.error_msg}
+    c.fn.kkstarratings.options = ""
 })(jQuery, window, document);
 jQuery(document).ready(function(a) {
     a(".kk-star-ratings").kkstarratings()
