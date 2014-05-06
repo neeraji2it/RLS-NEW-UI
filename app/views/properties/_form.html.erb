@@ -87,7 +87,7 @@
       </label>
 
       <div class="controls">
-        <%= f.text_field :no_of_rooms %>
+        <%= f.select :no_of_rooms, options_for_select([["Bed Rooms",""]]+(1..10).map{|i| i},:selected => f.object.no_of_rooms) %>
       </div>
     </div>
     <div class="control-group" id="bath_rooms">
@@ -97,7 +97,7 @@
       </label>
 
       <div class="controls">
-        <%= f.text_field :bath_rooms %>
+        <%= f.select :bath_rooms, options_for_select([["Bath Rooms",""]]+(1..10).map{|i| i},:selected => f.object.bath_rooms) %>
       </div>
     </div>
 
@@ -151,11 +151,13 @@
         <span class="form-required" title="This field is required.">*</span>
       </label>
 
-      <div class="controls">
-        <%= f.select :location,options_for_select([["Select",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : "") %>
+      <div class="controls" id="location_1">
+        <%= f.select :location,options_for_select([["Select",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),{},:onchange => "change_location(this)" %>
+      </div>
+      <div class="controls" id="location_2">
+        <%= f.text_field :location %>
       </div>
     </div>
-
   </div>
 
   <div class="span4">
@@ -170,8 +172,8 @@
             <%= image.file_field :image %>
           <% end %>
         </div>
-        <div class="controls" style="margin-top: 8px;margin-left: 6px;">
-          <%= link_to_add_fields image_tag("add.png") , f,:images %> 
+        <div class="controls" style="margin-top: -22px;margin-left: 285px;">
+          <%= link_to_add_fields image_tag("add.jpeg") , f,:images %> 
         </div>
       </div>
     <% end %>
@@ -201,8 +203,8 @@
         </ul>
       </div>
 
-      <div class="controls">
-        <%= link_to_add_fields image_tag("add.png") , f,:aminities %>
+      <div class="controls" style="margin-top: -33px;margin-left: 295px;">
+        <%= link_to_add_fields image_tag("add.jpeg") , f,:aminities %>
       </div>
     </div>
   </div>
@@ -325,11 +327,18 @@
   jQuery('.numbersOnly').keyup(function() {
     this.value = this.value.replace(/[^0-9\.]/g, '');
   });
+
+  function change_location(th) {
+    if ($(th).val() === "Other") {
+      $("#location_1").hide();
+       $("#location_2").show();
+    }
+  }
 </script>
 
 
 <style>
-  #accomdiation,#rent,#land,#rooms,#amenities,#furnish,#area,#creatiwa,#land_sale{
+  #accomdiation,#rent,#land,#rooms,#amenities,#furnish,#area,#creatiwa,#land_sale,#location_2{
     display: none;
   }
   .submission-form.form-vertical .span4 {

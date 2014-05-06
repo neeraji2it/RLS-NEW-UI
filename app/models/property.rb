@@ -32,17 +32,17 @@ class Property < ActiveRecord::Base
     !self.property_type.nil? and ['Apartment'].include?(self.property_type)
   end
   
-  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :villa_required?}
+  validates :no_of_rooms,:bath_rooms,:furnished,:presence => {:if => :villa_required?}
   def villa_required?
     !self.property_type.nil? and ['Villa'].include?(self.property_type)
   end
   
-  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :single_home_required?}
+  validates :no_of_rooms,:bath_rooms,:furnished,:presence => {:if => :single_home_required?}
   def single_home_required?
     !self.property_type.nil? and ['Single Home'].include?(self.property_type)
   end
   
-  validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :family_house_required?}
+  validates :no_of_rooms,:bath_rooms,:furnished,:presence => {:if => :family_house_required?}
   def family_house_required?
     !self.property_type.nil? and ['Family House'].include?(self.property_type)
   end
@@ -52,13 +52,13 @@ class Property < ActiveRecord::Base
     !self.property_type.nil? and ['Land'].include?(self.property_type)
   end
 
-  validates :furnished,:area,:presence => {:if => :office_required?}
+  validates :furnished,:presence => {:if => :office_required?}
   def office_required?
     !self.property_type.nil? and ['OfficeCommercial'].include?(self.property_type)
   end
   
-  validates :property_type,:property_listing,:price,:person_type,:name,:email,:mobile,:presence => true
-  validates :price,:numericality => true
+  validates :property_type,:property_listing,:price,:person_type,:name,:email,:presence => true
+  validates :price,:area,:mobile,:numericality => true
   acts_as_gmappable
 
   validates :terms_of_service, acceptance: true
