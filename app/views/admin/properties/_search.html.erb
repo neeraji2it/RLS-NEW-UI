@@ -3,7 +3,7 @@
   <table cellpadding="8">
     <tr>
       <td>Location:</td><td><%= select_tag :location,options_for_select([["Select",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : "") %></td>
-      <td>Price:</td><td><%= text_field_tag :min_price , nil,:placeholder=>"Min",:style=>"width:80px;"%> - <%= text_field_tag :max_price ,nil,:placeholder=>"Max",:style=>"width:80px;" %>   </td>
+      <td>Price:</td><td><%= text_field_tag :min_price , nil,:placeholder=>"Min",:style=>"margin-bottom: -37px;margin-left: 14px;"%>  <%= text_field_tag :max_price ,nil,:placeholder=>"Max",:style=>"margin-left: 232px;margin-top: 7px;" %>   </td>
       <td> <%= submit_tag "Search" , :class=>"btn btn-success"%></td>
     </tr>
   </table>

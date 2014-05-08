@@ -39,7 +39,7 @@
     </tr>
     <tr>
       <td colspan="2">
-        <%= submit_tag "Save" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:333px;" %>
+        <%= submit_tag "Save" ,:class=>"btn btn-primary arrow-right" ,:style=>"margin-left:360px;" %>
       </td>
     </tr>
   </table>
@@ -48,3 +48,10 @@
 <div id ="results">
   <%= render :partial => "crms", :locals => {:crms => @crms} %>
 </div>
+
+
+<style>
+  input, textarea, .uneditable-input {
+    width: 221px;
+}
+</style>
