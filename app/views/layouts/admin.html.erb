@@ -24,73 +24,79 @@
     <%= csrf_meta_tags %>
   </head>
   <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <div class="nav-collapse">
-            <ul class="nav pull-left">
-              <li><%= link_to "EZYPROPS", "/", :class=>"brand" %></li>
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="nav-collapse">
+          <ul class="nav pull-left">
+            <li><%= link_to "EZYPROPS", "/", :class=>"brand" %></li>
+            <% unless !signed_in? %>
+              <li><%= link_to "Rent", rent_admin_properties_path, :class => params[:action] == "rent" ? 'active' : '' %></li>
+              <li><%= link_to "Lease", lease_admin_properties_path, :class => params[:action] == "lease" ? 'active' : '' %></li>
+              <li><%= link_to "Sale", sale_admin_properties_path, :class => params[:action] == "sale" ? 'active' : '' %></li>
+              <li><%= link_to "Users", admin_users_path, :class => (params[:controller] == "admin/users" and params[:action] == "index" ? "active" : "") %></li>
+              <li><%= link_to "Builders", builders_admin_users_path, :class => params[:action] == "builders" ? 'active' : '' %></li>
+              <li><%= link_to "Brokers", brokers_admin_users_path, :class => params[:action] == "brokers" ? 'active' : '' %></li>
+              <li><%= link_to "Individuals", individuals_admin_users_path, :class => params[:action] == "individuals" ? 'active' : '' %></li>
+              <li><%= link_to "Newsletter", new_admin_newsletter_path, :class => (params[:controller] == "admin/newsletters" and params[:action] == "new") ? 'active' : '' %></li>
+              <li><%= link_to "CRM", new_admin_crm_path, :class => (params[:controller] == "admin/crms" and params[:action] == "new") ? 'active' : '' %></li>
+            <% end %>
+          </ul>
+          <ul class="nav pull-right">
+            <li> 
               <% unless !signed_in? %>
-                <li><%= link_to "Rent", rent_admin_properties_path, :class => params[:action] == "rent" ? 'active' : '' %></li>
-                <li><%= link_to "Lease", lease_admin_properties_path, :class => params[:action] == "lease" ? 'active' : '' %></li>
-                <li><%= link_to "Sale", sale_admin_properties_path, :class => params[:action] == "sale" ? 'active' : '' %></li>
-                <li><%= link_to "Users", admin_users_path, :class => (params[:controller] == "admin/users" and params[:action] == "index" ? "active" : "") %></li>
-                <li><%= link_to "Builders", builders_admin_users_path, :class => params[:action] == "builders" ? 'active' : '' %></li>
-                <li><%= link_to "Brokers", brokers_admin_users_path, :class => params[:action] == "brokers" ? 'active' : '' %></li>
-                <li><%= link_to "Individuals", individuals_admin_users_path, :class => params[:action] == "individuals" ? 'active' : '' %></li>
-                <li><%= link_to "Newsletter", new_admin_newsletter_path, :class => (params[:controller] == "admin/newsletters" and params[:action] == "new") ? 'active' : '' %></li>
-                <li><%= link_to "CRM", new_admin_crm_path, :class => (params[:controller] == "admin/crms" and params[:action] == "new") ? 'active' : '' %></li>
+                <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
+              <% else %>
               <% end %>
-            </ul>
-            <ul class="nav pull-right">
-              <li> 
-                <% unless !signed_in? %>
-                  <%= link_to "Logout", destroy_admin_session_path, :method => :delete %>
-                <% else %>
-                <% end %>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
     </div>
-    <div class="container">
-      <br/><br/><br/>
-      <div class="row-fluid">
-        <% if notice %>
-          <div class="alert alert-info" style="margin-top: 0px;">
-            <a class="close" data-dismiss="alert">x</a>
-            <strong><%= notice %></strong>
-          </div>
-        <% elsif alert %>
-          <div class="alert alert-error" style="margin-top: 0px;">
-            <a class="close" data-dismiss="alert">x</a>
-            <strong><%= alert %></strong>
-          </div>
-        <% end %>
-       
-      </div><!--/row-->
+  </div>
+  <div class="container">
+    <br/><br/><br/>
+    <div class="row-fluid">
+      <% if notice %>
+        <div class="alert alert-info" style="margin-top: 0px;">
+          <a class="close" data-dismiss="alert">x</a>
+          <strong><%= notice %></strong>
+        </div>
+      <% elsif alert %>
+        <div class="alert alert-error" style="margin-top: 0px;">
+          <a class="close" data-dismiss="alert">x</a>
+          <strong><%= alert %></strong>
+        </div>
+      <% end %>
 
-<div id='ajax_loader_big_div' style='z-index:1000000;'>
-<img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>
-</div>
-      <%= yield %>
+    </div><!--/row-->
+
+    <div id='ajax_loader_big_div' style='z-index:1000000;'>
+      <img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>
     </div>
+    <%= yield %>
+  </div>
 
-    <script type='text/javascript' src='/assets/contact-form-7/includes/js/jquery.form.min526c.js'></script>
-    <script type='text/javascript' src='/assets/contact-form-7/includes/js/scripts039c.js'></script>
-    <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true&amp;libraries=places&amp;ver=3.8.1'></script>
-    <script type='text/javascript' src='/assets/properta/aviators/plugins/properties/assets/js/aviators-map7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/gmap3.infobox.min7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/bootstrap.min7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/retina7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/gmap3.clusterer7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/libraries/chosen/chosen.jquery.min7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/jquery.ezmark7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/libraries/iosslider/_src/jquery.iosslider.min7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/carousel7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/libraries/prettyphoto/js/jquery.prettyPhoto7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/jquery.bxslider7e2e.js'></script>
-    <script type='text/javascript' src='/assets/properta/assets/js/properta7e2e.js'></script>
+  <script type='text/javascript' src='/assets/contact-form-7/includes/js/jquery.form.min526c.js'></script>
+  <script type='text/javascript' src='/assets/contact-form-7/includes/js/scripts039c.js'></script>
+  <script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true&amp;libraries=places&amp;ver=3.8.1'></script>
+  <script type='text/javascript' src='/assets/properta/aviators/plugins/properties/assets/js/aviators-map7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/gmap3.infobox.min7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/bootstrap.min7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/retina7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/gmap3.clusterer7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/libraries/chosen/chosen.jquery.min7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/jquery.ezmark7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/libraries/iosslider/_src/jquery.iosslider.min7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/carousel7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/libraries/prettyphoto/js/jquery.prettyPhoto7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/jquery.bxslider7e2e.js'></script>
+  <script type='text/javascript' src='/assets/properta/assets/js/properta7e2e.js'></script>
 
-  </body>
+</body>
 </html>
+<script>
+  $(document).ready(function() {
+    $(".alert").fadeOut(2000);
+  });
+
+</script>
