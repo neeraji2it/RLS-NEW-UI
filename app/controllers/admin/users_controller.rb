@@ -4,15 +4,15 @@ class Admin::UsersController < ApplicationController
   end
   
   def builders
-    @builders = Property.select("id, name, email, mobile, COUNT(id) as listing_count").where("person_type = 'Builder'").group(:name, :email, :mobile)
+    @builders = Property.select("id, name, email, mobile, COUNT(id) as listing_count").where("person_type = 'Builder'").group(:id,:name, :email, :mobile)
   end
   
   def brokers
-    @brokers = Property.select("id, name, email, mobile, COUNT(id) as listing_count").where("person_type = 'Broker'").group(:name, :email, :mobile)
+    @brokers = Property.select("id, name, email, mobile, COUNT(id) as listing_count").where("person_type = 'Broker'").group(:id,:name, :email, :mobile)
   end
   
   def individuals
-    @individuals = Property.select("id, name, email, person_type, mobile, COUNT(id) as listing_count").where("person_type = 'Individual'").group(:name, :email, :mobile)
+    @individuals = Property.select("id, name, email, person_type, mobile, COUNT(id) as listing_count").where("person_type = 'Individual'").group(:id,:name, :email, :mobile)
   end
   
   def listing_properties
