@@ -6,11 +6,11 @@
           <div class="span3">
             <div class="image">
               <div class="content">
-                <a href="<%= update_view_count_property_path(property.id) %>">
+                <a href='#myModal' href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">
                   <% property.images.limit(1).each do |image| %>
                     <%= image_tag (image.image),:width=>"570", :height=>"425"  %>
                   <% end%> 
-                </a>
+                </a>       
               </div><!-- /.content -->
             </div><!-- /.image -->
           </div>
@@ -18,7 +18,7 @@
           <div class="body span6">
             <div class="title-price row">
               <div class="title span4">
-                <h2><%= link_to property.title, update_view_count_property_path(property.id) %></h2>
+                <h2>   <a href='#myModal' href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal"><%= property.title %> </a></h2>
               </div><!-- /.title -->
 
               <div class="price">
@@ -46,7 +46,7 @@
                 </div><!-- /.bathrooms -->
               <% end %>
               <div class="more-info">
-                <%= link_to "More Info<i class='icon icon-normal-right-arrow-circle'></i>".html_safe, update_view_count_property_path(property.id) %>
+                <a href='#myModal' href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">More Info<i class='icon icon-normal-right-arrow-circle'></i></a>
               </div>
             </div><!-- /.info -->
           </div><!-- /.body -->
@@ -57,8 +57,17 @@
 </div><!-- /.properties-grid -->
 
 <div class="pagination pagination-centered">
-<%= will_paginate(@properties) %>
+  <%= will_paginate(@properties) %>
 </div>
 
 
 
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Contact Us</h3>
+  </div>
+  <div class="modal-body">
+    <%= render :partial=>"properties/send_contact_form" %>
+  </div>
+</div>

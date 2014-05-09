@@ -1,7 +1,7 @@
 <div class="property">
   <div class="image">
     <div class="content">
-      <a href='#myModal' onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">
+      <a href='#myModal'href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">
         <div class="description"><p><%= property.description %></p></div>
         <% property.images.limit(1).each do |image| %>
           <%= image_tag (image.image),:width=>"270", :height=>"200"  %>
@@ -22,7 +22,7 @@
 
   <div class="info">
     <div class="title clearfix">
-      <h2><%= link_to property.title, "#myModal", :onclick=>"javascript:$('#property_id').val('#{property.id}')",  :role=>"button", "data-toggle"=>"modal" %></h2>
+      <h2> <a href='#myModal' href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal"><%= property.title %> </a></h2>
     </div><!-- /.title -->
 
     <div class="location"><%= property.location %></div><!-- /.location -->
