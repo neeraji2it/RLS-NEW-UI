@@ -24,7 +24,7 @@
         <td><%= property.view_count %></td>
         <td><%= property.contacts_count %></td>
         <td>
-          <%= link_to "Edit",edit_admin_property_path(:id => property.id, :property_type => @property_type),:class=>"btn btn-primary" %>
+          <%= link_to "Edit",edit_admin_property_path(:id => property.id, :property_type => @property_type),:class=>"btn btn-success" %>
           <%= link_to "Delete", admin_property_path(property.id,:property_type=>@property_type), :data => {:confirm => "Are you sure!!"}, :method => "DELETE", :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
@@ -97,3 +97,20 @@
     <% end %>
   </div>
 </div>
+
+<style>
+ .btn.btn-primary{
+  background-color: #4C9F28;
+    background-image: none;
+    border: medium none;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(0, 63, 79, 0.2);
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    text-shadow: none;
+    transition: all 0.2s ease 0s;
+}
+</style>

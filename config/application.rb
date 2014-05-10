@@ -24,4 +24,5 @@ module Estate
       "#{html_tag}".html_safe 
     }
   end
+ 
 end

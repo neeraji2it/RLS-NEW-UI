@@ -27,6 +27,10 @@ class Admin::PropertiesController < ApplicationController
   
   def update
     @property = Property.find(params[:id])
+    @property.property_listing = params[:property][:property_listing]
+    if params[:property][:property_type] == "Land"
+      @property.property_listing = params[:property_listing]
+    end
     if @property.update_attributes(property_params)
       flash[:notice] = "Property successfully updated"
       PropertyMailer.update_property(@property).deliver
@@ -47,8 +51,6 @@ class Admin::PropertiesController < ApplicationController
   
   def search
     @properties = Property.list_property(params[:property_type]).property_location(params[:location]).property_price(params[:min_price],params[:max_price]).property_minprice(params[:min_price]).property_maxprice(params[:max_price]).paginate(:page => params[:page], :per_page =>20)
-    puts "================="
-    puts @properties.inspect
     @property_type = params[:property_type]
   end
   

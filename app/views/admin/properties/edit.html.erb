@@ -22,7 +22,7 @@
           </div><!-- /.row -->
         </div><!-- /.progressbar-inner -->
       </div><!-- /.progressbar -->
-      <%= form_for @property, :html => {:class=>"submission-form form-vertical"} do |f| %> 
+      <%= form_for @property, :url=>admin_property_path(:property_type=>params[:property_type]),:html => {:class=>"submission-form form-vertical"} do |f| %> 
         <%= render :partial=>'properties/form',:locals => {:f=>f} %>
       <% end %>
     </div><!-- /#main -->
