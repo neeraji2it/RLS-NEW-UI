@@ -90,4 +90,9 @@ Estate::Application.configure do
     :email_prefix => "[EZYPROPS ERROR] ",
     :sender_address => %{"notifier" <notifier@example.com>},
     :exception_recipients => %w{hanumantha@dine-media.com vivek@dine-media.com}
+  
+
+  # add this line
+  config.logger = Logger.new(STDOUT)
+
 end
