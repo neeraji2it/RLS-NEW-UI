@@ -72,6 +72,27 @@ class Property < ActiveRecord::Base
       find(:all)
     end
   end
+  
+#   def self.search_admin(location,min_price,max_price)
+#    if location or min_price or max_price
+#      find(:all, :conditions => ['location = ? AND price BETWEEN ? AND ? ', "#{location}","#{min_price}","#{max_price}" ])
+#    else
+#      find(:all)
+#    end
+#    
+#    if location
+#      find(:all, :conditions => ['location = ? ', "#{location}"])
+#    end
+#     
+#    if min_price
+#      find(:all, :conditions => ['price <= ? ', "#{min_price}"])
+#    end
+#    if max_price
+#      find(:all, :conditions => ['price >= ? ', "#{max_price}"])
+#    end
+#    if min_price or max_price
+#      find(:all, :conditions => ['price BETWEEN ? AND ? ', "#{min_price}","#{max_price}" ])
+#    end
 
 
   

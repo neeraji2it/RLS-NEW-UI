@@ -38,6 +38,7 @@ Estate::Application.routes.draw do
         get :rent
         get :lease
         get :search
+       # get :admin_search
         post :send_mail
       end
     end

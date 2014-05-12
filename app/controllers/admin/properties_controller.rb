@@ -54,6 +54,11 @@ class Admin::PropertiesController < ApplicationController
     @property_type = params[:property_type]
   end
   
+#   def admin_search
+#    @properties = Property.search_admin(params[:location],params[:min_price],params[:max_price]).paginate(:page => params[:page], :per_page => 10)
+#    @property_type = params[:property_type]
+#  end
+  
   def destroy
     @property = Property.find(params[:id])
     if @property.destroy
