@@ -16,7 +16,7 @@ class Property < ActiveRecord::Base
   scope :number_of_rooms, ->(no_of_rooms) { where("no_of_rooms = '#{no_of_rooms}'") if !no_of_rooms.blank? }
   scope :number_of_baths, ->(bath_rooms) { where("bath_rooms = '#{bath_rooms}'") if !bath_rooms.blank? }
   scope :list_property, ->(property_listing) { where("property_listing = '#{property_listing}'") if !property_listing.blank? }
-  #before_create :assign_property_listing
+ # before_create :assign_property_listing
   
   def gmaps4rails_address
     "#{self.location}"

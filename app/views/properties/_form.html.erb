@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="control-group" id="property_listing">
+    <div class="control-group">
       <label class="control-label" for="address">
         Contract type
         <span class="form-required" title="This field is required.">*</span>
@@ -25,16 +25,16 @@
       </div>
     </div>
 
-    <div class="control-group" id="land_sale">
-      <label class="control-label" for="address">
-        Contract type
-        <span class="form-required" title="This field is required.">*</span>
-      </label>
+    <%#*<div class="control-group" id="land_sale">%>
+      <%#*<label class="control-label" for="address">%>
+        <%#*Contract type%>
+        <%#*<span class="form-required" title="This field is required.">*</span>%>
+      <%#*</label>%>
 
-      <div class="controls">
-        <%= text_field_tag :property_listing,nil,:value=>"Sale" ,:readonly=>true %>
-      </div>
-    </div>
+      <%#*<div class="controls">%>
+        <%#= text_field_tag :property_listing,nil,:value=>"Sale" ,:readonly=>true %>
+      <%#*</div>%>
+    <%#*</div>%>
 
     <div class="control-group">
       <label class="control-label" for="address">
@@ -273,10 +273,7 @@
       $("#amenities").show();
       $("#furnish").show();
       $("#area").show();
-      $("#land_sale").hide();
-      $("#property_listing").show();
     } else if ($(th).val() === 'Land') {
-      $("#land_sale").show();
       $("#land").show();
       $("#rooms").hide();
       $("#bath_rooms").hide();
@@ -284,7 +281,6 @@
       $("#furnish").hide();
       $("#radio_buttons1").hide();
       $("#area").show();
-      $("#property_listing").hide();
     } else if ($(th).val() === 'OfficeCommercial') {
       $("#land").hide();
       $("#rooms").hide();
@@ -293,10 +289,7 @@
       $("#amenities").hide();
       $("#furnish").show();
       $("#area").show();
-      $("#land_sale").hide();
-      $("#property_listing").show();
     } else {
-      $("#land_sale").hide();
       $("#land").hide();
       $("#rooms").hide();
       $("#bath_rooms").hide();
@@ -304,7 +297,6 @@
       $("#furnish").hide();
       $("#area").hide();
       $("#radio_buttons1").show();
-      $("#property_listing").show();
     }
   }
   function change_form1(th) {
