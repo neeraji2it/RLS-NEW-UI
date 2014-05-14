@@ -51,7 +51,7 @@
       <div class="content">
         <div class="properties-grid featured">
           <div class="row">
-            <% @properties.limit(3).each do |property| %>
+            <% @properties_featured.limit(3).each do |property| %>
               <div class="span3">
                 <%= render :partial => "home/properties", :locals => {:property => property} %>
               </div><!-- /.span4 -->
