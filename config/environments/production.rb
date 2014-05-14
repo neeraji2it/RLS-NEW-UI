@@ -90,4 +90,16 @@ Estate::Application.configure do
     :email_prefix => "[EZYPROPS ERROR] ",
     :sender_address => %{"notifier" <notifier@example.com>},
     :exception_recipients => %w{hanumantha@dine-media.com vivek@dine-media.com}
+  
+  config.paperclip_defaults = {
+    :whiny => false,
+    :storage => :s3,
+    :s3_credentials => {
+      :path => "uploaded_files/profile/:id/:style/:basename.:extension",
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :styles => {:medium => "270x200#",:original => "870x420#"},
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end
