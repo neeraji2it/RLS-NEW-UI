@@ -155,7 +155,7 @@
         <%= f.select :location,options_for_select([["Select",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),{},:onchange => "change_location(this)" %>
       </div>
       <div class="controls" id="location_2">
-        <%= f.text_field :location %>
+        <%= text_field_tag :location %>
       </div>
     </div>
   </div>
