@@ -8,24 +8,21 @@ class Property < ActiveRecord::Base
   scope :type_of_properties, ->(property_type) { where("property_type IN (?)", property_type) if !property_type.blank? }
   #scope :list_properties, ->(property_listing) { where("property_listing IN (?)", property_listing) if !property_listing.blank? }
   scope :property_location, ->(location) { where("location = '#{location}'") if !location.blank? }
-  scope :property_price, ->(price_from,price_to) { where("price BETWEEN (?) AND (?)",price_from,price_to) if !price_from.blank? and !price_to.blank? }
-  scope :property_minprice,->(min_price) {where("price >= (?)",min_price) if !min_price.blank?}
-  scope :property_maxprice,->(max_price) {where("price <= (?)",max_price) if !max_price.blank?}
-  
+  scope :property_price, ->(price_from,price_to) { ((!price_from.blank? and !price_to.blank?) ?  where("price BETWEEN (?) AND (?)",price_from,price_to) : (!price_from.blank? ? where("price <= ?",price_from) : where("price >= ?",price_to))) if (!price_from.blank? or !price_to.blank?) }
   scope :type_of_property, ->(property_type) { where("property_type = '#{property_type}'") if !property_type.blank? }
   scope :number_of_rooms, ->(no_of_rooms) { where("no_of_rooms = '#{no_of_rooms}'") if !no_of_rooms.blank? }
   scope :number_of_baths, ->(bath_rooms) { where("bath_rooms = '#{bath_rooms}'") if !bath_rooms.blank? }
   scope :list_property, ->(property_listing) { where("property_listing = '#{property_listing}'") if !property_listing.blank? }
- # before_create :assign_property_listing
+  # before_create :assign_property_listing
   
   def gmaps4rails_address
     "#{self.location}"
   end
   
 
-#  def assign_property_listing
-#    self.property_listing = "Sale" if self.property_type == "Land"
-#  end
+  #  def assign_property_listing
+  #    self.property_listing = "Sale" if self.property_type == "Land"
+  #  end
   
   validates :no_of_rooms,:bath_rooms,:furnished,:area,:presence => {:if => :apartment_required?}
   def apartment_required?
@@ -73,26 +70,26 @@ class Property < ActiveRecord::Base
     end
   end
   
-#   def self.search_admin(location,min_price,max_price)
-#    if location or min_price or max_price
-#      find(:all, :conditions => ['location = ? AND price BETWEEN ? AND ? ', "#{location}","#{min_price}","#{max_price}" ])
-#    else
-#      find(:all)
-#    end
-#    
-#    if location
-#      find(:all, :conditions => ['location = ? ', "#{location}"])
-#    end
-#     
-#    if min_price
-#      find(:all, :conditions => ['price <= ? ', "#{min_price}"])
-#    end
-#    if max_price
-#      find(:all, :conditions => ['price >= ? ', "#{max_price}"])
-#    end
-#    if min_price or max_price
-#      find(:all, :conditions => ['price BETWEEN ? AND ? ', "#{min_price}","#{max_price}" ])
-#    end
+  #   def self.search_admin(location,min_price,max_price)
+  #    if location or min_price or max_price
+  #      find(:all, :conditions => ['location = ? AND price BETWEEN ? AND ? ', "#{location}","#{min_price}","#{max_price}" ])
+  #    else
+  #      find(:all)
+  #    end
+  #    
+  #    if location
+  #      find(:all, :conditions => ['location = ? ', "#{location}"])
+  #    end
+  #     
+  #    if min_price
+  #      find(:all, :conditions => ['price <= ? ', "#{min_price}"])
+  #    end
+  #    if max_price
+  #      find(:all, :conditions => ['price >= ? ', "#{max_price}"])
+  #    end
+  #    if min_price or max_price
+  #      find(:all, :conditions => ['price BETWEEN ? AND ? ', "#{min_price}","#{max_price}" ])
+  #    end
 
 
   
