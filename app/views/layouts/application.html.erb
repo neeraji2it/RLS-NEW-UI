@@ -6,11 +6,11 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <style>.kk-star-ratings { width:120px; }.kk-star-ratings .kksr-stars a { width:24px; }.kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a { height:24px; }.kk-star-ratings .kksr-star.gray { background-image: url(/assets/gray.png); }.kk-star-ratings .kksr-star.yellow { background-image: url(/assets/yellow.png); }.kk-star-ratings .kksr-star.orange { background-image: url(/assets/orange.png); }</style>
-    <%#*<script type="text/javascript">%>
-      <%#*var bhittani_plugin_kksr_js = {"nonce": "d0203be1ed"};%>
-    <%#*</script>%>
+<%#*<script type="text/javascript">%>
+<%#*var bhittani_plugin_kksr_js = {"nonce": "d0203be1ed"};%>
+<%#*</script>%>
     <script type='text/javascript' src='/assets/jquery-migrate.min1576.js'></script>
-    <%#*<script type='text/javascript' src='/assets/kk-star-ratings/js.min7793.js'></script>%>
+<%#*<script type='text/javascript' src='/assets/kk-star-ratings/js.min7793.js'></script>%>
     <script type='text/javascript' src='/assets/properta/aviators/plugins/properties/assets/js/geolocation.js'></script>
     <script type='text/javascript' src='/assets/jquery.ui.core.min.js'></script>
     <script type='text/javascript' src='/assets/jquery.ui.widget.min.js'></script>
@@ -37,32 +37,25 @@
                 <%= link_to image_tag("logo_70.png",:style=>"width:130px;"), "/" %>
               </div><!-- /.logo -->
             </div>
+               <div class="contact-top" style="font-size: 18px;font-style: italic;font-weight: bold;font-family: lucida sans">
+                            <ul class="menu nav">
+                                <li class="first leaf facebook">
+                                  The property search engine</li> <br/>
+                                    <li class="leaf google-plus" style="color:green;"> "Ab Sabka Kaam Banega"
+                                </li>
 
-            <div class="contact-top">
-              <div style="float:left;margin: -64px 362px;">
-                <span class="span_1">The property search engine</span>
-                <span class="span_2" style="font-size: 18px;
-    font-style: italic;
-    font-weight: bold;
-    margin-left: 3%;
-    margin-right: 32%;
-    padding: 19px 5px;
-    float:left;
-     font-family: lucida sans;">
-                "Ab Sabka Kaam Banega"
-              </span>
-              </div>
-              <span style="float:right;margin: -52px 5px;color:black;">
-                support@ezyprops.com
-              </span>
-              
-            </div>
+                            </ul>
+                        </div>
+            <div class="user-area pull-right">
+                            <div class="menu-anonymous-container"><ul id="menu-anonymous" class="nav nav-pills"><li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110">support@ezyprops.com</li>
+                                </ul></div>
+                        </div><!-- /.user-area -->
 
           </div><!-- /.header -->
 
           <div class="navigation navbar clearfix">
             <div class="pull-left">
-              <button type="button" class="btn btn-navbar" 284data-toggle="collapse" data-target=".nav-collapse">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -102,9 +95,9 @@
 
 
     <div id="content" class="clearfix">
-<div id='ajax_loader_big_div' style='z-index:1000000;'>
-<img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>
-</div>
+      <div id='ajax_loader_big_div' style='z-index:1000000;'>
+        <img alt=""  src="/assets/bx_loader.gif" style="width:60px;height: 60px;z-index:1000000;"/>
+      </div>
       <%= yield %>
     </div>
 
@@ -244,3 +237,9 @@
 
   </body>
 </html>
+
+<style>
+.top .top-inner .header{
+  text-align: center;
+}
+</style>

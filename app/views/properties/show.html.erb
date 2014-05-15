@@ -1,254 +1,254 @@
 <%# if @property.status == 'active' %>
-  <div class="container">
-    <div class="row">
-      <div class="sidebar span3">
-        <div id="enquireproperties_widget-2" class="widget enquire">
+<div class="container">
+  <div class="row">
+    <div class="sidebar span3">
+      <div id="enquireproperties_widget-2" class="widget enquire">
 
-          <h2>Enquire Now</h2>
+        <h2>Enquire Now</h2>
 
-          <div class="content">
-            <%= render :partial=>"contact" %>
-          </div><!-- /.content -->
+        <div class="content">
+          <%= render :partial=>"contact" %>
+        </div><!-- /.content -->
 
-        </div>    <h2>Search Properties</h2>
+      </div>    <h2>Search Properties</h2>
 
-        <div class="property-filter widget">
-          <div class="content">
-            <%= render :partial=> "index_search" %>
+      <div class="property-filter widget">
+        <div class="content">
+          <%= render :partial=> "index_search" %>
+        </div>
+        <!-- /.content -->
+      </div><!-- /.property-filter -->
+      <div id="partners_widget-2" class="widget partners">
+
+        <h2>Partners In Development</h2>
+
+        <div class="partners">
+          <div class="row">
+            <div class="span3">
+              <div class="partner">
+                <a href="http://www.dine-media.in/">
+                  <img width="270" height="70" src="/assets/logo.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
+                </a>
+              </div>
+            </div><!-- /.span3 -->
+          </div><!-- /.row -->
+        </div><!-- /.partners -->
+      </div><div id="mostrecentproperties_widget-2" class="widget properties">
+
+        <h2>Most Recent Properties</h2>
+
+        <div class="content">
+          <%= render :partial=>"home/most_recent_properties" ,:locals => {:properties => @properties}%>
+        </div><!-- /.content -->
+
+      </div>    <div id="agencies_widget-2" class="widget agencies">
+
+<%#= render :partial=>"home/agent" %>
+
+      </div>
+
+
+    </div><!-- /#sidebar -->
+
+    <div id="main" class="span9">
+
+      <h1 class="page-header"><%= @property.title %>,</h1>
+      <span><%= @property.location %> </span>
+
+      <div class="property-detail">
+
+        <div class="row">
+          <div class="span6 gallery">
+            <div class="preview">
+              <% if @property.images.present? %>
+                <%= image_tag(@property.images.first.image, :width => 570, :height => 425) %>
+              <% end %>
+            </div>
+
+            <div class="content">
+              <ul>
+                <% if @property.images.present? %>
+                  <% @property.images.each do |image| %>
+                    <li class="active"><div class="thumb"><%= image_tag (image.image) %></div></li>
+                  <% end%>
+                <% end %>
+              </ul>
+            </div><!-- /.content -->
           </div>
-          <!-- /.content -->
-        </div><!-- /.property-filter -->
-        <div id="partners_widget-2" class="widget partners">
 
-          <h2>Partners In Development</h2>
+          <div class="overview span3">
+            <div class="overview">
+              <div class="row">
+                <div class="span3">
+                  <h2>Overview</h2>
 
-          <div class="partners">
-            <div class="row">
-              <div class="span3">
-                <div class="partner">
-                  <a href="http://www.dine-media.in/">
-                    <img width="270" height="70" src="/assets/logo.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
-                  </a>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>ID:</th>
+                        <td>
+                          <strong>#<%= @property.id %></strong
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th>Price:</th>
+                        <td>
+                          <%= @property.price %> INR
+
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th>Type:</th>
+                        <td><%= @property.property_type %></td>
+                      </tr>
+
+
+                      <tr>
+                        <th>Location:</th>
+                        <td><%= @property.location %></td>
+                      </tr>
+
+                      <% if @property.property_type=="Apartment" || @property.property_type=="Villa" || @property.property_type=="Single Home" || @property.property_type=="Family House"%>
+                        <tr>
+                          <th>Bed Rooms:</th>
+                          <td><%=  @property.no_of_rooms %></td>
+                        </tr>
+                        <tr>
+                          <th>Bath Rooms:</th>
+                          <td><%=  @property.bath_rooms %></td>
+                        </tr>
+                      <% end %>
+                      <tr>
+                        <th>Area(sq.ft):</th>
+                        <td><%=  @property.area %></td>
+                      </tr>
+                      <% if @property.property_type=='PG/Hostel' %>
+                        <tr>
+                          <th>
+                            Accommodation:
+                          </th>
+                          <td>
+                            <%= @property.accomidiation %>
+                          </td>
+                        </tr>
+                      <% end %>
+                      <% if @property.property_type=='Land' %>
+                        <tr>
+                          <th>
+                            LandType:
+                          </th>
+                          <td>
+                            <%= @property.type_of_land %>
+                          </td>
+                        </tr>
+                      <% end %>
+
+<%#*<tr>%>
+<%#*<th>%>
+<%#*Rating:%>
+<%#*</th>%>
+<%#*<td>%>
+
+<%#*<div class="kk-star-ratings  top-left lft" data-id="352">%>
+<%#*<div class="kksr-stars kksr-star gray">%>
+<%#*<div class="kksr-fuel kksr-star yellow" style="width:0%;"></div>%>
+<%#*<!-- kksr-fuel --><a href="#1"></a><a href="#2"></a><a href="#3"></a><a href="#4"></a><a href="#5"></a>%>
+<%#*</div>%>
+<%#*<!-- kksr-stars -->%>
+<%#*<div class="kksr-legend"></div>%>
+<%#*<!-- kksr-legend -->%>
+<%#*</div>%>
+<%#*<!-- kk-star-ratings -->%>
+
+<%#*</td>%>
+<%#*</tr>%>
+
+                    </tbody>
+                  </table>
                 </div>
-              </div><!-- /.span3 -->
-            </div><!-- /.row -->
-          </div><!-- /.partners -->
-        </div><div id="mostrecentproperties_widget-2" class="widget properties">
-
-          <h2>Most Recent Properties</h2>
-
-          <div class="content">
-            <%= render :partial=>"home/most_recent_properties" ,:locals => {:properties => @properties}%>
-          </div><!-- /.content -->
-
-        </div>    <div id="agencies_widget-2" class="widget agencies">
-
-          <%#= render :partial=>"home/agent" %>
-
+                <!-- /.span2 -->
+              </div>
+              <!-- /.row -->
+            </div><!-- /.overview -->        </div>
         </div>
 
+        <h2>About Property</h2>
 
-      </div><!-- /#sidebar -->
+        <p><%= @property.description %></p>
 
-      <div id="main" class="span9">
+        <div class="row">
+          <div class="span6">
+            <div class="row">
+              <div class="span6">
+                <% if @property.property_type=='Apartment' || @property.property_type=='Villa' %>
+                  <h2>General amenities</h2>
 
-        <h1 class="page-header"><%= @property.title %>,</h1>
-        <span><%= @property.location %> </span>
-
-        <div class="property-detail">
-
-          <div class="row">
-            <div class="span6 gallery">
-              <div class="preview">
-                <% if @property.images.present? %>
-                  <%= image_tag(@property.images.first.image, :width => 570, :height => 425) %>
-                <% end %>
-              </div>
-
-              <div class="content">
-                <ul>
-                  <% if @property.images.present? %>
-                    <% @property.images.each do |image| %>
-                      <li class="active"><div class="thumb"><%= image_tag (image.image) %></div></li>
-                    <% end%>
-                  <% end %>
-                </ul>
-              </div><!-- /.content -->
-            </div>
-
-            <div class="overview span3">
-              <div class="overview">
-                <div class="row">
-                  <div class="span3">
-                    <h2>Overview</h2>
-
-                    <table>
-                      <tbody>
-                        <tr>
-                          <th>ID:</th>
-                          <td>
-                            <strong>#<%= @property.id %></strong
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <th>Price:</th>
-                          <td>
-                            <%= @property.price %> INR
-
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <th>Type:</th>
-                          <td><%= @property.property_type %></td>
-                        </tr>
-
-
-                        <tr>
-                          <th>Location:</th>
-                          <td><%= @property.location %></td>
-                        </tr>
-
-                        <% if @property.property_type=="Apartment" || @property.property_type=="Villa" || @property.property_type=="Single Home" || @property.property_type=="Family House"%>
-                          <tr>
-                            <th>Bed Rooms:</th>
-                            <td><%=  @property.no_of_rooms %></td>
-                          </tr>
-                          <tr>
-                            <th>Bath Rooms:</th>
-                            <td><%=  @property.bath_rooms %></td>
-                          </tr>
-                        <% end %>
-                        <tr>
-                          <th>Area(sq.ft):</th>
-                          <td><%=  @property.area %></td>
-                        </tr>
-                        <% if @property.property_type=='PG/Hostel' %>
-                          <tr>
-                            <th>
-                              Accommodation:
-                            </th>
-                            <td>
-                              <%= @property.accomidiation %>
-                            </td>
-                          </tr>
-                        <% end %>
-                        <% if @property.property_type=='Land' %>
-                          <tr>
-                            <th>
-                              LandType:
-                            </th>
-                            <td>
-                              <%= @property.type_of_land %>
-                            </td>
-                          </tr>
-                        <% end %>
-
-                        <%#*<tr>%>
-                          <%#*<th>%>
-                            <%#*Rating:%>
-                          <%#*</th>%>
-                          <%#*<td>%>
-
-                            <%#*<div class="kk-star-ratings  top-left lft" data-id="352">%>
-                              <%#*<div class="kksr-stars kksr-star gray">%>
-                                <%#*<div class="kksr-fuel kksr-star yellow" style="width:0%;"></div>%>
-                                <%#*<!-- kksr-fuel --><a href="#1"></a><a href="#2"></a><a href="#3"></a><a href="#4"></a><a href="#5"></a>%>
-                              <%#*</div>%>
-                              <%#*<!-- kksr-stars -->%>
-                              <%#*<div class="kksr-legend"></div>%>
-                              <%#*<!-- kksr-legend -->%>
-                            <%#*</div>%>
-                            <%#*<!-- kk-star-ratings -->%>
-
-                          <%#*</td>%>
-                        <%#*</tr>%>
-
-                      </tbody>
-                    </table>
-                  </div>
-                  <!-- /.span2 -->
-                </div>
-                <!-- /.row -->
-              </div><!-- /.overview -->        </div>
-          </div>
-
-          <h2>About Property</h2>
-
-          <p><%= @property.description %></p>
-
-          <div class="row">
-            <div class="span6">
-              <div class="row">
-                <div class="span6">
-                  <% if @property.property_type=='Apartment' || @property.property_type=='Villa' %>
-                    <h2>General amenities</h2>
-
-                    <div class="row" style="margin-left: 3px;">
+                  <div class="row" style="margin-left: 3px;">
+                    <ul class="span2">
+                      <% @property.aminities[0..4].each do |aminity| %>
+                        <li class="checked" style="width:180px;">  <%= aminity.aminity_type %></li>
+                      <% end%>
+                    </ul>
+                    <% if @property.aminities.count > 4 %>
                       <ul class="span2">
-                        <% @property.aminities[0..4].each do |aminity| %>
-                          <li class="checked" style="width:180px;">  <%= aminity.aminity_type %></li>
+                        <% @property.aminities[5..9].each do |aminity| %>
+                          <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
                         <% end%>
                       </ul>
-                      <% if @property.aminities.count > 4 %>
-                        <ul class="span2">
-                          <% @property.aminities[5..9].each do |aminity| %>
-                            <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
-                          <% end%>
-                        </ul>
-                      <% end %>
-                      <% if @property.aminities.count > 9%>
-                        <ul class="span2">
-                          <% @property.aminities[10..14].each do |aminity| %>
-                            <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
-                          <% end%>
-                        </ul>
-                      <% end %>
-                      <% if @property.aminities.count > 14 %>
-                        <ul class="span2">
-                          <% @property.aminities[15..19].each do |aminity| %>
-                            <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
-                          <% end%>
-                        </ul>
-                      <% end %>
-                      <% if @property.aminities.count > 20%>
-                        <ul class="span2">
-                          <% @property.aminities[20..24].each do |aminity| %>
-                            <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
-                          <% end%>
-                        </ul>
-                      <% end %>
-                      <% if @property.aminities.count > 24 %>
-                        <ul class="span2">
-                          <% @property.aminities[25..29].each do |aminity| %>
-                            <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
-                          <% end%>
-                        </ul>
-                      <% end %>
-                    </div>
-                  <% end %>
-                </div><!-- /.row -->
-              </div>
-
-              <div class="span3">
-                <h2>Map</h2>
-
-                <div id="property-map"></div>
-              </div>
-
+                    <% end %>
+                    <% if @property.aminities.count > 9%>
+                      <ul class="span2">
+                        <% @property.aminities[10..14].each do |aminity| %>
+                          <li class="checked"style="width:180px;">  <%= aminity.aminity_type %></li>
+                        <% end%>
+                      </ul>
+                    <% end %>
+                    <% if @property.aminities.count > 14 %>
+                      <ul class="span2">
+                        <% @property.aminities[15..19].each do |aminity| %>
+                          <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
+                        <% end%>
+                      </ul>
+                    <% end %>
+                    <% if @property.aminities.count > 20%>
+                      <ul class="span2">
+                        <% @property.aminities[20..24].each do |aminity| %>
+                          <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
+                        <% end%>
+                      </ul>
+                    <% end %>
+                    <% if @property.aminities.count > 24 %>
+                      <ul class="span2">
+                        <% @property.aminities[25..29].each do |aminity| %>
+                          <li class="checked"style="width:180px;"> <%= aminity.aminity_type %></li>
+                        <% end%>
+                      </ul>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div><!-- /.row -->
             </div>
+
+            <div class="span3">
+              <h2>Map</h2>
+
+              <div id="property-map"></div>
+            </div>
+
           </div>
+        </div>
 
-        </div><!-- /#main -->
+      </div><!-- /#main -->
 
-      </div><!-- /.row -->
-    </div><!-- /.container -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
 
 
-  <%# else %>
-    <%#*This Property is now Inactive status.%>
-  <%# end %>
+<%# else %>
+<%#*This Property is now Inactive status.%>
+<%# end %>
 
   <script type="text/javascript">
     jQuery(document).ready(function($) {

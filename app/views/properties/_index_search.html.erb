@@ -1,90 +1,90 @@
-  <%= form_for :search,:url => index_search_properties_path, :html => {:class => "form-inline",:method => 'get' } do |f| %>
-            <div class="location control-group">
-              <label class="control-label" for="inputLocation-propertyfilter_widget-2">
-                Location
-              </label>
-              
-              <div class="controls">
-                   <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS, :selected => params[:search] ? params[:search][:location]  : "" ) ,:id=>"inputLocation-propertyfilter_widget-2"%>
-              </div>
-              <!-- /.controls -->
-            </div><!-- /.control-group -->
+<%= form_for :search,:url => index_search_properties_path, :html => {:class => "form-inline",:method => 'get' } do |f| %>
+  <div class="location control-group">
+    <label class="control-label" for="inputLocation-propertyfilter_widget-2">
+      Location
+    </label>
 
-            <div class="type control-group">
-              <label class="control-label" for="inputType-propertyfilter_widget-2">
-                Type
-              </label>
+    <div class="controls">
+      <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS, :selected => params[:search] ? params[:search][:location]  : "" ) ,:id=>"inputLocation-propertyfilter_widget-2"%>
+    </div>
+    <!-- /.controls -->
+  </div><!-- /.control-group -->
 
-              <div class="controls">
-                 <%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
-              </div>
-              <!-- /.controls -->
-            </div>
-            <!-- /.control-group -->
+  <div class="type control-group">
+    <label class="control-label" for="inputType-propertyfilter_widget-2">
+      Type
+    </label>
 
-            <div class="beds control-group">
-              <label class="control-label" for="inputBeds-propertyfilter_widget-2">
-                Beds
-              </label>
+    <div class="controls">
+      <%=f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
+    </div>
+    <!-- /.controls -->
+  </div>
+  <!-- /.control-group -->
 
-              <div class="controls">
-                <%=f.select :no_of_rooms, options_for_select([["Select",""]]+(1..10).map{|i| i}),:id=>"inputContract-propertyfilter_widget-2"%>
-              </div>
-              <!-- /.controls -->
-            </div>
-            <!-- /.control-group -->
+  <div class="beds control-group">
+    <label class="control-label" for="inputBeds-propertyfilter_widget-2">
+      Beds
+    </label>
 
-            <div class="baths control-group">
-              <label class="control-label" for="inputBaths-propertyfilter_widget-2">
-                Baths
-              </label>
+    <div class="controls">
+      <%=f.select :no_of_rooms, options_for_select([["Select",""]]+(1..10).map{|i| i}),:id=>"inputContract-propertyfilter_widget-2"%>
+    </div>
+    <!-- /.controls -->
+  </div>
+  <!-- /.control-group -->
 
-              <div class="controls">
-                  <%=f.select :bath_rooms, options_for_select([["Select",""]]+(1..10).map{|i| i}),:id=>"inputContract-propertyfilter_widget-2"%>
-              </div>
-              <!-- /.controls -->
-            </div>
-            <!-- /.control-group -->
+  <div class="baths control-group">
+    <label class="control-label" for="inputBaths-propertyfilter_widget-2">
+      Baths
+    </label>
 
-            <div class="contract control-group">
-              <label class="control-label" for="inputType-propertyfilter_widget-2">
-                Contract
-              </label>
+    <div class="controls">
+      <%=f.select :bath_rooms, options_for_select([["Select",""]]+(1..10).map{|i| i}),:id=>"inputContract-propertyfilter_widget-2"%>
+    </div>
+    <!-- /.controls -->
+  </div>
+  <!-- /.control-group -->
 
-              <div class="controls">
-                   <%=f.select :property_listing, options_for_select([["Select" ,""],["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputContract-propertyfilter_widget-2"%>
-              </div>
-              <!-- /.controls -->
-            </div>
-            <!-- /.control-group -->
+  <div class="contract control-group">
+    <label class="control-label" for="inputType-propertyfilter_widget-2">
+      Contract
+    </label>
 
-            <div class="price-from control-group">
-              <label class="control-label" for="inputPriceFrom-propertyfilter_widget-2">
-                Price From
-              </label>
+    <div class="controls">
+      <%=f.select :property_listing, options_for_select([["Select" ,""],["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputContract-propertyfilter_widget-2"%>
+    </div>
+    <!-- /.controls -->
+  </div>
+  <!-- /.control-group -->
 
-              <div class="controls">
-                 <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputPriceFrom-propertyfilter_widget-2" %>
-              </div>
-              <!-- /.controls -->
-            </div>
-            <!-- /.control-group -->
+  <div class="price-from control-group">
+    <label class="control-label" for="inputPriceFrom-propertyfilter_widget-2">
+      Price From
+    </label>
 
-            <div class="price-to control-group">
-              <label class="control-label" for="inputPriceTo-propertyfilter_widget-2">
-                Price To
-              </label>
+    <div class="controls">
+      <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputPriceFrom-propertyfilter_widget-2" %>
+    </div>
+    <!-- /.controls -->
+  </div>
+  <!-- /.control-group -->
 
-              <div class="controls">
-                  <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputPriceTo-propertyfilter_widget-2"%>
-              </div>
-              <!-- /.controls -->
-            </div>
-            <!-- /.control-group -->
+  <div class="price-to control-group">
+    <label class="control-label" for="inputPriceTo-propertyfilter_widget-2">
+      Price To
+    </label>
+
+    <div class="controls">
+      <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputPriceTo-propertyfilter_widget-2"%>
+    </div>
+    <!-- /.controls -->
+  </div>
+  <!-- /.control-group -->
 
 
-            <div class="form-actions">
-              <button class="btn btn-primary btn-large">Filter now!</button>
-            </div>
-            <!-- /.form-actions -->
-            <% end %>
+  <div class="form-actions">
+    <button class="btn btn-primary btn-large">Filter now!</button>
+  </div>
+  <!-- /.form-actions -->
+<% end %>

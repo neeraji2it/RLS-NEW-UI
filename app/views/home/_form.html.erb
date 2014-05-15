@@ -10,7 +10,7 @@
       <div id="search-2" class="widget widget_search"><h2>Quick Search</h2><div class="content">
           <%= form_for :search,:url =>quick_search_properties_path, :html => {:class => "form-inline",:method => 'get' } do |f| %>
             <%= text_field_tag :quick_search, params[:quick_search],:class=>"search-query form-text", :placeholder=>"Enter Keyword", :id=>"s" %>
-           <button type="submit" class="btn" style="width:80%;">Search</button>
+            <button type="submit" class="btn" style="width:80%;">Search</button>
           <% end %>
         </div><!-- /.inner --></div><div id="partners_widget-2" class="widget partners">
 
@@ -93,7 +93,7 @@
         <%= link_to "Show all", properties_path %>
       </div>
       <hr>
-        <div id="carouselproperties_widget-2" class="widget property-carousel">
+      <div id="carouselproperties_widget-2" class="widget property-carousel">
 
 
         <h2>Pre-Launch Properties</h2>
@@ -175,31 +175,31 @@
           </div>
         </div>
       </div>
-    
+
 
 
     </div><!-- /.row -->
   </div><!-- /.container -->
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Contact Us</h3>
   </div>
-
-  <!-- Modal -->
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Contact Us</h3>
-    </div>
-    <div class="modal-body">
-      <%= render :partial=>"properties/send_contact_form" %>
-    </div>
+  <div class="modal-body">
+    <%= render :partial=>"properties/send_contact_form" %>
   </div>
+</div>
 
-  <!-- Modal -->
+<!-- Modal -->
 
-  <style>
-    .chzn-results li{
-      color:black;
-    }
-    label{
-      width:170px;
-    }
-  </style>
+<style>
+  .chzn-results li{
+    color:black;
+  }
+  label{
+    width:170px;
+  }
+</style>

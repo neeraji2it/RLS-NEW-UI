@@ -4,7 +4,7 @@
       <h2>Search Properties</h2>
       <div class="property-filter widget">
         <div class="content">
-         <%= render :partial=>"index_search" %>
+          <%= render :partial=>"index_search" %>
         </div>
         <!-- /.content -->
       </div><!-- /.property-filter -->
@@ -16,7 +16,7 @@
           <div class="row">
             <div class="span3">
               <div class="partner">
-                 <a href="http://www.dine-media.in/">
+                <a href="http://www.dine-media.in/">
                   <img width="270" height="70" src="/assets/logo.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
                 </a>
               </div>
@@ -40,7 +40,7 @@
           <div class="agency clearfix">
             <div class="header">
               <div class="image">
-               <a href="http://www.creatiwads.in/">
+                <a href="http://www.creatiwads.in/">
                   <img width="270" height="70" src="/assets/clogo.png" class="attachment-post-thumbnail wp-post-image" alt="themeforest" />
                 </a>
               </div>
@@ -119,69 +119,69 @@
     </div><!-- /#sidebar -->
 
     <div id="main" class="span9">
-<h1 class="page-header">Search Results for: <%= @param %> </h1>
+      <h1 class="page-header">Search Results for: <%= @param %> </h1>
 
-<div class="properties-rows">
-  <div class="row">
-    <% @properties_quick.each do |property|  %>
-      <div class="property span9">
+      <div class="properties-rows">
         <div class="row">
-          <div class="span3">
-            <div class="image">
-              <div class="content">
-                <a href="<%= update_view_count_property_path(property.id) %>">
-                  <% property.images.limit(1).each do |image| %>
-                    <%= image_tag (image.image),:width=>"570", :height=>"425"  %>
-                  <% end%> 
-                </a>
-              </div><!-- /.content -->
-            </div><!-- /.image -->
-          </div>
+          <% @properties_quick.each do |property|  %>
+            <div class="property span9">
+              <div class="row">
+                <div class="span3">
+                  <div class="image">
+                    <div class="content">
+                      <a href="<%= update_view_count_property_path(property.id) %>">
+                        <% property.images.limit(1).each do |image| %>
+                          <%= image_tag (image.image),:width=>"570", :height=>"425"  %>
+                        <% end%> 
+                      </a>
+                    </div><!-- /.content -->
+                  </div><!-- /.image -->
+                </div>
 
-          <div class="body span6">
-            <div class="title-price row">
-              <div class="title span4">
-                <h2><%= link_to property.title, update_view_count_property_path(property.id) %></h2>
-              </div><!-- /.title -->
+                <div class="body span6">
+                  <div class="title-price row">
+                    <div class="title span4">
+                      <h2><%= link_to property.title, update_view_count_property_path(property.id) %></h2>
+                    </div><!-- /.title -->
 
-              <div class="price">
-                <%= property.price %> INR
-              </div><!-- /.price -->
-            </div><!-- /.title -->
+                    <div class="price">
+                      <%= property.price %> INR
+                    </div><!-- /.price -->
+                  </div><!-- /.title -->
 
-            <div class="location"><%= property.location %></div><!-- /.location -->
+                  <div class="location"><%= property.location %></div><!-- /.location -->
 
-            <div class="body"> 
-              <p><%= property.description %></p>
-            </div><!-- /.body -->
+                  <div class="body"> 
+                    <p><%= property.description %></p>
+                  </div><!-- /.body -->
 
-            <div class="property-info clearfix">
+                  <div class="property-info clearfix">
 
-              <% if property.property_type=='Apartment' || property.property_type=='Villa'%>
-                <div class="bedrooms">
-                  <i class="icon icon-normal-bed"></i>
-                  <%= property.no_of_rooms %>
-                </div><!-- /.bedrooms -->
+                    <% if property.property_type=='Apartment' || property.property_type=='Villa'%>
+                      <div class="bedrooms">
+                        <i class="icon icon-normal-bed"></i>
+                        <%= property.no_of_rooms %>
+                      </div><!-- /.bedrooms -->
 
-                <div class="bathrooms">
-                  <i class="icon icon-normal-shower"></i>
-                  <%= property.bath_rooms %>
-                </div><!-- /.bathrooms -->
-              <% end %>
-              <div class="more-info">
-                <%= link_to "More Info<i class='icon icon-normal-right-arrow-circle'></i>".html_safe, update_view_count_property_path(property.id) %>
-              </div>
-            </div><!-- /.info -->
-          </div><!-- /.body -->
+                      <div class="bathrooms">
+                        <i class="icon icon-normal-shower"></i>
+                        <%= property.bath_rooms %>
+                      </div><!-- /.bathrooms -->
+                    <% end %>
+                    <div class="more-info">
+                      <%= link_to "More Info<i class='icon icon-normal-right-arrow-circle'></i>".html_safe, update_view_count_property_path(property.id) %>
+                    </div>
+                  </div><!-- /.info -->
+                </div><!-- /.body -->
+              </div><!-- /.row -->
+            </div><!-- /.property -->
+          <% end %>
         </div><!-- /.row -->
-      </div><!-- /.property -->
-    <% end %>
-  </div><!-- /.row -->
-</div><!-- /.properties-grid -->
+      </div><!-- /.properties-grid -->
 
-<div class="pagination pagination-centered">
-<%= will_paginate(@properties_quick) %>
-</div>
+      <div class="pagination pagination-centered">
+        <%= will_paginate(@properties_quick) %>
+      </div>
 
 
     </div><!-- /#main -->
