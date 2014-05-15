@@ -10,7 +10,7 @@
       <div id="search-2" class="widget widget_search"><h2>Quick Search</h2><div class="content">
           <%= form_for :search,:url =>quick_search_properties_path, :html => {:class => "form-inline",:method => 'get' } do |f| %>
             <%= text_field_tag :quick_search, params[:quick_search],:class=>"search-query form-text", :placeholder=>"Enter Keyword", :id=>"s" %>
-           <button type="submit" class="btn">Search</button>
+           <button type="submit" class="btn" style="width:80%;">Search</button>
           <% end %>
         </div><!-- /.inner --></div><div id="partners_widget-2" class="widget partners">
 

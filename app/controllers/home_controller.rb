@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   
   def index
     @properties = Property.all.order("created_at DESC")
-    @properties_featured = Property.all.where("date(created_at) = ?", 15.days.ago.to_date)
+    @properties_featured = Property.all.where("date(created_at) >= ?", 15.days.ago.to_date)
     @lat_longs = []
     @types = []
     @contents = []
