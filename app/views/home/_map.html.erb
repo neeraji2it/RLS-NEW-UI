@@ -51,28 +51,17 @@
 
 
               <!-- /.property-types -->
-              <div class="general" style="color:white;">
-                <div style="float:left;">
-                  <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),:style => "color:black;" %>
-                </div>
-                <div style="float:left;margin-left: -3px;">
-                  <%=f.select :property_types, options_for_select([["Type" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["Commercial","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
-                </div>
-                <div style="float:left;margin-left: 60px;">
-                  <%=f.select :no_of_rooms, options_for_select([["BedRooms",""]]+(1..10).map{|i| i}),:style=>"width:120px;",:id=>"search_location_chzn"%>
-                </div>
-                <div style="float:left;margin-left: 77px;">
-                  <%=f.select :property_listing, options_for_select([["Select",""],["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputContract-propertyfilter_widget-2"%>
-                </div>
-                <div style="float:left;margin-left: 99px;">
-                  <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputAreaFrom-" %>
-                </div>
-                <div style="float:left;margin-left: 13px;">
-                  <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputAreaTo-"%>
-                </div>
-
+              <div class="general">
+                <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),:id=>"inputLocation-" ,:class=>"location" %>
+                <%= f.select :property_listing, options_for_select([["Select",""],["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputPriceFrom-" ,:class=>"price-from"%>
+                <%= f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
+                <%= f.select :no_of_rooms, options_for_select([["BedRooms",""]]+(1..10).map{|i| i}),:id=>"inputPriceFrom-", :class=>"price-from"%>
+                <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputAreaFrom-" %>
+                <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputAreaTo-"%>
                 <button class="btn btn-primary btn-large">Filter now!</button>
               </div><!-- /.general -->
+
+
             <% end %>
           </div>
           <!-- /.content -->
@@ -123,32 +112,3 @@
   });
 </script>
 
-<style>
-  .chzn-container .chzn-single{
-    background-color: #FFFFFF;
-    background-image: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    height: 35px;
-    line-height: 35px;
-    margin-left: -6px;
-    width: 159px;
-  }
-  
-  .chzn-container .chzn-drop{
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: -moz-use-text-color rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
-    border-image: none;
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    border-style: none solid solid;
-    border-width: medium 1px 1px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    margin-left: -7px;
-    margin-top: 0;
-    width: 173px;
-  }
-</style>
