@@ -21,3 +21,5 @@
 .OfficeCommercial{
     background-image: url("/assets/img/markers/condo.png");  
 }
+
+.property-types #overcolor:hover{background-color:#1A98B2;} 
