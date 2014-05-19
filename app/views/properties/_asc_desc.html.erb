@@ -7,9 +7,13 @@
             <div class="image">
               <div class="content">
                 <a href='#myModal' href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">
-                  <% property.images.limit(1).each do |image| %>
-                    <%= image_tag (image.image),:width=>"570", :height=>"425"  %>
-                  <% end%> 
+                  <% if property.images.present?  %>                
+                    <% property.images.limit(1).each do |image| %>
+                      <%= image_tag (image.image),:width=>"570", :height=>"425"  %>
+                    <% end%> 
+                  <% else %>
+                    <%= image_tag ("images1.jpg"),:width=>"570", :height=>"425" %>
+                  <% end %>
                 </a>       
               </div><!-- /.content -->
             </div><!-- /.image -->

@@ -26,7 +26,7 @@
           <div class="row">
             <div class="span3">
               <div class="partner">
-                 <%= link_to image_tag("logo.png",:style=>"border: 1px solid #CCCCCC; height: 51px; width: 239px; padding: 10px 15px;"), "http://www.dine-media.in/"%>
+                <%= link_to image_tag("logo.png",:style=>"border: 1px solid #CCCCCC; height: 51px; width: 239px; padding: 10px 15px;"), "http://www.dine-media.in/"%>
               </div>
             </div><!-- /.span3 -->
           </div><!-- /.row -->
@@ -60,6 +60,8 @@
             <div class="preview">
               <% if @property.images.present? %>
                 <%= image_tag(@property.images.first.image, :width => 570, :height => 425) %>
+              <% else %>
+                <%= image_tag ("images1.jpg"),:width=>"570", :height=>"425"  %>
               <% end %>
             </div>
 
@@ -69,6 +71,8 @@
                   <% @property.images.each do |image| %>
                     <li class="active"><div class="thumb"><%= image_tag (image.image) %></div></li>
                   <% end%>
+                <% else %>
+                  <li class="active"><div class="thumb"><%= image_tag ("images1.jpg") %></div></li>
                 <% end %>
               </ul>
             </div><!-- /.content -->

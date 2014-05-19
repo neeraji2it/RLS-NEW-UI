@@ -3,9 +3,13 @@
   <div class="property clearfix">
     <div class="image">
       <a href='#myModal'  href="<%= update_view_count_property_path(property.id)%>" onclick="javascript:$('#property_id').val('<%=  property.id %>')" role="button" data-toggle="modal">
-        <% property.images.limit(1).each do |image| %>
-          <%= image_tag (image.image),:width=>"1680", :height=>"1050"  %>
-        <% end%> 
+        <% if property.images.present?  %>
+          <% property.images.limit(1).each do |image| %>
+            <%= image_tag(image.image,:width=>"1680", :height=>"1050")  %>
+          <% end%> 
+        <% else %>
+          <%= image_tag("images1.jpg",:width=>"1680", :height=>"1050")  %>
+        <% end %>
       </a>
     </div><!-- /.image -->
 
