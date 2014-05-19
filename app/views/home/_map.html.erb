@@ -53,7 +53,7 @@
               <div class="general">
                 <%= f.select :location,options_for_select([["Location",""]]+LOCATIONS,:selected => params[:search] ? params[:search][:location] : ""),:id=>"inputLocation-" ,:class=>"location" %>
                 <%= f.select :property_listing, options_for_select([["Select",""],["Buy","Sale"],["Rent","Rent"],["Lease","Lease"]]),{},:id=>"inputPriceFrom-" ,:class=>"price-from"%>
-                <%= f.select :property_type, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
+                <%= f.select :property_types, options_for_select([["Select" ,""],["Apartment","Apartment"],["Villa","Villa"],["Land","Land"],["PG/Hostel","PG/Hostel"],["OfficeCommercial/Godown","OfficeCommercial/Godown"],["Family House","Family House"],["Single Home","Single Home"]]),{},:id=>"inputType-propertyfilter_widget-2" %>
                 <%= f.select :no_of_rooms, options_for_select([["Rooms",""]]+(1..10).map{|i| i}+["MoreRooms",""]),:id=>"inputPriceFrom-", :class=>"price-fromm"%>
                 <%= f.text_field :price_from,:placeholder=>"MinPrice",:id=>"inputAreaFrom-",:style=>"margin-top:0px;margin-left: 1px;" %>
                 <%= f.text_field :price_to,:placeholder=>"MaxPrice",:id=>"inputAreaTo-",:style=>"margin-top:0px;margin-left: 2px;" %>
