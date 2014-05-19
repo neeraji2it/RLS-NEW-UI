@@ -1,12 +1,7 @@
 <%#= render :partial=> "admin/properties/search" %>
 <h4><%= @property_type.capitalize %>  Properties</h4>
 <% if !@properties.empty? %>
-<div style="color: red; padding: 20px; text-align: center; font-size: 30px;">
-    No Properties
-  </div>
-  
-<% else %>
- <table class="table table-striped">
+  <table class="table table-striped">
     <tr>
       <th title="SelectAll"><%= check_box_tag :sid %></th>
       <th>Title</th>
@@ -39,6 +34,10 @@
     </tr>
   </table>
   <a href="#myModal"  role="button" onclick= "send_mail();"class="btn btn-success" data-toggle="modal">SendMail</a>
+<% else %>
+  <div style="color: red; padding: 20px; text-align: center; font-size: 30px;">
+    No Properties
+  </div>
 <% end %>
 <script type="text/javascript">
   $(document).ready(function()
