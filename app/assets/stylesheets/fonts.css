@@ -18,7 +18,7 @@
 }
 @font-face{
 font-family: 'Lucida Sans' ;
-src:url('/assets/stylesheets/fonts/ufonts.com_lucida_sans_regular__2_.ttf');
+src:url('fonts/ufonts.com_lucida_sans_regular__2_.ttf');
 }
 #lucida{
      font-family: "Lucida Sans";
