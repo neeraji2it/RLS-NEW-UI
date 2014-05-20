@@ -49,15 +49,36 @@ class Admin::PropertiesController < ApplicationController
     redirect_to "/admin/properties/#{params[:property_type]}"
   end
   
+  #  def search
+  #    @properties = Property.list_property(params[:property_type]).property_location(params[:location]).property_price(params[:min_price],params[:max_price]).paginate(:page => params[:page], :per_page =>20)
+  #    @property_type = params[:property_type]
+  #  end
+
   def search
-    @properties = Property.list_property(params[:property_type]).property_location(params[:location]).property_price(params[:min_price],params[:max_price]).paginate(:page => params[:page], :per_page =>20)
+    if !params[:location].blank? and !params[:min_price].blank? and !params[:max_price].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and location = '#{params[:location]}' and price BETWEEN #{params[:min_price]} and #{params[:max_price]}").paginate(:page => params[:page],:per_page => 10)
+    elsif !params[:location].blank? and !params[:min_price].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and location = '#{params[:location]}' and price <= #{params[:min_price]}").paginate(:page => params[:page],:per_page => 10)
+    elsif !params[:location].blank? and !params[:max_price].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and location = '#{params[:location]}' and price >= #{params[:max_price]}").paginate(:page => params[:page],:per_page => 10)
+    elsif !params[:min_price].blank? and !params[:max_price].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and price BETWEEN #{params[:min_price]} and #{params[:max_price]}").paginate(:page => params[:page],:per_page => 10)
+    elsif !params[:location].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and location = '#{params[:location]}'").paginate(:page => params[:page],:per_page => 10)
+    elsif !params[:min_price].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and price <= #{params[:min_price]}").paginate(:page => params[:page],:per_page => 10)
+    elsif !params[:max_price].blank?
+      @properties = Property.where("property_listing = '#{params[:property_type]}' and price >= #{params[:max_price]}").paginate(:page => params[:page],:per_page => 10)
+    else
+      @properties = []
+    end
     @property_type = params[:property_type]
   end
   
-#   def admin_search
-#    @properties = Property.search_admin(params[:location],params[:min_price],params[:max_price]).paginate(:page => params[:page], :per_page => 10)
-#    @property_type = params[:property_type]
-#  end
+  #   def admin_search
+  #    @properties = Property.search_admin(params[:location],params[:min_price],params[:max_price]).paginate(:page => params[:page], :per_page => 10)
+  #    @property_type = params[:property_type]
+  #  end
   
   def destroy
     @property = Property.find(params[:id])
